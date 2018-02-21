@@ -20,7 +20,7 @@ export class MainpageComponent implements OnInit {
     this.todaydate=this.fmservice.showTodayDate();
     this.loginapiservice.getInsumast()
       .subscribe(lstInsuMastinfo=>this.lstInsuMastinfo=lstInsuMastinfo);
-      this.fullname=sessionStorage.getItem("FullName");
+      this.fmservice.currentMessage.subscribe(message=>this.fullname=message);
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { Router} from '@angular/router';
 
@@ -29,6 +29,8 @@ export class LoginComponent implements OnInit {
   fullname;
   
   public loginresponse:LoginResponse;
+
+  @Input() message: string;
   
   constructor(private router:Router,
     private fmservices:FmserviceService,
@@ -87,13 +89,14 @@ export class LoginComponent implements OnInit {
         console.log(masterdata.FBAId);
         console.log(masterdata.FullName);
         console.log(masterdata.UserName);
+        this.fmservices.changeMessage(masterdata.FullName);
      }
  
      
      //sessionStorage.setItem("FullName",this.authoutput.Fullname);
 
       //alert(sessionStorage.getItem("FullName"));
-      //this.router.navigate(['app-mainpage']);
+      this.router.navigate(['app-mainpage']);
     }
     else{
       alert('Invalid Login');

@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class FmserviceService {
   messages:string[]=[];
+  FullName:string;
   constructor() { }
   showTodayDate() {
     let ndate = new Date();
@@ -14,6 +16,15 @@ export class FmserviceService {
 
  clear(){
    this.messages=[];
+ }
+
+ private messageSource=new BehaviorSubject<string>(this.FullName);
+ currentMessage=this.messageSource.asObservable();
+
+ changeMessage(message:string)
+ {
+   this.FullName=message;
+   this.messageSource.next(message);
  }
 
 }
