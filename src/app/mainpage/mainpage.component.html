@@ -1,0 +1,10 @@
+<p>
+  mainpage works! {{fullname}}  {{todaydate}}
+</p>
+<ul>
+  <li *ngFor="let insu of lstInsuMastinfo">
+    <span>{{ insu.InsuType }}</span><br>
+      <span >{{insu.Category}}</span><br>
+      <span>{{insu.CatDesc}}</span>
+  </li>
+</ul>
