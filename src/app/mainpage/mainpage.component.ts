@@ -18,15 +18,9 @@ export class MainpageComponent implements OnInit {
 
   ngOnInit() {
     this.todaydate=this.fmservice.showTodayDate();
-<<<<<<< HEAD
-    this.loginapiservice.getInsumast()
-      .subscribe(lstInsuMastinfo=>this.lstInsuMastinfo=lstInsuMastinfo);
-      this.fmservice.currentMessage.subscribe(message=>this.fullname=message);
-=======
     // this.loginapiservice.getInsumast()
     //   .subscribe(lstInsuMastinfo=>this.lstInsuMastinfo=lstInsuMastinfo);
       this.fullname=sessionStorage.getItem("FullName");
->>>>>>> rajendra
   }
 
 }
