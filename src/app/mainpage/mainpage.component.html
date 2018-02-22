@@ -1,10 +1,229 @@
-<p>
-  mainpage works! {{fullname}}  {{todaydate}}
-</p>
-<ul>
-  <li *ngFor="let insu of lstInsuMastinfo">
-    <span>{{ insu.InsuType }}</span><br>
-      <span >{{insu.Category}}</span><br>
-      <span>{{insu.CatDesc}}</span>
-  </li>
-</ul>
+<div class="menu-wrap" id="style-1"> 
+  <nav class="top-nav">
+    <ul class="icon-list">
+      <li class="menu-title">MAGIC FINMART</li>
+      <li><a class="active" href="#"><img src="assets/images/home.png" class="img-responsive"/> HOME </a></li>
+      <li><a href="#"><img src="assets/images/edit-profile.png" class="img-responsive"/> OFFLINE QUOTES </a></li>
+      <li><a href="#"><img src="assets/images/my-business.png" class="img-responsive"/> MY BUSINESS </a></li>
+      <li><a href="#"><img src="assets/images/refer-fba.png" class="img-responsive"/> REFER A FRIEND </a></li>
+      <li><a href="#"><img src="assets/images/my-account.png" class="img-responsive"/> MY ACCOUNT</a></li>
+      <li><a href="#"><img src="assets/images/down-arrow.png" class="img-responsive"/> DOWNSYNC </a></li>
+      <li><a href="#"><img src="assets/images/subscription.png" class="img-responsive"/> MPS </a></li>
+      <li><a href="#"><img src="assets/images/enrollment.png" class="img-responsive"/> POSP ENROLLMENT </a></li>
+      <li><a href="#"><img src="assets/images/whats-new-icon.png" class="img-responsive"/> WHAT'S NEW </a></li>
+      <li><a href="#"><img src="assets/images/help.png" class="img-responsive"/> HELP & FEEDBACK </a></li>
+      <li><a href="#"><img src="assets/images/logout.png" class="img-responsive"/> LOGOUT </a></li>
+    </ul>
+  </nav>
+  <input class="close-button" id="close-button" value="c"/>
+</div>
+
+<section class="content bg-color-main">
+  <header class="col-md-12 pad-blank main-header">
+    <div class="col-md-6 header-left">
+      <h4><img src="assets/images/logo-small.png" alt=""/> MAGIC FIN-MART</h4>
+    </div>
+    
+    <div class="col-xs-12 col-md-5 pad header-right">
+      <div class="main-page-header-list text-center">
+        <div class="col-xs-3 pad list-border-head ripple-effect">
+          <img src="assets/images/sales-material-icon.png" class="img-responsive">
+          <p>SALES MATERIAL</p>
+        </div>
+        <div class="col-xs-3 pad list-border-head ripple-effect">
+          <img src="assets/images/pending-cases-icon.png" class="img-responsive">
+          <p>PENDING CASES</p>
+        </div>
+        <div class="col-xs-3 pad list-border-head ripple-effect">
+          <img src="assets/images/knowledge-guru-icon.png" class="img-responsive">
+          <p>KNOWLEDGE GURU</p> 
+        </div>
+        <div class="col-xs-3 pad ripple-effect">
+          <div class="notification-icon"><p>1</p></div>
+          <img src="assets/images/notification-icon.png" class="img-responsive">
+          <p>NOTIFICATIONS</p>
+        </div>
+      </div>
+    </div> 
+    
+    <div class="col-md-1 text-right">
+      <button class="menu-button" id="open-button">O</button>
+    </div>
+  </header>
+  
+  <section class="container-fluid pad">	
+    <div class="header-list">
+      <div class="container pad">
+        <div class="col-xs-12 pad">
+          <p>INSURANCE</p>
+        </div>
+      </div>
+    </div>
+      
+    <div class="container pad-1">
+      <div class="col-xs-6 col-md-3 pad-2 insu-text text-center">
+        <div class="sales-name-list pad text-left ripple-effect">
+          <div class="col-xs-12 col-sm-12 col-md-12 pad two-line-pad text-center">
+            <img src="assets/images/car-img.png" class="img-responsive">
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 pad-1">
+            <h5 class="slist-bg-new">PRIVATE CAR INSURANCE</h5>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-xs-6 col-md-3 pad-2 insu-text">
+        <div class="sales-name-list pad text-left ripple-effect">
+          <div class="col-xs-12 col-sm-12 col-md-12 pad two-line-pad text-center">
+            <img src="assets/images/two-wheeler.png" class="img-responsive">
+          </div> 
+          <div class="col-xs-12 col-sm-12 col-md-12 pad-1">
+            <h5 class="slist-bg-new">TWO WHEELER INSURANCE</h5>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-xs-6 col-md-3 pad-2 insu-text">
+        <div class="sales-name-list pad text-left ripple-effect">
+          <div class="col-xs-12 col-sm-12 col-md-12 pad two-line-pad text-center">
+            <img src="assets/images/health-insurance-img.png" class="img-responsive">
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 pad-1">
+            <h5 class="slist-bg-new">HEALTH INSURANCE</h5>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-xs-6 col-md-3 pad-2 insu-text">
+        <div class="sales-name-list pad text-left ripple-effect">
+          <div class="col-xs-12 col-sm-12 col-md-12 pad two-line-pad text-center">
+            <img src="assets/images/life-insurance-icon.png" class="img-responsive">
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 pad-1">
+            <h5 class="slist-bg-new">LIFE INSURANCE</h5>
+          </div>
+        </div>
+      </div>
+    </div>	
+      
+    <div class="header-list header-pd">
+      <div class="container pad">
+        <div class="col-xs-12 pad">
+          <p>LOANS</p>
+        </div>
+      </div>
+    </div>
+      
+    <div class="container pad-1">
+      <div class="col-xs-6 col-md-3 pad-2 insu-text">
+        <div class="sales-name-list pad text-left ripple-effect">
+          <div class="col-xs-12 col-sm-12 col-md-12 pad two-line-pad text-center">
+            <img src="assets/images/home-loan-img.png" class="img-responsive">
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 pad-1">
+            <h5 class="slist-bg-new">HOME LOAN</h5>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-xs-6 col-md-3 pad-2 insu-text">
+        <div class="sales-name-list pad text-left ripple-effect">
+          <div class="col-xs-12 col-sm-12 col-md-12 pad two-line-pad text-center">
+            <img src="assets/images/personal-loan-img.png" class="img-responsive">
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 pad-1">
+            <h5 class="slist-bg-new">PERSONAL LOAN</h5>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-xs-6 col-md-3 pad-2 insu-text">
+        <div class="sales-name-list pad text-left ripple-effect">
+          <div class="col-xs-12 col-sm-12 col-md-12 pad two-line-pad text-center">
+            <img src="assets/images/loan-against-img.png" class="img-responsive">
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 pad-1">
+            <h5 class="slist-bg-new">LOAN AGAINST PROPERTY</h5>
+          </div>
+        </div>
+      </div>	
+                
+      <div class="col-xs-6 col-md-3 pad-2 insu-text">
+        <div class="sales-name-list pad text-left ripple-effect">
+          <div class="col-xs-12 col-sm-12 col-md-12 pad two-line-pad text-center">
+            <img src="assets/images/credit-card-img.png" class="img-responsive">
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 pad-1">
+            <h5 class="slist-bg-new">CREDIT CARD</h5>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-xs-6 col-md-3 pad-2 insu-text">
+        <div class="sales-name-list pad text-left ripple-effect">
+          <div class="col-xs-12 col-sm-12 col-md-12 pad two-line-pad text-center">
+            <img src="assets/images/balance-transfer.png" class="img-responsive">
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 pad-1">
+            <h5 class="slist-bg-new">BALANCE TRANSFER</h5>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-xs-6 col-md-3 pad-2 insu-text">
+        <a href="http://www.rupeeboss.com/other-loans?brokerId=">
+        <div class="sales-name-list pad text-left ripple-effect">
+          <div class="col-xs-12 col-sm-12 col-md-12 pad two-line-pad text-center">
+            <img src="assets/images/other-loan-img.png" class="img-responsive">
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 pad-1">
+            <h5 class="slist-bg-new">OTHER LOAN</h5>
+          </div>
+        </div>
+        </a>
+      </div>
+    </div>
+      
+    <div class="header-list header-pd">
+       <div class="container pad">	
+        <div class="col-xs-12 pad">
+          <p>MORE SERVICES</p>
+        </div>
+       </div>	
+    </div>
+      
+    <div class="container pad-1">	
+      <div class="col-xs-6 col-md-3 pad-2 insu-text">
+        <div class="sales-name-list pad text-left ripple-effect">
+          <div class="col-xs-12 col-sm-12 col-md-12 pad two-line-pad text-center">
+            <img src="assets/images/finpeace.png" class="img-responsive">
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 pad-1">
+            <h5 class="slist-bg-new">FIN-PEACE</h5>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-xs-12 col-md-3 pad-2 insu-text">
+        <div class="sales-name-list pad text-left ripple-effect">
+          <div class="col-xs-12 col-sm-12 col-md-12 pad two-line-pad text-center">
+            <img src="assets/images/pathalogy-tests.png" class="img-responsive">
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 pad-1">
+            <h5 class="slist-bg-new">HEALTH CHECK UP PLANS</h5>
+          </div>
+        </div>
+      </div>
+    </div>	
+    <div class="clearfix mainpage-type-info"></div>
+    </section>
+    
+  <footer>
+    <div class="row text-center">
+      <div class="col-xs-12 footer">
+        <p>copyright &copy 2018. <a href="http://www.magicfinmart.com/" target="_blank">www.magicfinmart.com</a></p>
+      </div>
+    </div>	
+  </footer>	
+</section>
+

@@ -21,7 +21,12 @@
       "styles": [
         "styles.css"
       ],
-      "scripts": [],
+      "scripts": [
+         "assets/js/jquery.min.js",
+         "assets/js/bootstrap.min.js",
+         "assets/js/classie.js",
+         "assets/js/main.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

@@ -7,7 +7,7 @@ import { InsuMastInfo} from './InsuMastInfo';
 @Component({
   selector: 'app-mainpage',
   templateUrl: './mainpage.component.html',
-  styleUrls: ['./mainpage.component.css']
+  styleUrls: ['./mainpage.component.css','../login/bootstrap.min.css','../login/font-awesome.min.css','../login/fonts.css','../login/style-finmart.css','../login/responsive-finmart.css']
 })
 export class MainpageComponent implements OnInit {
   todaydate;
@@ -18,8 +18,8 @@ export class MainpageComponent implements OnInit {
 
   ngOnInit() {
     this.todaydate=this.fmservice.showTodayDate();
-    this.loginapiservice.getInsumast()
-      .subscribe(lstInsuMastinfo=>this.lstInsuMastinfo=lstInsuMastinfo);
+    // this.loginapiservice.getInsumast()
+    //   .subscribe(lstInsuMastinfo=>this.lstInsuMastinfo=lstInsuMastinfo);
       this.fullname=sessionStorage.getItem("FullName");
   }
 
