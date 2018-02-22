@@ -40,6 +40,12 @@
 		margin:0 auto;
 		width: 60%;
 	}
+	.insu-text {
+		width: 50%;
+	}
+	.content {
+		height:auto;		
+	}
 }
 
 @media only screen and (max-width:768px) {
@@ -62,6 +68,12 @@
 	.login-center {
 		margin:0 auto;
 		width: 100%;
+	}
+	.insu-text {
+		width: 50%;
+	}
+	.content {
+		height:auto;		
 	}
 }
 
@@ -279,7 +291,7 @@
     }
 
     .date-img-activity {
-        background: url(/images/datepicker.png) transparent right no-repeat;
+       /* background: url(../images/datepicker.png) transparent right no-repeat;*/
         padding: 18px 0 0 0;
         background-position: 100% 65%;
         margin: -2px 0 0 0;

@@ -15,7 +15,7 @@ import { CookieXSRFStrategy } from '@angular/http';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css','./style-finmart.css','./responsive-finmart.css','./fonts.css','./bootstrap.min.css','./font-awesome.min.css']
+  styleUrls: ['./bootstrap.min.css','./font-awesome.min.css', './fonts.css','./login.component.css','./style-finmart.css','./responsive-finmart.css']
 })
 export class LoginComponent implements OnInit {
   formdata;
