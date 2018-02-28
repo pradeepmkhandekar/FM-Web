@@ -5,6 +5,7 @@ import { BehaviorSubject} from 'rxjs/BehaviorSubject';
 export class FmserviceService {
   messages:string[]=[];
   FullName:string;
+
   constructor() { }
   showTodayDate() {
     let ndate = new Date();
@@ -26,5 +27,16 @@ export class FmserviceService {
    this.FullName=message;
    this.messageSource.next(message);
  }
+
+ private loggedIn = new BehaviorSubject<boolean>(true); // {1}
+
+  get isLoggedIn() {
+    return this.loggedIn.asObservable(); // {2}
+  }
+
+  setIsLoggedIn(islogged){
+    
+    this.loggedIn.next(islogged);
+  }
 
 }

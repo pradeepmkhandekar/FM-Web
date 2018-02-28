@@ -46,6 +46,7 @@ export class LoginComponent implements OnInit {
       passwd: new FormControl("",this.passwordvalidation)
     });
     this.todaydate=this.fmservices.showTodayDate();
+    this.fmservices.setIsLoggedIn(false);
     //this.loadScript();
   }
 
@@ -96,7 +97,8 @@ export class LoginComponent implements OnInit {
      //sessionStorage.setItem("FullName",this.authoutput.Fullname);
 
       //alert(sessionStorage.getItem("FullName"));
-      this.router.navigate(['app-mainpage']);
+      //this.router.navigate(['app-mainpage']);
+      location.href='app-mainpage';
     }
     else{
       alert('Invalid Login');
