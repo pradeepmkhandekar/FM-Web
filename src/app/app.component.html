@@ -1,5 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<!-- <app-header></app-header>
+<!-- 
 <div style="text-align:center">
   <h1>
     Welcome to {{ title }}!
@@ -14,5 +14,8 @@
 </ul>
 
 <h2>Here are some links to help you start: </h2>
-<app-footer></app-footer> -->
+-->
+<input type="hidden" id="hdnHideShow" value="{{shheadFooter}}">
+<app-header *ngIf="shheadFooter"></app-header>
 <router-outlet></router-outlet>
+<app-footer *ngIf="shheadFooter"></app-footer>

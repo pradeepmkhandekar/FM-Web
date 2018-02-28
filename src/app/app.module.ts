@@ -16,6 +16,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { MainpageComponent } from './mainpage/mainpage.component';
+import { PrivatecarComponent } from './privatecar/privatecar.component';
 
 const appRoutes:Routes=[
   {
@@ -25,6 +26,10 @@ const appRoutes:Routes=[
   {
     path:'app-mainpage',
     component:MainpageComponent
+  },
+  {
+    path:'app-privatecar',
+    component:PrivatecarComponent
   }
 ];
 
@@ -34,7 +39,8 @@ const appRoutes:Routes=[
     HeaderComponent,
     FooterComponent,
     LoginComponent,
-    MainpageComponent
+    MainpageComponent,
+    PrivatecarComponent
   ],
   imports: [
     BrowserModule,
