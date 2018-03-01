@@ -18,7 +18,11 @@
 		width: 50%;
 	}
 }
-
+@media only screen and (max-width:1200px) {
+	.border-quote {
+		border-left: 0px solid #dbd9da;
+	}	
+}
 @media only screen and (max-width:992px) { 
 	.main-page-header-list {
 		background-color: #009ee3;
@@ -44,7 +48,32 @@
 		width: 50%;
 	}
 	.content {
-		height:auto;		
+		height:auto;
+		/*position:initial;*/
+	}
+	.btn-details {
+		width: 45%;
+	}
+	.btn-motor-quote {
+		width: 45%;
+	}
+	.additional-info {
+		display:block;
+	}
+	.info-add {
+		display:none;
+	}
+	.loan-premium-motor h6 {
+		width:100%;
+    }
+	.buy-now-motor .btn {
+        width: 100%;
+    }
+	.loan-amt {
+		padding: 13px 0px 18px 10px;
+	}
+	.border-quote {
+		border-left:0px solid #dbd9da;
 	}
 }
 
@@ -65,6 +94,10 @@
 		padding-left:0;
 		padding-right:0;
 	}
+	.pad-blank-drop {	
+		padding-left: 5px;
+		padding-right: 5px;
+	}
 	.login-center {
 		margin:0 auto;
 		width: 100%;
@@ -73,9 +106,89 @@
 		width: 50%;
 	}
 	.content {
-		height:auto;		
+		height:auto;
+		/*position:initial;*/	
+	}
+	.btn-details {
+		width: 45%;
+	}
+	.btn-motor-quote {
+		width: 45%;
+	}
+	.pad-desk {
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+	.pad-quote {
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+	.scaling-slider {
+		border: 1px solid #d2d2d2;
+	}
+	.exist-bonus {
+		position: relative;
+	}
+	.selectbox-highlight {
+		left: 5px;
+	}
+	.occupation-sec-style {
+		margin: -6px 0 1px 2px;
+		font-size:12px;
+	}
+	.occupation-sec-style-modal-motor {
+		font-size:11px;
+		margin: -6px 0 0px 2px;
+	}
+	.regi-no {
+		font-size:11px;
+		margin: -6px 0 1px 2px;
+	}
+	.motor-occupation > a {
+        margin-top: 12px;
+    }
+	.policyboss-motor > a {
+		margin-top: 12px;
+		width: 45%;
+	}
+	.legal-liability > a { 
+		margin-top: 12px;
+	}
+	.legal-liability-modal > a {
+		margin-top: 12px;
+	}
+	.anti-theft > a {
+		margin-top: 12px;
+	}
+	.anti-theft-modal > a {
+		margin-top: 12px;
+	}
+	.buy-sec {
+		padding-left:10px;
+		padding-right:10px;
 	}
 }
+
+@media only screen and (max-width:640px) {
+	.btn-details {
+		width: 48%;
+	}
+	.btn-motor-quote {
+		width: 48%;
+	}
+	.vehicle-enter-text {
+		width: 8.5%;
+	}
+	.vehicle-enter-text1 {
+		width: 13%;
+	}
+	.text-eg {
+		padding-left: 28%;
+	}
+	footer {
+		position: relative;
+	}
+}	
 
 @media only screen and (max-width:480px) {
     .img-floater-new {
@@ -290,13 +403,6 @@
         padding-bottom: 2px;
     }
 
-    .date-img-activity {
-       /* background: url(../images/datepicker.png) transparent right no-repeat;*/
-        padding: 18px 0 0 0;
-        background-position: 100% 65%;
-        margin: -2px 0 0 0;
-    }
-
     .date-img-activity-modal {
         background: none;
         padding: 18px 0 0 0;
@@ -341,6 +447,10 @@
 	ul.footer li {
 		font-size: 0.8em;
 		width: 49%;
+		text-align: left;
+	}
+	ul.footer li a {
+		font-size: 12px;
 	}
 	.quote-with-addon-img {
         padding-top: 15px;
@@ -362,12 +472,10 @@
         border-left: 1px solid #ccc;
         font-family: "Roboto-Regular", arial, sans-serif;
     }
-	
-	.pad-blank {	
-		padding-left:0;
-		padding-right:0;
-	}
 	.btn-details {
+		width: 100%;
+	}
+	.btn-motor-quote {
 		width: 100%;
 	}
 	.input-span p {
@@ -383,6 +491,25 @@
 	}
 	.vehicle-registration {
 		width: 100%;
+	}
+	ul.footer li {
+		background: none;
+	}
+	.border-table-td p {
+        font-size: 11px;
+		padding: 7px 2px 7px 2px;
+    }
+	.border-table-td h5 {
+        padding: 7px 2px 7px 2px;
+    }
+	.loan-amt {
+		padding: 13px 0px 18px 0px;
+	}
+	.top-type-info-new {
+		padding-bottom: 0px;
+	}
+	.top-type-info {
+		padding-bottom: 0px;
 	}
 		/* end motor insurance */
 
@@ -446,19 +573,31 @@
 		background-size: cover;
 		background-color: #000;
 	}
-	.exist-bonus {
-		position: relative;
-	}
-	.scaling-slider {
-		border: 1px solid #d2d2d2;
-	}
 	.input-arrow-img {
 		position:absolute;right: -13px;top:32%;z-index: 1;
 	}
+	.vehicle-regist-motor {
+		width: 100%;
+	}
 }
 
-@media only screen and (max-width:360px) {
-    .top {
+@media only screen and (max-width:340px) {
+    .vehicle-enter-text {
+		width: 16%;
+	}
+	.vehicle-enter-text1 {
+		width: 20%;
+	}
+	.text-eg {
+		padding-left: 46%;
+	}
+	.motor-reg-no h5 {
+		font-size: 13px;
+	}
+	.switch-outer > span {
+		padding: 20px;
+	}
+	.top {
         padding-bottom: 8px;
     }
 

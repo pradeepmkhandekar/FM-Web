@@ -85,51 +85,52 @@ $(window, document, undefined).ready(function() {
   });
   
   $(document).ready(function(){
-    alert('loaded');
     $("#eye").click (function(){
     //alert($(this).attr("src"));
       if($(this).attr("src")=="images/login-eye.png")
       {
         $("input.password").attr("type","text");
-        $(this).attr("src","images/login-eye-hover.png");
+        $(this).attr("src","/assetsimages/login-eye-hover.png");
       }
       else
       {
         $("input.password").attr("type","password");
-        $(this).attr("src","images/login-eye.png");
+        $(this).attr("src","/assetsimages/login-eye.png");
       }	
     });
     
     $("input.username").keyup(function(){
       if ($(this).val()!="")
       
-      $(this).css({"background":"url('images/login-profile-hover.png') no-repeat","background-position":"right center"});
+      $(this).css({"background":"url('/assets/images/login-profile-hover.png') no-repeat","background-position":"right center"});
       else {
-        $(this).css({"background":"url('images/login-profile.png') no-repeat","background-position":"right center"});
+        $(this).css({"background":"url('/assets/images/login-profile.png') no-repeat","background-position":"right center"});
       }
     });
     
     $("input.username").blur(function(){
       if ($(this).val()!="")
-      $(this).css({"background":"url('images/login-profile-hover.png') no-repeat","background-position":"right center"});
+      $(this).css({"background":"url('/assets/images/login-profile-hover.png') no-repeat","background-position":"right center"});
       else {
-        $(this).css({"background":"url('images/login-profile.png') no-repeat","background-position":"right center"});
+        $(this).css({"background":"url('/assets/images/login-profile.png') no-repeat","background-position":"right center"});
       }
     });
     
     $("input.password").keyup(function(){
       if ($(this).val()!="")
-      $(this).css({"background":"url('images/login-lock-icon-hover.png') no-repeat","background-position":"right center"});
+      $(this).css({"background":"url('/assets/images/login-lock-icon-hover.png') no-repeat","background-position":"right center"});
       else {
-        $(this).css({"background":"url('images/login-lock-icon.png') no-repeat","background-position":"right center"});
+        $(this).css({"background":"url('/assets/images/login-lock-icon.png') no-repeat","background-position":"right center"});
       }
     });
     
     $("input.password").blur(function(){
       if ($(this).val()!="")
-      $(this).css({"background":"url('images/login-lock-icon-hover.png') no-repeat","background-position":"right center"});
+      $(this).css({"background":"url('/assets/images/login-lock-icon-hover.png') no-repeat","background-position":"right center"});
       else {
-      $(this).css({"background":"url('images/login-lock-icon.png') no-repeat","background-position":"right center"});
+      $(this).css({"background":"url('/assets/images/login-lock-icon.png') no-repeat","background-position":"right center"});
       }
     });
   });
+
+ 

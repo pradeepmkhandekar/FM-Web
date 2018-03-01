@@ -1,25 +1,33 @@
 /* health insurance */
 html {
-	-webkit-font-smoothing: antialiased;height: 100%;
-	-webkit-font-smoothing: subpixel-antialiased;
+	-webkit-font-smoothing: antialiased;
+	height: 100%;
 }
 * {  
-    -webkit-font-smoothing: antialiased;
-	-webkit-font-smoothing: subpixel-antialiased;
+	margin: 0px;
+    padding: 0px;
+    border: 0px;
+    outline: none;
+    font-family: "Roboto-Regular", Arial, sans-serif;
 }
-
 body {
 	overflow-x:hidden;
-    margin: 0px !important;
+    margin: 0px;
     padding: 0px;
     height: 100%;
-	font-family: "Roboto-Regular", arial, sans-serif;
-    /*font-family:arial, sans-serif;*/
+	font-weight:normal;
+	font-family: "Roboto-Regular", Arial, sans-serif;
+	/*font-family:Arial,sans-serif;*/
 	-webkit-font-smoothing: subpixel-antialiased;
 	-webkit-font-smoothing: antialiased;
     position: relative;
     text-decoration: none;
     outline: none;
+	-webkit-text-rendering:optimizeLegibility;
+    -moz-text-rendering:optimizeLegibility;
+    -ms-text-rendering:optimizeLegibility;
+    -o-text-rendering:optimizeLegibility;
+    text-rendering:optimizeLegibility;
 }
 .main-header {
     position: relative;
@@ -1244,22 +1252,22 @@ a.get-vmpro {
 
 /*------ nav  ----------*/
 .input-bg{
-	/*background:#00476e url(../images/input-img.png) center no-repeat !important;*/
+	background:#00476e url(/assets/images/input-img.png) center no-repeat !important;
 }
 .input-bg.active{
-	/*background:#00476e url(../images/input-img-hover.png) center no-repeat !important;*/
+	background:#00476e url(/assets/images/input-img-hover.png) center no-repeat !important;
 }
 .quote-bg{
-	/*background:#00476e url(../images/quote-img.png) center no-repeat !important;*/
+	background:#00476e url(/assets/images/quote-img.png) center no-repeat !important;
 }
 .quote-bg.active{
-	/*background:#00476e url(../images/quote-img-hover.png) center no-repeat !important;*/
+	background:#00476e url(/assets/images/quote-img-hover.png) center no-repeat !important;
 }
 .buy-bg{
-	/*background:#00476e url(../images/buy-img.png) center no-repeat !important;*/
+	background:#00476e url(/assets/images/buy-img.png) center no-repeat !important;
 }
 .buy-bg.active{
-	/*background:#00476e url(../images/buy-img-hover.png) center no-repeat !important;*/
+	background:#00476e url(/assets/images/buy-img-hover.png) center no-repeat !important;
 }
 #myTab {
     list-style: none;
@@ -1293,7 +1301,7 @@ a.get-vmpro {
             margin-right: 0;
             font-size: 15px;
             right: -6px;
-			font-family: "Roboto-Regular", arial, sans-serif;
+			
         }
 
         /*#myTab li:nth-child(even) a {
@@ -1752,14 +1760,14 @@ footer {
 }
 
 .date-img-activity-modal {
-    /*background: url(../images/datepicker.png) transparent right no-repeat;*/
+    background: url(/assets/images/datepicker.png) transparent right no-repeat;
     padding: 18px 0 0 4px;
     background-position: 99% 65%;
     margin: -2px 0 0 0;
 }
 
 .date-img-activity {
-   /* background: url(../images/datepicker.png) transparent right no-repeat;*/
+    background: url(/assets/images/datepicker.png) transparent right no-repeat;
     padding: 18px 0 0 4px;
     background-position: 99% 65%;
     margin: -2px 0 0 0;
@@ -1932,7 +1940,7 @@ footer {
     position: absolute;
     top: 5px;
     bottom: auto !important;
-    left: 5px;
+    left: auto;
     color: #009ee3;
     font-weight: 500;
     z-index: 1;
@@ -2875,6 +2883,30 @@ div.item {
 }
 /* End quote & application */
 /* motor insurance */
+.occupation-sec-style {
+	position: absolute;
+	z-index: 1;
+	margin: -2px 0 1px 2px;
+	color: #636363;
+	left:0;
+	right:0;
+	text-align:center;
+	font-size: 13px;
+	left:0;
+	right:0;
+}
+.regi-no {
+	position: absolute;
+	z-index: 1;
+	margin: -2px 0 1px 2px;
+	color: #636363;
+	left:0;
+	right:0;
+	text-align:center;
+	font-size: 13px;
+	left:0;
+	right:0;
+}
 .btn-go {
     background-color: #009ee3;
     border-color: #009ee3;
@@ -2907,7 +2939,7 @@ div.item {
         width: 100%;
         text-align: center;
         font-size: 13px;
-        font-family: "Roboto-Regular", arial, sans-serif;
+        
         padding: 10px 0 0 0;
         color: #000;
         margin: 0;
@@ -2917,7 +2949,7 @@ div.item {
             width: 100%;
             text-align: center;
             font-size: 13px;
-            font-family: "Roboto-Regular", arial, sans-serif;
+            
             color: #0281ca;
             font-weight: 600;
         }
@@ -2945,28 +2977,17 @@ div.item {
     height: auto;
     position: absolute;
     text-align: center;
-    font-family: "Roboto-Regular", arial, sans-serif;
+    
     padding: 6px 0 6px 0;
 }
 
     .exist-bonus p {
         text-align: center;
-        color: #000;
+        color: #636363;
         margin: 0;
         font-size: 13px;
         text-transform: uppercase;
     }
-
-.occupation-sec-style {
-    position: absolute;
-    z-index: 1;
-    margin: -6px 0 1px 2px;
-    font-size: 12px;
-    color: #000;
-    left: 0;
-    right: 0;
-    text-align: center;
-}
 
 .motor-occupation {
     height: auto;
@@ -2983,7 +3004,7 @@ div.item {
     .motor-occupation > a {
         outline: none !important;
         border: 1px solid #aeaeae;
-        margin-top: 12px;
+        margin-top: 20px;
         text-transform: uppercase;
         background-color: #fff;
         color: #aeaeae;
@@ -2993,13 +3014,13 @@ div.item {
         margin-right: 5px;
     }
 
-        .motor-occupation > a.active {
-            background: #fff;
-            color: #009ee3;
-            border: 2px solid #009ee3;
-            text-shadow: none;
-            box-shadow: none;
-        }
+    .motor-occupation > a.active {
+        background: #fff;
+        color: #009ee3;
+        border: 2px solid #009ee3;
+        text-shadow: none;
+        box-shadow: none;
+     }
 
 .top-type-info {
     padding-bottom: 30px;
@@ -3012,7 +3033,7 @@ div.item {
 .input-close-1 {
     position: absolute;
     right: -5px;
-    top: -3px;
+    top: -1px;
     height: 100%;
     padding: 0;
     font-size: 14px;
@@ -3026,7 +3047,7 @@ div.item {
 }
 
 .summary-details {
-    font-family: "Roboto-Regular", arial, sans-serif;
+    
     color: #575757;
     border: 1px solid #b3b3b3;
     border-top: none;
@@ -3037,17 +3058,17 @@ div.item {
 }
 
     .summary-details h5 {
-        font-family: "Roboto-Regular", arial, sans-serif;
+        
         color: #575757;
         font-size: 14px;
         margin: 0;
         padding: 5px 0 3px 5px;
         text-transform: uppercase;
-        font-weight: 800;
+        font-weight: normal;
     }
 
     .summary-details p {
-        font-family: "Roboto-Regular", arial, sans-serif;
+        
         color: #8c8c8c;
         font-size: 12px;
         margin: 0;
@@ -3071,6 +3092,7 @@ div.item {
 .quote-with-addon-img {
     padding-top: 5px;
     padding-right: 0;
+	text-align:center;
 }
 
 .quote-with-addon-idv {
@@ -3101,9 +3123,9 @@ div.item {
 .loan-amt {
     width: 100%;
     text-align: left;
-    padding: 13px 0px 18px 0px;
+    padding: 13px 0px 18px 20px;
     border-left: 1px solid #ccc;
-    font-family: "Roboto-Regular", arial, sans-serif;
+   
 }
 
     .loan-amt h6 {
@@ -3146,18 +3168,19 @@ div.item {
 }
 
     .loan-premium-motor h6 {
-        font-family: "Roboto-Regular", arial, sans-serif;
+        
         color: #808080;
-        margin: 0;
+        margin: 0 auto;
         padding: 5px 0px 5px 0;
         text-transform: capitalize;
         background-color: #ff5c61;
         text-align: center;
         height: 28px;
+		width:70%;
     }
 
         .loan-premium-motor h6 a {
-            font-family: "Roboto-Regular", arial, sans-serif;
+           
             color: #fff;
             font-size: 14px;
             margin: 0;
@@ -3166,7 +3189,7 @@ div.item {
         }
 
             .loan-premium-motor h6 a:hover {
-                font-family: "Roboto-Regular", arial, sans-serif;
+               
                 color: #fff;
                 font-size: 14px;
                 margin: 0;
@@ -3176,7 +3199,7 @@ div.item {
             }
 
     .loan-premium-motor p {
-        font-family: "Roboto-Regular", arial, sans-serif;
+        
         color: #ff5c61 !important;
         font-size: 13px;
         margin: 0;
@@ -3192,7 +3215,7 @@ div.item {
 }
 
     .buy-now-motor .btn {
-        font-family: "Roboto-Regular", arial, sans-serif;
+        
         color: #fff;
         margin: 0;
         padding: 2px 0px 2px 0px;
@@ -3200,14 +3223,14 @@ div.item {
         background-color: #f38d1e;
         text-align: center;
         border-radius: 0;
-        width: 100%;
+        width: 70%;
         font-size: 13px;
         border: 1px solid #f38d1e;
         height: 28px;
     }
 
     .buy-now-motor p {
-        font-family: "Roboto-Regular", arial, sans-serif;
+        
         color: #ff5c61;
         font-size: 13px;
         margin: 0;
@@ -3418,11 +3441,11 @@ input[type="checkbox"] {
         color: #00476e;
         z-index: 1;
         padding-left: 5px;
-		font-family: "Roboto-Regular", arial, sans-serif;
+		
     }
 
 .form-control-motor {
-    font-family: "Roboto-Regular", arial, sans-serif;
+    
     display: block;
     width: 100%;
     height: 21px;
@@ -3460,13 +3483,13 @@ input[type="checkbox"] {
     .motor-reg-no h5 {
         color: #626262;
         text-decoration: none;
-        font-family: "Roboto-regular", arial, sans-serif;
+        
     }
 
     .motor-reg-no a {
         color: #009fe3;
         text-decoration: none;
-        font-family: "Roboto-bold", arial, sans-serif;
+        
     }
 
         .motor-reg-no a:hover {
@@ -3478,24 +3501,34 @@ input[type="checkbox"] {
     height: 40px;
     color: #fff;
     border: 1px solid #d2d2d2;
-    background: #00476e;
+    background: #7e7e7e;
     margin-top: 10px;
+	display:none;
 }
-
-    .additional-info p {
-        color: #fff;
-        font-size: 14px;
-        margin: 10px;
-        text-align: center;
-    }
-
+.additional-info p {
+    color: #fff;
+    font-size: 14px;
+    margin: 10px;
+    text-align: center;
+}
+.info-add {
+	display:block;
+}
+.info-add p{
+	display: block;
+    background: #7e7e7e;
+    padding: 6px 0 3px 0;
+    margin: 0;
+    color: #fff;
+    font-size: 14px;
+}
 .right-pad {
     padding: 10px 10px 0 0;
 }
 
 .total-info {
     border: 1px solid #d2d2d2;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     margin-top: 12px;
     float: left;
     width: 100%;
@@ -3508,7 +3541,7 @@ input[type="checkbox"] {
         padding: 6px 0 6px 0;
         text-transform: uppercase;
         text-align: center;
-        font-family: "Roboto-regular", arial, sans-serif;
+        
     }
 
     .total-info h5 {
@@ -3518,7 +3551,7 @@ input[type="checkbox"] {
         padding: 6px 0 6px 0;
         text-transform: uppercase;
         text-align: center;
-        font-family: "Roboto-bold", arial, sans-serif;
+        
     }
 
     .total-info p {
@@ -3529,7 +3562,7 @@ input[type="checkbox"] {
         text-transform: uppercase;
         text-align: center;
         border-bottom: 1px solid #ccc;
-        font-family: "Roboto-bold", arial, sans-serif;
+        
     }
 
 .total-info-border {
@@ -3550,17 +3583,17 @@ input[type="checkbox"] {
 
     .border-table-td p {
         color: #767676;
-        font-size: 11px;
+        font-size: 13px;
         margin: 0;
-        padding: 7px 2px 7px 2px;
+		padding: 7px 5px 7px 5px;
     }
 
     .border-table-td h5 {
         color: #2d2d2d;
-        font-size: 12px;
+        font-size: 13px;
         margin: 0;
-        padding: 7px 2px 7px 2px;
-        font-family: "Roboto-bold", arial, sans-serif;
+        padding: 7px 5px 7px 5px;
+        
     }
 
 .border-div-td {
@@ -3570,10 +3603,13 @@ input[type="checkbox"] {
 .occupation-sec-style-modal-motor {
     position: absolute;
     z-index: 1;
-    margin: -7px 0 0px 2px;
+    margin: -2px 0 0px 2px;
     font-size: 11px;
-    color: #000000;
-    font-weight: bold;
+    color: #636363;
+    font-weight: normal;
+	text-align:center;
+	left:0;
+	right:0;
 }
 
 .own-damage-bg {
@@ -3583,7 +3619,7 @@ input[type="checkbox"] {
 
 .buy-info {
     height: auto;
-    font-family: "Roboto-regular", arial, sans-serif;
+    
     color: #000;
     font-size: 13px;
     margin-bottom: 15px;
@@ -3673,7 +3709,7 @@ input[type="checkbox"] {
 }
 
     .quote-with-addon-apply-new h6 {
-        font-family: "Roboto-bold", arial, sans-serif;
+      
         color: #3c3c3c;
         margin: 0;
         text-transform: capitalize;
@@ -3682,7 +3718,7 @@ input[type="checkbox"] {
     }
 
     .quote-with-addon-apply-new p {
-        font-family: "Roboto-Regular", arial, sans-serif;
+       
         color: #ff5c61 !important;
         font-size: 13px;
         margin: 0;
@@ -3696,7 +3732,7 @@ input[type="checkbox"] {
     text-align: left;
     padding: 10px 0px 8px 0px;
     border-left: 1px solid #ccc;
-    font-family: "Roboto-Regular", arial, sans-serif;
+    
 }
 
     .vehicle-quote-with-addon-name p {
@@ -3726,7 +3762,7 @@ input[type="checkbox"] {
 }
 
     .quote-loan-amt-motor p {
-        font-family: "Roboto-Regular", arial, sans-serif;
+       
         color: #979797;
         font-size: 11px;
         margin: 0px;
@@ -3736,7 +3772,7 @@ input[type="checkbox"] {
     }
 
     .quote-loan-amt-motor h6 {
-        font-family: "Roboto-Regular", arial, sans-serif;
+       
         color: #282828;
         font-size: 14px;
         margin: 0;
@@ -3753,7 +3789,7 @@ input[type="checkbox"] {
 }
 
     .appl-no-motor p {
-        font-family: "Roboto-Regular", arial, sans-serif;
+        
         color: #979797;
         font-size: 11px;
         margin-top: -5px;
@@ -3764,7 +3800,7 @@ input[type="checkbox"] {
     }
 
     .appl-no-motor h6 {
-        font-family: "Roboto-Regular", arial, sans-serif;
+        
         color: #000;
         font-size: 14px;
         margin: 0;
@@ -3788,7 +3824,7 @@ input[type="checkbox"] {
         margin: 0;
         padding: 5px 0 5px 5px;
         text-transform: uppercase;
-        font-family: "Roboto-regular", arial, sans-serif;
+        
     }
 
     .quote-name-motor p {
@@ -3796,7 +3832,7 @@ input[type="checkbox"] {
         font-size: 13px;
         margin: 0;
         padding: 5px 0 5px 5px;
-        font-family: "Roboto-regular", arial, sans-serif;
+        
         font-weight: normal;
         text-transform: uppercase;
     }
@@ -3814,30 +3850,28 @@ input[type="checkbox"] {
     margin-bottom: 15px;
 }
 ul.footer {
-    margin: 0;
-    padding: 5px;
+    margin: 0 auto;
+	padding:10px;
     width: 100%;
     float: left;
     border: none;
-    text-align: center;
 }
 ul.footer li {
     list-style: none;
-    padding: 0 0.5em 0 0.5em;
+    padding: 0 1em 0 0.1em;
     font-size: 1em;
     color: #fff;
 	display:inline-block;
 	text-transform:uppercase;
-	font-weight:normal;
-	border-right:1px solid #ccc;
+	background: url(/assets/images/footer-line.png) no-repeat right;
 }
 ul.footer li a {
     list-style: none;
-    color: #282828;
-    font-size: 14px;
-    font-family: "Roboto-regular", arial, sans-serif;
+    color: #fff;
+    font-size: 13px;
     display: block;
     text-decoration: none;
+	font-weight:normal;
 }
 .footer li i {
     color: #009fe3;
@@ -3847,8 +3881,20 @@ ul.footer li a {
     display: inline-block;
     vertical-align: middle;
 }
-
+ul.footer li:last-child { 
+	background: none;
+}
 .pad-blank {	
+}
+.pad-blank-drop {	
+}
+.pad-desk {
+	padding-left: 10px;
+    padding-right: 10px;
+}
+.pad-quote {
+	padding-left: 15px;
+    padding-right: 15px;
 }
 .btn-details {
     background-color: #009ee3;
@@ -3861,7 +3907,7 @@ ul.footer li a {
     text-transform: uppercase;
     width: 35%;
     outline: none;
-	font-family: "Roboto-Regular", arial, sans-serif;
+	
 	padding:15px 0px;
 	margin-top:15px;
 }
@@ -3872,6 +3918,130 @@ ul.footer li a {
     border-color: #00476e;
     outline: none;
     border: 1px solid #009ee3 !important;
+}
+.btn-motor-quote {
+    background-color: #009ee3;
+    border: 1px solid #009ee3 !important;
+    color: #fff;
+    border-radius: 0px;
+    font-size: 15px;
+    border: none;
+    outline: none;
+    text-transform: uppercase;
+    width: 31%;
+    outline: none;
+	
+	padding:15px 0px;
+	margin-top:15px;
+}
+
+.btn-motor-quote.active, .btn-motor-quote.focus, .btn-motor-quote:active, .btn-motor-quote:focus, .btn-motor-quote:hover, .open > .dropdown-toggle.btn-motor-quote {
+    color: #fff;
+    background-color: #00476e;
+    border-color: #00476e;
+    outline: none;
+    border: 1px solid #009ee3 !important;
+}
+.border-quote {
+	border-left:3px solid #dbd9da;
+}
+.registration-no {
+	margin:10px 0 5px 5px; font-size:13px; float:left; width:100%;color:#636363;text-transform:uppercase;
+}
+.legal-liability > a {
+    outline: none !important;
+    border: 1px solid #aeaeae;
+    margin-top: 20px;
+    text-transform: uppercase;
+    background-color: #fff;
+    color: #aeaeae;
+    border-radius: 0;
+    width: 45%;
+    padding: 3px 6px 1px 6px;
+    margin-right: 5px;
+}
+.legal-liability > a.active {
+    background: #fff;
+    color: #009ee3;
+    border: 2px solid #009ee3;
+    text-shadow: none;
+    box-shadow: none;
+}
+.legal-liability-modal > a {
+    outline: none !important;
+    border: 1px solid #aeaeae;
+    margin-top: 20px;
+    text-transform: uppercase;
+    background-color: #fff;
+    color: #aeaeae;
+    border-radius: 0;
+    width: 45%;
+    padding: 3px 6px 1px 6px;
+    margin-right: 5px;
+}
+.legal-liability-modal > a.active {
+    background: #fff;
+    color: #009ee3;
+    border: 2px solid #009ee3;
+    text-shadow: none;
+    box-shadow: none;
+}
+.anti-theft > a {
+	outline: none !important;
+    border: 1px solid #aeaeae;
+    margin-top: 20px;
+    text-transform: uppercase;
+    background-color: #fff;
+    color: #aeaeae;
+    border-radius: 0;
+    width: 45%;
+    padding: 3px 6px 1px 6px;
+    margin-right: 5px;
+}
+.anti-theft > a.active {
+	background: #fff;
+    color: #009ee3;
+    border: 2px solid #009ee3;
+    text-shadow: none;
+    box-shadow: none;
+}
+.anti-theft-modal > a {
+	outline: none !important;
+    border: 1px solid #aeaeae;
+    margin-top: 20px;
+    text-transform: uppercase;
+    background-color: #fff;
+    color: #aeaeae;
+    border-radius: 0;
+    width: 45%;
+    padding: 3px 6px 1px 6px;
+    margin-right: 5px;
+}
+.anti-theft-modal > a.active {
+	background: #fff;
+    color: #009ee3;
+    border: 2px solid #009ee3;
+    text-shadow: none;
+    box-shadow: none;
+}
+.finance-policy > a{
+	outline: none !important;
+    border: 1px solid #aeaeae;
+    margin-top: 20px;
+    text-transform: uppercase;
+    background-color: #fff;
+    color: #aeaeae;
+    border-radius: 0;
+    width: 45%;
+    padding: 3px 6px 1px 6px;
+    margin-right: 5px;
+}
+.finance-policy > a.active {
+	background: #fff;
+    color: #009ee3;
+    border: 2px solid #009ee3;
+    text-shadow: none;
+    box-shadow: none;
 }
 /* End motor insurance */
 /* login */
@@ -3987,7 +4157,7 @@ ul.footer li a {
     font-size: 14px;
     top: auto;
     text-transform: capitalize;
-    color: #636363;
+    color: #fff;
 }
 
 .form-input-new-login {
@@ -4050,13 +4220,13 @@ ul.footer li a {
 }
 
 input.username {
-    /*background: url('../images/login-profile.png') no-repeat;*/
+    background: url('/assets/images/login-profile.png') no-repeat;
     background-size: auto;
     background-position: right center;
 }
 
 input.password {
-    /*background: url('../images/login-lock-icon.png') no-repeat;*/
+    background: url('/assets/images/login-lock-icon.png') no-repeat;
     background-size: auto;
     background-position: right center;
 }
@@ -4146,7 +4316,7 @@ input.password {
 }
 
 .date-img-loan {
-    /*background: url(../images/datepicker.png) transparent right no-repeat;*/
+    background: url(/assets/images/datepicker.png) transparent right no-repeat;
     padding: 11px 0 2px 0px;
     background-position: 100% 40%;
 }
@@ -6805,3 +6975,16 @@ ul.whats-new {
 			transform: translate3d(0,0,0);
 		}
 /* menu */
+.buy-sec {
+	padding-right: 25px;
+    padding-left: 25px;
+}
+.loader {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url(/assets/images/load.gif) 50% 50% no-repeat rgb(249,249,249);
+}
