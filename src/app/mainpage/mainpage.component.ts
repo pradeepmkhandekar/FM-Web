@@ -24,8 +24,6 @@ export class MainpageComponent implements OnInit {
     // this.loginapiservice.getInsumast()
     //   .subscribe(lstInsuMastinfo=>this.lstInsuMastinfo=lstInsuMastinfo);
       this.fullname=sessionStorage.getItem("FullName");
-<<<<<<< HEAD
-=======
       this.fmservice.setIsLoggedIn(true);
   }
 
@@ -35,7 +33,6 @@ export class MainpageComponent implements OnInit {
       //this.router.navigate(['app-privatecar']);
       location.href='app-privatecar';
     }
->>>>>>> yogesh
   }
 
 }
