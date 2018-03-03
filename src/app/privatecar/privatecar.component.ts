@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router} from '@angular/router';
 
+import { PrivatecarService} from './privatecarservice.service';
+
 @Component({
   selector: 'app-privatecar',
   templateUrl: './privatecar.component.html',
@@ -14,7 +16,7 @@ import { Router} from '@angular/router';
 })
 export class PrivatecarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private privatecarService:PrivatecarService) { }
 
   ngOnInit() {
   }
