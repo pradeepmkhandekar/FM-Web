@@ -9,6 +9,7 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   
   <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/ion-rangeSlider.js"></script>
     
     <script>
         $(window, document, undefined).ready(function() {
@@ -152,6 +153,41 @@
           // else{
           //   $('body').removeClass("body-bg");
           // }
+        });
+
+        var fromval = $("#txttenure").val();
+        if ($("#txttenure").val() == 0) {
+            fromval = 1;
+            $("#txttenure").val('1');
+        }
+        else {
+            fromval = $("#txttenure").val();
+
+        }
+        var $range1 = $("#range1"),
+       $update1 = $("#txttenure");
+
+        $range1.ionRangeSlider({
+            type: "single",
+            min: 10,
+            from: fromval,
+            max: 50,
+            step: 5,
+            grid: true,
+            grid_snap: true
+        });
+        $range1.on("change", function () {
+            //debugger
+            var $this = $(this),
+                value = $this.prop("value").split(";");
+            $("#txttenure").addClass('used');
+            document.getElementById("txttenure").value = value[0];
+        });
+        var slider1 = $range1.data("ionRangeSlider");
+        $update1.on("change", function () {
+            slider1.update({
+                from: $("#txttenure").val().slice(0, -5)
+            });
         });
       </script> 
 </head>

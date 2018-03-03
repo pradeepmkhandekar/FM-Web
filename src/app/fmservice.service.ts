@@ -6,6 +6,8 @@ export class FmserviceService {
   messages:string[]=[];
   FullName:string;
 
+  apirul:string;
+
   constructor() { }
   showTodayDate() {
     let ndate = new Date();
@@ -17,6 +19,10 @@ export class FmserviceService {
 
  clear(){
    this.messages=[];
+ }
+
+ getApiUrl(){
+  return this.apirul = 'http://api.magicfinmart.com/api/login'; 
  }
 
  private messageSource=new BehaviorSubject<string>(this.FullName);
