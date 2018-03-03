@@ -16,7 +16,7 @@ import { PrivatecarService} from './privatecarservice.service';
 })
 export class PrivatecarComponent implements OnInit {
 
-  constructor(private privatecarService:PrivatecarService) { }
+  constructor() { }
 
   ngOnInit() {
   }
