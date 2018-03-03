@@ -23,9 +23,13 @@
       ],
       "scripts": [
          "assets/js/jquery.min.js",
+         "assets/js/ion-rangeslider.js",
+         "assets/js/jquery-ui.js",
          "assets/js/bootstrap.min.js",
          "assets/js/classie.js",
-         "assets/js/main.js"
+         "assets/js/main.js",
+         "assets/js/jquery.mCustomScrollbar.concat.min.js",
+         "app/privatecar/privatecarfuncjs.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
