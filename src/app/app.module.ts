@@ -19,6 +19,7 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { PrivatecarComponent } from './privatecar/privatecar.component';
+import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
 
 const appRoutes:Routes=[
   {
@@ -50,7 +51,8 @@ const appRoutes:Routes=[
     RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule,
     HttpModule,    
-    HttpClientModule
+    HttpClientModule,
+    BsDatepickerModule.forRoot()
   ],
   providers: [FmserviceService,LoginserviceService,PrivatecarService],
   bootstrap: [AppComponent]

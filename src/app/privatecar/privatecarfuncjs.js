@@ -300,29 +300,29 @@ var windowWidth = $(window).width();
     });
 })(jQuery);
 
-$( function() {
-    $( '#datepicker,#datepicker1,#datepicker2,#datepicker3,#datepicker4' ).datepicker({
-        changeMonth:true,
-        changeYear:true,
-        dateFormat: 'dd-mm-yy',
-        yearRange: 'c-82:c',
+// $( function() {
+//     $( '#datepicker,#datepicker1,#datepicker2,#datepicker3,#datepicker4' ).datepicker({
+//         changeMonth:true,
+//         changeYear:true,
+//         dateFormat: 'dd-mm-yy',
+//         yearRange: 'c-82:c',
     
-        onSelect:function(date){
+//         onSelect:function(date){
             
-            if($("#datepicker").val()!= ""){
-                $("#datepicker").next().next().css("background", "rgb(0, 158, 227)");
-            }
-            else {
-                $("#datepicker").next().next().css("background", "#ccc");
-            }
+//             if($("#datepicker").val()!= ""){
+//                 $("#datepicker").next().next().css("background", "rgb(0, 158, 227)");
+//             }
+//             else {
+//                 $("#datepicker").next().next().css("background", "#ccc");
+//             }
             
-            if($("#datepicker1").val()!= ""){
-                $("#datepicker1").next().next().next().css("background", "rgb(0, 158, 227)");
-            }
-            else {
-                $("#datepicker1").next().next().next().css("background", "#ccc");
-            }
-        } 
-    });
-  });
+//             if($("#datepicker1").val()!= ""){
+//                 $("#datepicker1").next().next().next().css("background", "rgb(0, 158, 227)");
+//             }
+//             else {
+//                 $("#datepicker1").next().next().next().css("background", "#ccc");
+//             }
+//         } 
+//     });
+//   });
 

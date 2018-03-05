@@ -22,7 +22,7 @@ export class FmserviceService {
  }
 
  getApiUrl(){
-  return this.apirul = 'http://api.magicfinmart.com/api/login'; 
+  return this.apirul = 'http://api.magicfinmart.com/api/'; 
  }
 
  private messageSource=new BehaviorSubject<string>(this.FullName);

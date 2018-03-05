@@ -3,6 +3,7 @@ import { Router} from '@angular/router';
 
 import { PrivatecarService} from './privatecarservice.service';
 import { VehicleMake} from '../vehiclemake';
+import {BsDatepickerConfig} from 'ngx-bootstrap/datepicker';
 
 @Component({
   selector: 'app-privatecar',
@@ -16,10 +17,15 @@ import { VehicleMake} from '../vehiclemake';
   './jquery.mCustomScrollbar.css']
 })
 export class PrivatecarComponent implements OnInit {
+  datePickerConfig : Partial <BsDatepickerConfig>;
 
   public vehiMakelst:VehicleMake[];
   constructor(private PrivatecarService:PrivatecarService) { 
-
+    this.datePickerConfig = Object.assign({},{
+      containerClass : "theme-dark-blue",
+      showWeekNumbers : false,
+      dateInputFormat : "DD-MM-YYYY"
+    });
   }
 
   ngOnInit() {
