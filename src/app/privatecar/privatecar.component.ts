@@ -27,7 +27,8 @@ export class PrivatecarComponent implements OnInit {
   }
 
   search($event) {
-    let q = $event.target.value
+    debugger;
+    let q = ""; //$event.key;
     this.vehiMakelst=this.PrivatecarService.vehiMakeAuto(q);
    console.log(this.vehiMakelst);
 }
