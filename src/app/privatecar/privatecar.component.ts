@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router} from '@angular/router';
 
 import { PrivatecarService} from './privatecarservice.service';
+import { VehicleMake} from '../vehiclemake';
 
 @Component({
   selector: 'app-privatecar',
@@ -16,11 +17,21 @@ import { PrivatecarService} from './privatecarservice.service';
 })
 export class PrivatecarComponent implements OnInit {
 
-  constructor() { }
+  public vehiMakelst:VehicleMake[];
+  constructor(private PrivatecarService:PrivatecarService) { 
 
-  ngOnInit() {
   }
 
+  ngOnInit() {
+   
+  }
+
+  search($event) {
+    debugger;
+    let q = ""; //$event.key;
+    this.vehiMakelst=this.PrivatecarService.vehiMakeAuto(q);
+   console.log(this.vehiMakelst);
+}
   
 
 }

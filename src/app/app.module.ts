@@ -12,6 +12,8 @@ import { HttpClientModule} from '@angular/common/http';
 
 import { FmserviceService} from './fmservice.service';
 import { LoginserviceService} from '../app/login/loginservice.service';
+import { PrivatecarService} from '../app/privatecar/privatecarservice.service';
+
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
@@ -50,7 +52,7 @@ const appRoutes:Routes=[
     HttpModule,    
     HttpClientModule
   ],
-  providers: [FmserviceService,LoginserviceService],
+  providers: [FmserviceService,LoginserviceService,PrivatecarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
