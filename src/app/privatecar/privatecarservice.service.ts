@@ -14,6 +14,9 @@ import { FmserviceService } from '../fmservice.service';
 import { InsuMastInfo } from '../mainpage/InsuMastInfo';
 import { VehicleMake} from '../vehiclemake';
 import { VehicleModel} from '../vehiclemodel';
+import { VehicleDetails} from '../VehicleDetails';
+import { VehicleResponse} from '../VehicleResponse';
+import { VehiRequest} from '../VehiRequest';
 
 const httpOptions = {
     headers:new HttpHeaders({ 'Content-Type' : 'application/json' ,'Token':'1234567890'})
@@ -30,33 +33,7 @@ export class PrivatecarService {
   
     constructor(private http:HttpClient,
     private fmmessageservice:FmserviceService) {
-      this.vehiMake=new VehicleMake();
-      this.vehiMake.makeid=1;
-      this.vehiMake.makename="TOYOTA"; 
-      //console.log(this.vehiMake);
-      this.vehiMakelst=[];
-      this.vehiMakelst.push(this.vehiMake);
-      //console.log(this.vehiMakelst);
-      this.vehiMake=new VehicleMake();
-      this.vehiMake.makeid=2;
-      this.vehiMake.makename="FORD"; 
-      this.vehiMakelst.push(this.vehiMake);
-      //console.log(this.vehiMakelst);
-      this.vehiMake=new VehicleMake();
-      this.vehiMake.makeid=3;
-      this.vehiMake.makename="NISSAN"; 
-      this.vehiMakelst.push(this.vehiMake);
-      //console.log(this.vehiMakelst);
-      this.vehiMake=new VehicleMake();
-      this.vehiMake.makeid=4;
-      this.vehiMake.makename="VOLKSWAGEN"; 
-      this.vehiMakelst.push(this.vehiMake);
-      //console.log(this.vehiMakelst);
-      this.vehiMake=new VehicleMake();
-      this.vehiMake.makeid=5;
-      this.vehiMake.makename="HONDA"; 
-      this.vehiMakelst.push(this.vehiMake);
-      console.log(this.vehiMakelst);
+      
     }
   
     public checkLogin (request:AuthenticationInputInfo):Observable<LoginResponse>{
@@ -65,9 +42,17 @@ export class PrivatecarService {
       );
     }
 
-    public vehiMakeAuto(request:string){
-      return this.vehiMakelst.filter(e=>e.makename.startsWith(request));
+    public GetVehMake(request:VehiRequest):Observable<VehicleResponse>{
+      return this.http.post<VehicleResponse>(this.fmmessageservice.getApiUrl()+"vehicle-details",request, httpOptions).pipe(
+        catchError(this.handleError<VehicleResponse>('GetVehMake'))
+      );
     }
+
+    // public vehiMakeAuto(request:string){
+    //   return this.vehiMakelst.filter(e=>e.makename.startsWith(request));
+    // }
+
+
   
     private handleError<T> (operation = 'operation', result?: T) {
       return (error: any): Observable<T> => {

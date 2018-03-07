@@ -6988,3 +6988,40 @@ ul.whats-new {
 	z-index: 9999;
 	background: url(/assets/images/load.gif) 50% 50% no-repeat rgb(249,249,249);
 }
+/* auto-complete */ 
+.autocomplete {
+    position: relative; 
+    }
+.autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    /*position the autocomplete items to be the same width as the container:*/
+    top: 100%;
+    left: 15px;
+    right: 15px;
+    height:200px;
+    overflow-y:scroll;
+    }
+.autocomplete-items div {
+    padding: 7px;
+    cursor: pointer;
+    background-color: #fff; 
+    border-bottom: 1px solid #d4d4d4; 
+    color: #636363;
+    text-transform:uppercase;
+    font-size:13px;
+    }
+.autocomplete-items div:hover {
+    /*when hovering an item:*/
+    background-color: #e9e9e9; 
+    }
+.autocomplete-active {
+    /*when navigating through the items using the arrow keys:*/
+    background-color:#e9e9e9 !important; 
+    color: #636363; 
+    }
+/* auto-complete close */
+

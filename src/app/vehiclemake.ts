@@ -1,4 +1,4 @@
 export class VehicleMake{
-    makeid:number;
-    makename:string;
+    // Make_Id:number;
+    Make_Name:string;
 }

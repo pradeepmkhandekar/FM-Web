@@ -230,6 +230,24 @@ var windowWidth = $(window).width();
                 
                 $(this).val($(this).data('holdDate'));
             });
+
+            $('#txtVehiMake').keydown(function(){
+                //$('#txtVehiMake').next().innerHtml().focus();
+                if($('#txtVehiMake').val()!="")
+                {
+                    $('#myInputautocomplete-list').css('display','block');
+                    $('#myInputautocomplete-list').first().focus();
+                }
+                else{
+                    $('#myInputautocomplete-list').css('display','none');
+                }
+                
+            });
+
+            function fnPassToVM(cdata){
+                //alert(cdata.val());
+                $('#txtVehiMake').val(cdata.val());
+            };
 });
 
 (function($){
@@ -325,4 +343,3 @@ var windowWidth = $(window).width();
 //         } 
 //     });
 //   });
-
