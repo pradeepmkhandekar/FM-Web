@@ -38,7 +38,7 @@
 									
 										<div class="col-xs-6 col-md-4 pad-desk autocomplete">
 												<div class="form-control height-box" id="divMakeAuto">
-													<input type="text" id="txtVehiMake" (keydown)="search($event)" value="{{vehiMake}}" (ng-model)="vehiMake" class="form-input-new" autocomplete="off">
+													<input type="text" id="txtVehiMake" (keydown)="search($event)" (input)="vehiMake = $event.target.value" value="{{vehiMake}}" (ng-model)="vehiMake" class="form-input-new" autocomplete="off">
 													<span class="highlight"></span><span class="bar"></span>
 													<label class="form-label-new">MAKE</label>
 												</div>

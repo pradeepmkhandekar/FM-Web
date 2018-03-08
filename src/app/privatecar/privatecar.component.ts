@@ -87,11 +87,15 @@ export class PrivatecarComponent implements OnInit {
   
   search($event) {
     debugger;
-    if(this.vehiMake!="")
+    $event.target.value;
+    if(this.vehiMake!="" && this.vehiMake!=undefined)
     {
-      this.VMakeLst=this.VMakeLst.filter(e=>e.startsWith(this.vehiMake));
-      this.isMake=true;
-      console.log(this.VMakeLst);
+      if(this.VMakeLst!=null && this.VMakeLst.length>0)
+      {
+        this.VMakeLst=this.VMakeLst.filter(e=>e.startsWith(this.vehiMake));
+        this.isMake=true;
+        console.log(this.VMakeLst);
+      }
     }
     else
     {
