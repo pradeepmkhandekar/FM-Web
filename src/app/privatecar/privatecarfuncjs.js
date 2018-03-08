@@ -233,13 +233,16 @@ var windowWidth = $(window).width();
 
             $('#txtVehiMake').keydown(function(){
                 //$('#txtVehiMake').next().innerHtml().focus();
+                
                 if($('#txtVehiMake').val()!="")
                 {
-                    $('#myInputautocomplete-list').css('display','block');
-                    $('#myInputautocomplete-list').first().focus();
+                    $('#divAutoMake').css('display','block');
+                    //$('#divAutoMake').children().first().addClass('focus');
+                    $('#divAutoMake').children().first().focus();
+                    return;
                 }
                 else{
-                    $('#myInputautocomplete-list').css('display','none');
+                    $('#divAutoMake').css('display','none');
                 }
                 
             });
