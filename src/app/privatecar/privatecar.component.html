@@ -38,12 +38,12 @@
 									
 										<div class="col-xs-6 col-md-4 pad-desk autocomplete">
 												<div class="form-control height-box" id="divMakeAuto">
-													<input type="text" id="txtVehiMake" (keydown)="search($event)" (input)="vehiMake = $event.target.value" value="{{vehiMake}}" (ng-model)="vehiMake" class="form-input-new" autocomplete="off">
+													<input type="text" id="txtVehiMake" (keyup)="search($event)" value={{vehiMake}} (ng-model)="vehiMake" class="form-input-new" autocomplete="off">
 													<span class="highlight"></span><span class="bar"></span>
 													<label class="form-label-new">MAKE</label>
 												</div>
 												<div id="divAutoMake" class="autocomplete-items" *ngIf="isMake">
-													<div *ngFor="let make of VMakeLst" (click)="fnPassToVM(make);">
+													<div *ngFor="let make of VMakeLst | filterBy : vehiMake" (click)="fnPassToVM(make);">
 														{{make}}
 													</div>
 												</div>
@@ -62,33 +62,41 @@
 									
 									<div class="col-xs-6 col-md-4 pad-desk">
 										<div class="form-control height-box">
-											<input type="text" class="form-input-new">
+											<input type="text" id="txtVehiModel" (keyup)="searchModel($event)" value={{vehiModel}} (ng-model)="vehiModel" class="form-input-new" autocomplete="off">
 											<span class="highlight"></span><span class="bar"></span>
 											<label class="form-label-new">MODEL</label>
+										</div>
+										<div id="divAutoModel" class="autocomplete-items" *ngIf="isModel">
+											<div *ngFor="let model of VModelLst | filterBy : vehiModel" (click)="fnPassToVModel(model);">
+												{{model}}
+											</div>
 										</div>
 									</div>
 								
 									<div class="col-xs-6 col-md-4 pad-blank-drop">
 										<span class="selectbox-highlight">FUEL TYPE</span>
-										<select class="form-control height-box-dropdown" style="padding: 6px 0px;">
+										<select class="form-control height-box-dropdown" style="padding: 6px 0px;" (ng-model)="Fueltype">
 											<option value="1">FUEL TYPE</option>
-											<option value="2">PETROL</option>
-											<option value="3">DIESEL</option>
+											<option ng-selected="Fueltype" value="Petrol">PETROL</option>
+											<option value="Diesel">DIESEL</option>
 										</select>
 									</div>
 									
 									<div class="col-xs-6 col-md-4 pad-blank-drop">
 										<span class="selectbox-highlight">VARIANT</span>
-										<select class="form-control height-box-dropdown" style="padding: 6px 0px;">
-											<option value="1">VARIANT</option>
+										<select class="form-control height-box-dropdown" (change)="variChange($event)" style="padding: 6px 0px;" (ng-model)="vehiVariant" >
+												<option value="1">VARIANT</option>
+												<option *ngFor="let variant of vehidetailslst" value="{{variant.Variant_ID}}">{{variant.Variant_Name}}</option>
+											<!-- <option *ng-Options="let variant of vehidetailslst" value="variant.Variant_ID">{{variant.Variant_Name}}</option> -->
+											<!-- <option value="1">VARIANT</option> *ngoptions="variant.Variant_Name for variant in vehidetailslst"
 											<option value="2">SPORTZ</option>
-											<option value="3">SPORTZ</option>
+											<option value="3">SPORTZ</option> -->
 										</select>
 									</div>
 								
 									<div class="col-xs-6 col-md-4 pad-desk">
 										<div class="form-control height-box">
-											<input type="text" class="form-input-new" style="background-color: #f5f5f5;">
+											<input type="text" class="form-input-new" value={{CubicCapacity}} (ng-model)="CubicCapacity" style="background-color: #f5f5f5;">
 											<span class="highlight"></span><span class="bar"></span>
 											<label class="form-label-new">cc</label>
 											<div class="clear"></div>

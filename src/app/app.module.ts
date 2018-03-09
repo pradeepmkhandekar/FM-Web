@@ -20,6 +20,7 @@ import { LoginComponent } from './login/login.component';
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { PrivatecarComponent } from './privatecar/privatecar.component';
 import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
+import {FilterPipeModule} from 'ngx-filter-pipe';
 
 
 const appRoutes:Routes=[
@@ -54,6 +55,7 @@ const appRoutes:Routes=[
     HttpModule,    
     HttpClientModule,
     BsDatepickerModule.forRoot(),
+    FilterPipeModule
   ],
   providers: [FmserviceService,LoginserviceService,PrivatecarService],
   bootstrap: [AppComponent]

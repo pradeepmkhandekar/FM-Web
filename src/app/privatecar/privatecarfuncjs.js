@@ -231,9 +231,8 @@ var windowWidth = $(window).width();
                 $(this).val($(this).data('holdDate'));
             });
 
-            $('#txtVehiMake').keydown(function(){
+            $('#txtVehiMake').keyup(function(){
                 //$('#txtVehiMake').next().innerHtml().focus();
-                
                 if($('#txtVehiMake').val()!="")
                 {
                     $('#divAutoMake').css('display','block');
