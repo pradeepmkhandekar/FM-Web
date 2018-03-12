@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
+	</head>
+	
+	<body>
+		<h1>AngularJS Expressions</h1>
+		<div ng-app="">
+			<div>
+				<p><b>A simple expression example: </b> {{5+5}}</p>
+			</div>
+			<hr>
+			<div ng-init="mycolor='#ccc'">
+				<p>The background color of the input box </p>
+				<input type="text" style="background-color:{{mycolor}}" ng-model="mycolor" value="{{mycolor}}">
+			</div>			
+		</div>
+	</body>
+</html>

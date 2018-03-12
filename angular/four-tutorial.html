@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="finmart.js"></script>
+	</head>
+	
+	<body>
+		<div ng-app="finmart">
+			<div ng-controller="homeCtrl">
+				<h2>Cost Calculator</h2>
+				Quantity: <input type="number" ng-model="quantity">
+				Price : <input type="number" ng-model="price">
+				<p><b>Total in rupees</b> {{quantity * price}}</p>
+				<button ng-click="fnLogin()" value="Login">login<button>
+				{{myWelcome}}
+			</div>
+		</div>
+	</body>
+</html>

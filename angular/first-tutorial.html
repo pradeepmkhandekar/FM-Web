@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html land="en">
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
+	</head>
+	
+	<body ng-app="myapp">
+		<div ng-controller="HelloControler">
+			<h2>HEllo {{helloTo.title}}</h2>
+		</div>
+		
+		<script>
+			angular.module("myapp",[])
+			.controller("HelloControler",function($scope) {
+				$scope.helloTo = {};
+				$scope.helloTo.title = "My first tutorial, World AngularJS!";	
+			});
+		</script>
+	</body>
+</html>

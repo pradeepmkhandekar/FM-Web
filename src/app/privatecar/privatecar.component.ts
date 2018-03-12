@@ -7,6 +7,7 @@ import {BsDatepickerConfig} from 'ngx-bootstrap/datepicker';
 import {VehicleResponse} from '../VehicleResponse';
 import {VehiRequest} from '../VehiRequest';
 import { VehicleDetails } from '../VehicleDetails';
+import { slider} from '../slider';
 
 
 @Component({
@@ -31,6 +32,8 @@ export class PrivatecarComponent implements OnInit {
   public vehiMakeCls :VehicleMake; 
   public VMakeLst =[];
   public VModelLst =[];
+  public slider:slider;
+  
 
   vehiMake : string;
   vehiModel : string;
@@ -39,6 +42,8 @@ export class PrivatecarComponent implements OnInit {
   vehiVariant:string;
   CubicCapacity:string;
   Fueltype:string;
+  slidervalue:number;
+  ClaimBonus:number;
 
   constructor(private PrivatecarService:PrivatecarService) { 
     this.datePickerConfig = Object.assign({},{
@@ -49,6 +54,11 @@ export class PrivatecarComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.slidervalue=5;
+    this.slider=new slider();
+    this.slider.floor=0;
+    this.slider.ceil=10;
+    this.slider.showTicks=true;
   }
   
   search(event:any) {
@@ -211,6 +221,10 @@ export class PrivatecarComponent implements OnInit {
         e.Model_Name==this.vehiModel && e.Variant_ID.toString()==this.vehiVariant);
         this.CubicCapacity=this.newvariantsleect[0].Cubic_Capacity.toString();
      }
+  }
+
+  drag(event){
+    
   }
 
 }

@@ -31,7 +31,8 @@
          "assets/js/classie.js",
          "assets/js/main.js",
          "assets/js/jquery.mCustomScrollbar.concat.min.js",
-         "app/privatecar/privatecarfuncjs.js"
+         "app/privatecar/privatecarfuncjs.js",
+        //  "../node_modules/ion-rangeslider/js/ion.rangeSlider.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

@@ -159,14 +159,71 @@
 									
 									<div class="col-xs-12 col-md-6 pad col-md-offset-2">
 										<div class="loan-tenure">
-										
 												<div class="exist-bonus">
 													<p>EXISTING NO CLAIM BONUS</p>
 												</div>
 												<div class="text-center col-xs-12 pad-1">
 												<div class="scaling-slider">
-													<input type="text" id="range1" value="" name="range">
-													<input type="hidden" id="txttenure" >
+												<!-- <rzslider rz-slider-model="slidervalue"
+														rz-slider-options="slider"></rzslider> -->
+													<!-- <input type="text" id="range1" value="" name="range">
+													<input type="hidden" id="txttenure" > -->
+													<span class="irs js-irs-0 irs-with-grid" id="SliderParent">
+														<span class="irs">
+															<span class="irs-line" tabindex="-1">
+																<span class="irs-line-left"></span>
+																<span class="irs-line-mid"></span>
+																<span class="irs-line-right"></span>
+															</span>
+														<span class="irs-min" style="visibility: hidden;">10</span>
+														<span class="irs-max" style="visibility: visible;">50</span>
+														<span class="irs-from" style="visibility: hidden;">0</span>
+														<span class="irs-to" style="visibility: hidden;">0</span>
+														<span class="irs-single" style="left: 0.198544%;">10</span>
+													</span>
+													<span class="irs-grid" style="width: 98.0146%; left: 0.89272%;">
+														<span class="irs-grid-pol" style="left: 0%"></span>
+														<span class="irs-grid-text js-grid-text-0" style="left: 0%; margin-left: -0.661813%;">10</span>
+														<span class="irs-grid-pol small" style="left: 8.333333333%"></span>
+														<span class="irs-grid-pol small" style="left: 4.166666667%"></span>
+														<span class="irs-grid-pol" style="left: 12.5%"></span>
+														<span class="irs-grid-text js-grid-text-1" style="left: 12.5%; visibility: visible; margin-left: -0.661813%;">15</span>
+														<span class="irs-grid-pol small" style="left: 20.833333333%"></span>
+														<span class="irs-grid-pol small" style="left: 16.666666667%"></span>
+														<span class="irs-grid-pol" style="left: 25%"></span>
+														<span class="irs-grid-text js-grid-text-2" style="left: 25%; visibility: visible; margin-left: -0.661813%;">20</span>
+														<span class="irs-grid-pol small" style="left: 33.333333333%"></span>
+														<span class="irs-grid-pol small" style="left: 29.166666667%"></span>
+														<span class="irs-grid-pol" style="left: 37.5%"></span>
+														<span class="irs-grid-text js-grid-text-3" style="left: 37.5%; visibility: visible; margin-left: -0.661813%;">25</span>
+														<span class="irs-grid-pol small" style="left: 45.833333333%"></span>
+														<span class="irs-grid-pol small" style="left: 41.666666667%"></span>
+														<span class="irs-grid-pol" style="left: 50%"></span>
+														<span class="irs-grid-text js-grid-text-4" style="left: 50%; margin-left: -0.661813%;">30</span>
+														<span class="irs-grid-pol small" style="left: 58.333333333%"></span>
+														<span class="irs-grid-pol small" style="left: 54.166666667%"></span>
+														<span class="irs-grid-pol" style="left: 62.5%"></span>
+														<span class="irs-grid-text js-grid-text-5" style="left: 62.5%; visibility: visible; margin-left: -0.661813%;">35</span>
+														<span class="irs-grid-pol small" style="left: 70.833333333%"></span>
+														<span class="irs-grid-pol small" style="left: 66.666666667%"></span>
+														<span class="irs-grid-pol" style="left: 75%"></span>
+														<span class="irs-grid-text js-grid-text-6" style="left: 75%; visibility: visible; margin-left: -0.661813%;">40</span>
+														<span class="irs-grid-pol small" style="left: 83.333333333%"></span>
+														<span class="irs-grid-pol small" style="left: 79.166666667%"></span>
+														<span class="irs-grid-pol" style="left: 87.5%"></span>
+														<span class="irs-grid-text js-grid-text-7" style="left: 87.5%; visibility: visible; margin-left: -0.661813%;">45</span>
+														<span class="irs-grid-pol small" style="left: 95.833333333%"></span>
+														<span class="irs-grid-pol small" style="left: 91.666666667%"></span>
+														<span class="irs-grid-pol" style="left: 100%"></span>
+														<span class="irs-grid-text js-grid-text-8" style="left: 100%; margin-left: -0.661813%;">50</span>
+													</span>
+													<span class="irs-bar" style="left: 0.99272%; width: 0%;"></span>
+													<span class="irs-bar-edge"></span>
+													<span class="irs-shadow shadow-single" style="display: none;"></span>
+													<span class="irs-slider single" id="draggable" style="left: 0%;"></span>
+												</span>
+												<input type="text" id="range1" value="" name="range" class="irs-hidden-input" readonly="">
+													<input type="hidden" id="txttenure" value={{ClaimBonus}}>
 												</div>
 											</div>
 										</div>

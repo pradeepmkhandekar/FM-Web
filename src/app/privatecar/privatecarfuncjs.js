@@ -71,9 +71,6 @@ var windowWidth = $(window).width();
         });
     }
 
-
-    
-    
      $('.motor-occupation > a').on('click', function(){
         $('.motor-occupation > a').removeClass('active');
         $(this).addClass('active');
@@ -250,62 +247,124 @@ var windowWidth = $(window).width();
                 //alert(cdata.val());
                 $('#txtVehiMake').val(cdata.val());
             };
+
+            function drag(event){
+                alert('some thing dragged');
+            };
+
+            function getSliderValue(dataleft){
+                var valued=10;
+                if(dataleft>8 &&  dataleft<=16)
+                {
+                    valued=11;
+                }
+                if(dataleft>17 &&  dataleft<=35)
+                {
+                    valued=12;
+                }
+                if(dataleft>35 &&  dataleft<=40)
+                {
+                    valued=13;
+                }
+                if(dataleft>40 &&  dataleft<=52)
+                {
+                    valued=14;
+                }
+                if(dataleft>52 && dataleft<=64)
+                {
+                    valued=15;
+                }
+                if(dataleft>64 && dataleft<=80)
+                {
+                    valued=16;
+                }
+                if(dataleft>80 && dataleft<=92)
+                {
+                    valued=17;
+                }
+                if(dataleft>92 && dataleft<=110)
+                {
+                    valued=18;
+                }
+                if(dataleft>110 && dataleft<=119)
+                {
+                    valued=19;
+                }
+                if(dataleft>119 && dataleft<=130)
+                {
+                    valued=20;
+                }
+                return valued;
+            };
+
+            $("#draggable").draggable({
+                axis : "x",
+                containment : "#SliderParent",
+                drag: function( event, ui ) {
+                    console.log(ui);
+                    $('.irs-bar').css('width',ui.position.left+'px');
+                    $('.irs-single').css('left',ui.position.left+'px');
+                    var invalue=getSliderValue(ui.position.left);
+                    $('.irs-single').html(invalue);
+                    $('#txttenure').val(invalue);
+                 }
+            });
 });
 
 (function($){
     $(window).on("load",function(){
 
-        var fromval = $("#txttenure").val();
-        if ($("#txttenure").val() == 0) {
-            fromval = 1;
-            $("#txttenure").val('1');
-        }
-        else {
-            fromval = $("#txttenure").val();
+    //     var fromval = $("#txttenure").val();
+    //     if ($("#txttenure").val() == 0) {
+    //         fromval = 1;
+    //         $("#txttenure").val('1');
+    //     }
+    //     else {
+    //         fromval = $("#txttenure").val();
 
-        }
-        var $range1 = $("#range1"),
-       $update1 = $("#txttenure");
+    //     }
+    //     var $range1 = $("#range1"),
+    //    $update1 = $("#txttenure");
 
-        $range1.ionRangeSlider({
-            type: "single",
-            min: 10,
-            from: fromval,
-            max: 50,
-            step: 5,
-            grid: true,
-            grid_snap: true
-        });
-        $range1.on("change", function () {
-            //debugger
-            var $this = $(this),
-                value = $this.prop("value").split(";");
-            $("#txttenure").addClass('used');
-            document.getElementById("txttenure").value = value[0];
-        });
-        var slider1 = $range1.data("ionRangeSlider");
-        $update1.on("change", function () {
-            slider1.update({
-                from: $("#txttenure").val().slice(0, -5)
-            });
-        });
+    //     $range1.ionRangeSlider({
+    //         type: "single",
+    //         min: 10,
+    //         from: fromval,
+    //         max: 50,
+    //         step: 5,
+    //         grid: true,
+    //         grid_snap: true
+    //     });
+    //     $range1.on("change", function () {
+    //         //debugger
+    //         var $this = $(this),
+    //             value = $this.prop("value").split(";");
+    //         $("#txttenure").addClass('used');
+    //         document.getElementById("txttenure").value = value[0];
+    //     });
+    //     var slider1 = $range1.data("ionRangeSlider");
+    //     $update1.on("change", function () {
+    //         slider1.update({
+    //             from: $("#txttenure").val().slice(0, -5)
+    //         });
+    //     });
 
-        $(".loader").fadeOut("slow");
+    //     $(".loader").fadeOut("slow");
 
-        $("#listtable .listtable").mCustomScrollbar({
-            setHeight:300,
-            theme:"minimal-dark"
-        });
+    //     $("#listtable .listtable").mCustomScrollbar({
+    //         setHeight:300,
+    //         theme:"minimal-dark"
+    //     });
         
-        $("#list .tablenew").mCustomScrollbar({
-            setHeight:300,
-            theme:"minimal-dark"
-        });
+    //     $("#list .tablenew").mCustomScrollbar({
+    //         setHeight:300,
+    //         theme:"minimal-dark"
+    //     });
         
-        $("#myModal .modal-body").mCustomScrollbar({
-            setHeight:370,
-            theme:"minimal-dark"
-        });
+    //     $("#myModal .modal-body").mCustomScrollbar({
+    //         setHeight:370,
+    //         theme:"minimal-dark"
+    //     });
         
         //$("#accordion .panel-body").mCustomScrollbar({
         //	setHeight:300,
