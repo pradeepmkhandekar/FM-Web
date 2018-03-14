@@ -8,6 +8,12 @@ import {VehicleResponse} from '../VehicleResponse';
 import {VehiRequest} from '../VehiRequest';
 import { VehicleDetails } from '../VehicleDetails';
 import { slider} from '../slider';
+import { CityResponse } from '../CityResponse';
+import { CityRequest } from '../CityRequest';
+import { CityService } from '../CityService.service';
+import { CityDetails } from '../CityDetails';
+import { CityVehiResponse } from '../CityVehiResponse';
+import { CityVehiDetails } from '../CityVehiDetails';
 
 
 @Component({
@@ -33,6 +39,12 @@ export class PrivatecarComponent implements OnInit {
   public VMakeLst =[];
   public VModelLst =[];
   public slider:slider;
+  public cityRequest:CityRequest;
+  public cityResponse: CityResponse;
+  public cityDetails:CityDetails;
+  public cityVehiResponse:CityVehiResponse;
+  public cityVehiDetails:CityVehiDetails[];
+
   
 
   vehiMake : string;
@@ -44,8 +56,18 @@ export class PrivatecarComponent implements OnInit {
   Fueltype:string;
   slidervalue:number;
   ClaimBonus:number;
+  CngValue:number;
+  RegDate:string;
+  MfgMonth:string;
+  MfgYear:string;
+  ExpiryDate:string;
+  Rto:string;
+  PresentInsurer:string;
+  CustomerName:string;
+  Mobile:string;
 
-  constructor(private PrivatecarService:PrivatecarService) { 
+  constructor(private PrivatecarService:PrivatecarService,
+              private CityService:CityService) { 
     this.datePickerConfig = Object.assign({},{
       containerClass : "theme-dark-blue",
       showWeekNumbers : false,
@@ -178,6 +200,47 @@ export class PrivatecarComponent implements OnInit {
       this.isModel=false;
     }
   }
+
+  searchCity(event:any) {
+    
+    this.cityRequest ={PinCode:"400077"};
+    this.CityService.GetRtoCity(this.cityRequest as CityRequest)
+    .subscribe(
+      CityResponse => this.cityResponse=CityResponse
+    );
+
+    if(this.cityResponse)
+     { 
+       console.log(this.cityResponse);
+       // this.cityDetails = this.cityResponse.MasterData;
+     }
+  }
+
+  searchCityVehicle(event:any){
+    debugger;
+    this.Rto = event.target.value;;
+    this.CityService.GetCityVehicle()
+      .subscribe(
+        CityVehiResponse => this.cityVehiResponse=CityVehiResponse
+      );
+
+      if (this.cityVehiResponse){
+        this.cityVehiDetails = this.cityVehiResponse.MasterData;
+        //console.log(this.cityVehiResponse);
+
+        if(this.Rto!="" && this.Rto!=undefined)
+        {
+          if(this.cityVehiDetails!=null)
+          {
+            console.log(this.cityVehiDetails);
+          }
+        }
+    
+      }
+  }
+
+
+
   fnPassToVModel(param){
   this.vehiModel=param;
   this.isModel=false;
@@ -223,6 +286,7 @@ export class PrivatecarComponent implements OnInit {
      }
   }
 
+ 
   drag(event){
     
   }

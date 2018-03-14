@@ -31,7 +31,8 @@ export class MainpageComponent implements OnInit {
     if(data==1)
     {
       //this.router.navigate(['app-privatecar']);
-      location.href='app-privatecar';
+      //location.href='app-privatecar';
+      this.router.navigate(['app-motor']);
     }
   }
 
