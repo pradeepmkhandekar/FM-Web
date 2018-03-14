@@ -61,6 +61,12 @@
           flag=0;
           }
         });
+
+        $(".inputs").keyup(function () {
+          if (this.value.length == this.maxLength) {
+            $(this).next('.inputs').focus();
+          }
+        }); 
           
            // Ripple-effect animation
           (function($) {
@@ -153,6 +159,8 @@
           // else{
           //   $('body').removeClass("body-bg");
           // }
+   
+
         });
 
         

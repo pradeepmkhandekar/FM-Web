@@ -3464,13 +3464,16 @@ input[type="checkbox"] {
 }
 
 .vehicle-enter-text {
-	width:7%; display: inline-block; margin-left: 6px; margin-right: 6px; height: auto; font-size: 22px; text-align:center;
+    width:7%; display: inline-block; margin-left: 6px; margin-right: 6px; 
+    height: auto; font-size: 22px; text-align:center;
 }
 .vehicle-enter-text1 {
-	width:10%; display: inline-block; margin-left: 6px; margin-right: 6px; height: auto; font-size: 22px; text-align:center;
+    width:10%; display: inline-block; margin-left: 6px; margin-right: 6px; 
+    height: auto; font-size: 22px; text-align:center;
 }
 .text-eg{
-	width:100%; position:absolute;bottom:0;padding-left:25%;margin-bottom:5px;color:#838383;font-family: "Roboto-regular", arial, sans-serif;
+    width:100%; position:absolute;bottom:0;padding-left:25%;margin-bottom:5px;
+    color:#838383;font-family: "Roboto-regular", arial, sans-serif;
 }
     .form-control-motor.used {
         border-bottom: 2px solid #009ee3;
