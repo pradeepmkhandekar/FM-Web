@@ -13,7 +13,8 @@
 
 $(document).ready(function(){
 	var bodyEl = document.body,//document.getElementById('mainbody'), 
-		content = document.querySelector('.content','.container-fluid'),
+		//content = document.querySelector('.content','.container-fluid'),
+		content=document.querySelector('app-root');
 		openbtn = document.getElementById('open-button'),
 		closebtn = document.getElementById('close-button'),
 		isOpen = false;

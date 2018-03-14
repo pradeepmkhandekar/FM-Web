@@ -349,7 +349,7 @@ var windowWidth = $(window).width();
     //         });
     //     });
 
-    //     $(".loader").fadeOut("slow");
+     $(".loader").fadeOut("slow");
 
     //     $("#listtable .listtable").mCustomScrollbar({
     //         setHeight:300,

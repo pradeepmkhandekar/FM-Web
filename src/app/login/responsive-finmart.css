@@ -578,7 +578,10 @@
 	}
 	.vehicle-regist-motor {
 		width: 100%;
-	}
+    }
+    .mainpage-type-info {
+        padding-bottom: 10px;
+    }
 }
 
 @media only screen and (max-width:340px) {

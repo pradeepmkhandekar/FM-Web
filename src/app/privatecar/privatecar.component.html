@@ -1,5 +1,4 @@
-<!-- <div class="loader"></div> -->
-	<section class="content">
+<section class="content">
 		<!-- Tab Attribute -->
 		<ul id="myTab" class="col-xs-12 col-md-12 nav nav-tab pad" style="border-bottom:none;">
 			<li class="active col-xs-4 col-md-4 pad input-bg"><a href="#Property" class="ripple-effect" data-toggle="tab"></a><img src="assets/images/input-arrow.png" class="img-responsive input-arrow-img"/></li>
@@ -43,9 +42,9 @@
 													<label class="form-label-new">MAKE</label>
 												</div>
 												<div id="divAutoMake" class="autocomplete-items" *ngIf="isMake">
-													<div *ngFor="let make of VMakeLst | filterBy : vehiMake" (click)="fnPassToVM(make);">
+													 <div *ngFor="let make of VMakeLst | filterBy : vehiMake" (click)="fnPassToVM(make);">
 														{{make}}
-													</div>
+													</div> 
 												</div>
 											</div>
 		
