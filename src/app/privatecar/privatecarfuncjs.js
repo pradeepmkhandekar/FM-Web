@@ -228,13 +228,26 @@ var windowWidth = $(window).width();
                 $(this).val($(this).data('holdDate'));
             });
 
-            $('#txtVehiMake').keyup(function(){
+            $('#txtVehiMake').keyup(function(e){
                 //$('#txtVehiMake').next().innerHtml().focus();
+                if(e.which == 40)
+                {
+                    if($("#divAutoMake li.active").length!=0) {
+                        var storeTarget = $('#divAutoMake').find("li.active").next();
+                        $("#divAutoMake li.active").removeClass("active");
+                        storeTarget.focus().addClass("active");
+                    }
+                    else {
+                        $('#divAutoMake').find("li:first").focus().addClass("active");
+                    }
+                    return ;
+                }
                 if($('#txtVehiMake').val()!="")
                 {
                     $('#divAutoMake').css('display','block');
                     //$('#divAutoMake').children().first().addClass('focus');
-                    $('#divAutoMake').children().first().focus();
+                    //$('#divAutoMake').children().first().focus();
+                    $('#divAutoMake').find("li:first").focus();
                     return;
                 }
                 else{
@@ -242,6 +255,12 @@ var windowWidth = $(window).width();
                 }
                 
             });
+
+            function selectmake(e){
+                if (e.keyCode == 13) {
+                    alert(e.html);
+                  }
+            };
 
             function fnPassToVM(cdata){
                 //alert(cdata.val());

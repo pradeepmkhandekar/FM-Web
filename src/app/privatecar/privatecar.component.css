@@ -1431,4 +1431,8 @@ body .ui-tooltip {
 }
 
 /* close skinflat */
-
+.focused{
+	background:#000; color:#fff;
+}
+#divAutoMake ul{overflow: auto;background-color:cornflowerblue; height: 80px!important;}
+#divAutoMake li.active { background:#000; color:#fff; }

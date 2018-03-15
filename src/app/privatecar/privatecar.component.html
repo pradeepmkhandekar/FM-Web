@@ -41,6 +41,11 @@
 													<span class="highlight"></span><span class="bar"></span>
 													<label class="form-label-new">MAKE</label>
 												</div>
+												<!-- <ul id="divAutoMake" class="autocomplete-items" *ngIf="isMake">
+													<li *ngFor="let make of VMakeLst | filterBy : vehiMake" (keypress)="selectmake($event);" (click)="fnPassToVM(make);">
+															{{make}}
+													</li>
+												</ul> -->
 												<div id="divAutoMake" class="autocomplete-items" *ngIf="isMake">
 													 <div *ngFor="let make of VMakeLst | filterBy : vehiMake" (click)="fnPassToVM(make);">
 														{{make}}
