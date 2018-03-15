@@ -375,6 +375,11 @@ var windowWidth = $(window).width();
         //	setHeight:180,
         //	theme:"inset-2-dark"
         //});
+        if($("#hdnCarNo").val()!="" && $("#hdnCarNo").val()!=undefined)
+        {
+            alert($("#hdnCarNo").val());
+            $("#spnCarNo").text($("#hdnCarNo").val());
+        }
         
     });
 })(jQuery);

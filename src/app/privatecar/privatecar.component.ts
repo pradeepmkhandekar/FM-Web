@@ -14,6 +14,7 @@ import { CityService } from '../CityService.service';
 import { CityDetails } from '../CityDetails';
 import { CityVehiResponse } from '../CityVehiResponse';
 import { CityVehiDetails } from '../CityVehiDetails';
+import { FmserviceService } from '../fmservice.service';
 
 
 @Component({
@@ -65,14 +66,17 @@ export class PrivatecarComponent implements OnInit {
   PresentInsurer:string;
   CustomerName:string;
   Mobile:string;
+  CarNo:string;
 
   constructor(private PrivatecarService:PrivatecarService,
-              private CityService:CityService) { 
+              private CityService:CityService,
+              private fmservice:FmserviceService) { 
     this.datePickerConfig = Object.assign({},{
       containerClass : "theme-dark-blue",
       showWeekNumbers : false,
       dateInputFormat : "DD-MM-YYYY"
     });
+    this.CarNo=this.fmservice.getcarNo();
   }
 
   ngOnInit() {
@@ -82,6 +86,8 @@ export class PrivatecarComponent implements OnInit {
     this.slider.ceil=10;
     this.slider.showTicks=true;
   }
+
+
   
   search(event:any) {
     this.vehiMake=event.target.value;
