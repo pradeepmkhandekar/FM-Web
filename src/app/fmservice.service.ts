@@ -45,4 +45,15 @@ export class FmserviceService {
     this.loggedIn.next(islogged);
   }
 
+  private carRegNo:string;
+
+  getcarNo(){
+    return this.carRegNo;
+  }
+
+  setCarRegNo(carregno:string)
+  {
+    this.carRegNo=carregno;
+  }
+
 }

@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FmserviceService } from '../fmservice.service';
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
+import { Router} from '@angular/router';
+import { FormGroup, FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-motor',
@@ -10,10 +14,32 @@ import { Component, OnInit } from '@angular/core';
   '../login/responsive-finmart.css']
 })
 export class MotorComponent implements OnInit {
+   CarNo:string;
+   inputOne:string;
+   inputTwo:string;
+   inputThree:string;
+   inputFour:string;
+   motordata;
 
-  constructor() { }
+  constructor(private router:Router,private fmservice:FmserviceService) { }
 
   ngOnInit() {
+    this.motordata = new FormGroup({
+      inputOne: new FormControl(),
+      inputTwo:new FormControl(),
+      inputThree:new FormControl(),
+      inputFour:new FormControl()
+   });
   }
-
+  
+  GetDetails(data){
+    debugger;
+    this.CarNo=data.inputOne+" "+data.inputTwo+" "+data.inputThree+" "+data.inputFour;
+    if(this.CarNo != ""){
+        console.log(this.CarNo);
+        this.fmservice.setCarRegNo(this.CarNo);
+      this.router.navigate(['app-privatecar']);
+      //location.href="app-privatecar";
+    }
+  }
 }

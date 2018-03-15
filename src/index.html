@@ -64,6 +64,7 @@
 
         $(".inputs").keyup(function () {
           if (this.value.length == this.maxLength) {
+				$("#hdnCarNo").val($("#input1").val()+" "+$("#input2").val()+" "+$("#input3").val()+" "+$("#input4").val());
             $(this).next('.inputs').focus();
           }
         }); 
