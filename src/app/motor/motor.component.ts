@@ -33,7 +33,6 @@ export class MotorComponent implements OnInit {
   }
   
   GetDetails(data){
-    debugger;
     this.CarNo=data.inputOne+" "+data.inputTwo+" "+data.inputThree+" "+data.inputFour;
     if(this.CarNo != ""){
         console.log(this.CarNo);
