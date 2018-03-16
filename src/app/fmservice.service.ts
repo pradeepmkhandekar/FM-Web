@@ -56,4 +56,18 @@ export class FmserviceService {
     this.carRegNo=carregno;
   }
 
+  getsecret_key() {
+    let secret_key = "SECRET-VG9N6EVV-MIK3-1GFC-ZRBV-PE7XIQ8DV4GY";
+    return secret_key;
+ }
+ getclient_key() {
+  let client_key = "CLIENT-WF4GWODI-HMEB-Q7M6-CLES-DEJCRF7XLRVI";
+  return client_key;
+}
+getHorizonInitiateApiUrl(){
+  return 'http://horizon.policyboss.com:5000/quote/premium_initiate'; 
+ }
+ getHorizonPremiumApiUrl(){
+   return "http://horizon.policyboss.com:5000/quote/premium_list_db";
+ }
 }

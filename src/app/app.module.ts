@@ -13,6 +13,7 @@ import { HttpClientModule} from '@angular/common/http';
 import { FmserviceService} from './fmservice.service';
 import { LoginserviceService} from '../app/login/loginservice.service';
 import { PrivatecarService} from '../app/privatecar/privatecarservice.service';
+import { HorizonapiService} from './horizonapi.service';
 
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -64,7 +65,7 @@ const appRoutes:Routes=[
     BsDatepickerModule.forRoot(),
     FilterPipeModule
   ],
-  providers: [FmserviceService,LoginserviceService,PrivatecarService, CityService],
+  providers: [FmserviceService,LoginserviceService,PrivatecarService, CityService,HorizonapiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

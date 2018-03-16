@@ -1,6 +1,6 @@
 
 $(window, document, undefined).ready(function() {
-
+    
     $('input').blur(function() {
         var $this = $(this);
         if ($this.val())
@@ -273,27 +273,27 @@ var windowWidth = $(window).width();
 
             function getSliderValue(dataleft){
                 var valued=10;
-                if(dataleft>8 &&  dataleft<=16)
+                if(dataleft>8 &&  dataleft<=20)
                 {
                     valued=11;
                 }
-                if(dataleft>17 &&  dataleft<=35)
+                if(dataleft>20 &&  dataleft<=45)
                 {
                     valued=12;
                 }
-                if(dataleft>35 &&  dataleft<=40)
+                if(dataleft>45 &&  dataleft<=50)
                 {
                     valued=13;
                 }
-                if(dataleft>40 &&  dataleft<=52)
+                if(dataleft>50 &&  dataleft<=62)
                 {
                     valued=14;
                 }
-                if(dataleft>52 && dataleft<=64)
+                if(dataleft>60 && dataleft<=70)
                 {
                     valued=15;
                 }
-                if(dataleft>64 && dataleft<=80)
+                if(dataleft>74 && dataleft<=80)
                 {
                     valued=16;
                 }
@@ -332,6 +332,56 @@ var windowWidth = $(window).width();
 
 (function($){
     $(window).on("load",function(){
+
+
+        // ploting the slider claim bonus....
+        var sliderStartpoint=10;
+        var sliderEndpoint=50;
+        var slideInterval=5;
+
+        // var sliderhtml="<span class='irs-grid-text js-grid-text-0' dala-left='10' style='left: 0%;float:left;'>10</span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='11' style='left: 2%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='12' style='left: 4%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='13' style='left: 6%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='14' style='left: 8%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-text js-grid-text-1' dala-left='15' style='left: 10%;visibility: visible;float:left;'>15</span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='16' style='left: 12%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='17' style='left: 14%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='18' style='left: 16%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='19' style='left: 18%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-text js-grid-text-2' dala-left='20' style='left: 20%;visibility: visible;float:left;'>20</span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='21' style='left: 22%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='22' style='left: 24%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='23' style='left: 26%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='24' style='left: 28%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-text js-grid-text-3' dala-left='25' style='left: 30%;visibility: visible;float:left;'>25</span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='26' style='left: 32%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='27' style='left: 34%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='28' style='left: 36%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='29' style='left: 38%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-text js-grid-text-4' dala-left='30' style='left: 40%;visibility: visible;float:left;'>30</span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='31' style='left: 42%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='32' style='left: 44%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='33' style='left: 46%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='34' style='left: 48%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-text js-grid-text-5' dala-left='35' style='left: 50%;float:left;'>35</span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='36' style='left: 52%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='37' style='left: 54%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='38' style='left: 56%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='39' style='left: 58%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-text js-grid-text-6' dala-left='40' style='left: 60%;float:left;'>40</span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='41' style='left: 62%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='42' style='left: 64%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='43' style='left: 66%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='44' style='left: 68%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-text js-grid-text-7' dala-left='45' style='left: 70%;visibility: visible;float:left;'>45</span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='46' style='left: 72%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='47' style='left: 74%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='48' style='left: 76%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='49' style='left: 78%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-text js-grid-text-8' dala-left='50' style='left: 80%;visibility: visible;float:left;'>50</span>";
+        // $('.irs-grid').html(sliderhtml);
+
 
     //     var fromval = $("#txttenure").val();
     //     if ($("#txttenure").val() == 0) {

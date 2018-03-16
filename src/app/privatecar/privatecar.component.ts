@@ -15,7 +15,13 @@ import { CityDetails } from '../CityDetails';
 import { CityVehiResponse } from '../CityVehiResponse';
 import { CityVehiDetails } from '../CityVehiDetails';
 import { FmserviceService } from '../fmservice.service';
-
+import { HorizonapiService} from '../horizonapi.service';
+import { PremiumInitiateReq} from '../PremiumInitiateReq';
+import { PremiumInitiateRes} from '../PremiumInitiateRes';
+import { Summary} from '../Summary';
+import { PremiumBreakup} from '../PremiumBreakup';
+import { Insurer} from '../Insurer';
+import { horizonResponse} from '../horizonResponse';
 
 @Component({
   selector: 'app-privatecar',
@@ -47,7 +53,6 @@ export class PrivatecarComponent implements OnInit {
   public cityVehiDetails:CityVehiDetails[];
 
   
-
   vehiMake : string;
   vehiModel : string;
   isMake:boolean=false;
@@ -70,13 +75,14 @@ export class PrivatecarComponent implements OnInit {
 
   constructor(private PrivatecarService:PrivatecarService,
               private CityService:CityService,
-              private fmservice:FmserviceService) { 
+              private fmservice:FmserviceService,
+            private horizonsrevice:HorizonapiService) { 
     this.datePickerConfig = Object.assign({},{
       containerClass : "theme-dark-blue",
       showWeekNumbers : false,
       dateInputFormat : "DD-MM-YYYY"
     });
-    this.CarNo=this.fmservice.getcarNo();
+    this.CarNo=this.fmservice.getcarNo().toUpperCase();
   }
 
   ngOnInit() {
