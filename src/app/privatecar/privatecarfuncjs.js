@@ -256,6 +256,34 @@ var windowWidth = $(window).width();
                 
             });
 
+            $('#txtRto').keyup(function(e){
+                //$('#txtVehiMake').next().innerHtml().focus();
+                if(e.which == 40)
+                {
+                    if($("#divAutoRto li.active").length!=0) {
+                        var storeTarget = $('#divAutoRto').find("li.active").next();
+                        $("#divAutoRto li.active").removeClass("active");
+                        storeTarget.focus().addClass("active");
+                    }
+                    else {
+                        $('#divAutoRto').find("li:first").focus().addClass("active");
+                    }
+                    return ;
+                }
+                if($('#txtRto').val()!="")
+                {
+                    $('#divAutoRto').css('display','block');
+                    //$('#divAutoMake').children().first().addClass('focus');
+                    //$('#divAutoMake').children().first().focus();
+                    $('#divAutoRto').find("li:first").focus();
+                    return;
+                }
+                else{
+                    $('#divAutoRto').css('display','none');
+                }
+                
+            });
+
             function selectmake(e){
                 if (e.keyCode == 13) {
                     alert(e.html);

@@ -45,6 +45,7 @@ export class PrivatecarComponent implements OnInit {
   public cityDetails:CityDetails;
   public cityVehiResponse:CityVehiResponse;
   public cityVehiDetails:CityVehiDetails[];
+  public RtoList = [];
 
   
 
@@ -67,6 +68,8 @@ export class PrivatecarComponent implements OnInit {
   CustomerName:string;
   Mobile:string;
   CarNo:string;
+  carNo1:string;
+  isRto:boolean=false;
 
   constructor(private PrivatecarService:PrivatecarService,
               private CityService:CityService,
@@ -223,7 +226,7 @@ export class PrivatecarComponent implements OnInit {
   }
 
   searchCityVehicle(event:any){
-    debugger;
+    //debugger;
     this.Rto = event.target.value;;
     this.CityService.GetCityVehicle()
       .subscribe(
@@ -232,17 +235,50 @@ export class PrivatecarComponent implements OnInit {
 
       if (this.cityVehiResponse){
         this.cityVehiDetails = this.cityVehiResponse.MasterData;
-        //console.log(this.cityVehiResponse);
+        console.log(this.cityVehiResponse.MasterData);
+        this.RtoList = [];
+        for (var i = 0; i <= this.cityVehiDetails.length-1; i++){
+          this.carNo1 = this.cityVehiDetails[i].VehicleCity_RTOCode.substring(0,2);
+            if(this.RtoList.includes(this.cityVehiDetails[i].RTO_City)==false)
+            {
+               this.RtoList.push("["+this.cityVehiDetails[i].VehicleCity_RTOCode + "] "+this.cityVehiDetails[i].RTO_City);
+               //this.RtoList.push(this.cityVehiDetails[i].RTO_City);
+            }
+        }
+        
 
-        if(this.Rto!="" && this.Rto!=undefined)
+      }
+      else{
+        this.CityService.GetCityVehicle()
+          .subscribe(
+            CityVehiResponse => this.cityVehiResponse=CityVehiResponse
+          );
+          if (this.cityVehiResponse){
+              this.cityVehiDetails = this.cityVehiResponse.MasterData;
+              console.log(this.cityVehiResponse.MasterData);
+              this.RtoList = [];
+              for (var i = 0; i <= this.cityVehiDetails.length-1; i++){
+                //this.carNo1 = this.cityVehiDetails[i].VehicleCity_RTOCode.substring(0,2);
+                  if(this.RtoList.includes(this.cityVehiDetails[i].RTO_City)==false)
+                  {
+                    this.RtoList.push("["+this.cityVehiDetails[i].VehicleCity_RTOCode + "] "+this.cityVehiDetails[i].RTO_City);
+                    //this.RtoList.push(this.cityVehiDetails[i].RTO_City);
+                  }
+              }
+          }
+      }
+
+      if(this.Rto!="" && this.Rto!=undefined)
         {
-          if(this.cityVehiDetails!=null)
+          if(this.RtoList!=null && this.RtoList.length >0)
           {
-            console.log(this.cityVehiDetails);
+            this.isRto=true;
+            console.log(this.RtoList);
+          }
+          else{
+            this.isRto=false;
           }
         }
-    
-      }
   }
 
 
@@ -252,6 +288,13 @@ export class PrivatecarComponent implements OnInit {
   this.isModel=false;
   this.bindVehiVariant();
   }
+
+  
+  fnPassToRto(param){
+    this.Rto=param;
+    this.isRto=false;
+    
+    }
 
   bindVehiVariant(){
     this.vehiRequest ={ProductId:1};
