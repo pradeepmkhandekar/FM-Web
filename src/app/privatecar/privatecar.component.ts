@@ -22,6 +22,8 @@ import { Summary} from '../Summary';
 import { PremiumBreakup} from '../PremiumBreakup';
 import { Insurer} from '../Insurer';
 import { horizonResponse} from '../horizonResponse';
+import { THROW_IF_NOT_FOUND } from '@angular/core/src/di/injector';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-privatecar',
@@ -52,6 +54,12 @@ export class PrivatecarComponent implements OnInit {
   public cityVehiResponse:CityVehiResponse;
   public cityVehiDetails:CityVehiDetails[];
   public RtoList = [];
+  public premiumInitiateReq:PremiumInitiateReq;
+  public horizonresponse:horizonResponse;
+  public premiumInitiateRes:PremiumInitiateRes;
+  public summary:Summary;
+  public premiumBreakup:PremiumBreakup;
+  public lstInsurer:Insurer;
 
   
   vehiMake : string;
@@ -344,6 +352,79 @@ export class PrivatecarComponent implements OnInit {
  
   drag(event){
     
+  }
+
+  fnGetQuotes(){
+    debugger;
+     this.premiumInitiateReq=new PremiumInitiateReq();
+     this.premiumInitiateReq.search_reference_number="";
+     this.premiumInitiateReq.product_id=10;
+     this.premiumInitiateReq.vehicle_id=this.vehiVariant;
+     this.premiumInitiateReq.rto_id="1";//this.cityVehiDetails.filter(e=>e.RTO_City==this.Rto)[0].VehicleCity_Id.toString();
+     this.premiumInitiateReq.vehicle_insurance_type="";
+     this.premiumInitiateReq.vehicle_manf_date=this.RegDate;
+     this.premiumInitiateReq.vehicle_registration_date=this.RegDate;
+     this.premiumInitiateReq.policy_expiry_date=this.ExpiryDate;
+     this.premiumInitiateReq.prev_insurer_id=this.PresentInsurer;
+     this.premiumInitiateReq.vehicle_registration_type="individual";
+     this.premiumInitiateReq.vehicle_ncb_current="0";
+     this.premiumInitiateReq.is_claim_exists="yes";
+     this.premiumInitiateReq.birth_date="";
+     this.premiumInitiateReq.method_type="premium";
+     this.premiumInitiateReq.execution_async="yes";
+     this.premiumInitiateReq.registration_no=this.CarNo.replace(" ","-");
+     this.premiumInitiateReq.electrical_accessory="0";
+     this.premiumInitiateReq.non_electrical_accessory="0";
+     this.premiumInitiateReq.voluntary_deductible="0";
+     this.premiumInitiateReq.is_llpd="no";
+     this.premiumInitiateReq.is_antitheft_fit="no";
+     this.premiumInitiateReq.is_external_bifuel="no";
+     this.premiumInitiateReq.first_name=this.CustomerName;
+     this.premiumInitiateReq.last_name=this.CustomerName;
+     this.premiumInitiateReq.middle_name="";
+     this.premiumInitiateReq.external_bifuel_value="0";
+     this.premiumInitiateReq.pa_owner_driver_si="100000";
+     this.premiumInitiateReq.pa_named_passenger_si="";
+     this.premiumInitiateReq.pa_unnamed_passenger_si="0";
+     this.premiumInitiateReq.pa_paid_driver_si="0";
+     this.premiumInitiateReq.vehicle_expected_idv="0";
+     this.premiumInitiateReq.mobile=this.Mobile;
+     this.premiumInitiateReq.email="finmarttest@gmail.com";
+     this.premiumInitiateReq.crn="170842";
+     this.premiumInitiateReq.secret_key=this.fmservice.getsecret_key();
+     this.premiumInitiateReq.client_key=this.fmservice.getclient_key();
+     this.premiumInitiateReq.ss_id="0";
+     this.premiumInitiateReq.ip_address="";
+     this.premiumInitiateReq.mac_address="";
+     this.premiumInitiateReq.device_id="";
+     this.premiumInitiateReq.fba_id="35847";
+
+     this.horizonsrevice.InitiatePremiums(this.premiumInitiateReq as PremiumInitiateReq).subscribe(
+      PremiumInitiateRes=>this.premiumInitiateRes=PremiumInitiateRes
+     );
+
+     if(this.premiumInitiateRes!=null)
+     {
+         this.summary=new Summary();
+         this.summary=this.premiumInitiateRes.Summary;
+         if(this.summary!=null)
+         {
+            this.premiumInitiateReq.search_reference_number=this.summary.Request_Unique_Id;
+
+            this.horizonsrevice.AfterInitiatePremiun(this.premiumInitiateReq as PremiumInitiateReq).subscribe(
+              horizonResponse=>this.horizonresponse=horizonResponse
+             );
+
+
+             if(this.horizonresponse!=null)
+             {
+                 this.lstInsurer=new Insurer();
+                 this.lstInsurer=this.horizonresponse.Insurer;
+             }
+
+         }
+     }
+
   }
 
 }
