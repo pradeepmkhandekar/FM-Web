@@ -24,7 +24,12 @@ import { Insurer} from '../Insurer';
 import { horizonResponse} from '../horizonResponse';
 import { THROW_IF_NOT_FOUND } from '@angular/core/src/di/injector';
 import { ThrowStmt } from '@angular/compiler';
+<<<<<<< HEAD
 import { first } from 'rxjs/operators';
+=======
+import { FormGroup, FormControl } from '@angular/forms';
+
+>>>>>>> pooja
 
 @Component({
   selector: 'app-privatecar',
@@ -38,6 +43,11 @@ import { first } from 'rxjs/operators';
   './jquery.mCustomScrollbar.css']
 })
 export class PrivatecarComponent implements OnInit {
+  months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep",
+            "Oct", "Nov", "Dec"];
+  years = ["2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008",
+            "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018"];
+            
   datePickerConfig : Partial <BsDatepickerConfig>;
 
   public vehiMakelst:VehicleMake[];
@@ -85,6 +95,7 @@ export class PrivatecarComponent implements OnInit {
   CarNo:string;
   carNo1:string;
   isRto:boolean=false;
+  PrivCardata;
 
   constructor(private PrivatecarService:PrivatecarService,
               private CityService:CityService,
@@ -93,7 +104,7 @@ export class PrivatecarComponent implements OnInit {
     this.datePickerConfig = Object.assign({},{
       containerClass : "theme-dark-blue",
       showWeekNumbers : false,
-      dateInputFormat : "DD-MM-YYYY"
+      dateInputFormat : "DD-MM-YYYY",
     });
     this.CarNo=this.fmservice.getcarNo().toUpperCase();
   }
@@ -104,6 +115,19 @@ export class PrivatecarComponent implements OnInit {
     this.slider.floor=0;
     this.slider.ceil=10;
     this.slider.showTicks=true;
+
+    this.PrivCardata = new FormGroup({
+      vehiVariant : new FormControl(),
+      CngValue : new FormControl(),
+      RegDate : new FormControl(),
+      MfgMonth : new FormControl(),
+      MfgYear : new FormControl(),
+      ExpiryDate : new FormControl(),
+      Rto : new FormControl(),
+      PresentInsurer : new FormControl(),
+      CustomerName : new FormControl(),
+      Mobile : new FormControl()
+    });
   }
 
 
@@ -356,7 +380,7 @@ export class PrivatecarComponent implements OnInit {
     
   }
 
-  fnGetQuotes(){
+  fnGetQuotes(data){
     debugger;
      this.premiumInitiateReq=new PremiumInitiateReq();
      this.premiumInitiateReq.search_reference_number="";
@@ -370,10 +394,10 @@ export class PrivatecarComponent implements OnInit {
      this.cityVehiDetailsOne=this.cityVehiDetails.filter(e=>e.VehicleCity_RTOCode==rtocode)[0];
      this.premiumInitiateReq.rto_id= this.cityVehiDetailsOne.VehicleCity_Id.toString(); //"1";//this.cityVehiDetails.filter(e=>e.RTO_City==this.Rto)[0].VehicleCity_Id.toString();
      this.premiumInitiateReq.vehicle_insurance_type="";
-     this.premiumInitiateReq.vehicle_manf_date=this.RegDate;
-     this.premiumInitiateReq.vehicle_registration_date=this.RegDate;
-     this.premiumInitiateReq.policy_expiry_date=this.ExpiryDate;
-     this.premiumInitiateReq.prev_insurer_id=this.PresentInsurer;
+     this.premiumInitiateReq.vehicle_manf_date=data.RegDate;
+     this.premiumInitiateReq.vehicle_registration_date= data.RegDate;
+     this.premiumInitiateReq.policy_expiry_date= data.ExpiryDate;
+     this.premiumInitiateReq.prev_insurer_id=data.PresentInsurer;
      this.premiumInitiateReq.vehicle_registration_type="individual";
      this.premiumInitiateReq.vehicle_ncb_current="0";
      this.premiumInitiateReq.is_claim_exists="yes";
@@ -387,8 +411,8 @@ export class PrivatecarComponent implements OnInit {
      this.premiumInitiateReq.is_llpd="no";
      this.premiumInitiateReq.is_antitheft_fit="no";
      this.premiumInitiateReq.is_external_bifuel="no";
-     this.premiumInitiateReq.first_name=this.CustomerName;
-     this.premiumInitiateReq.last_name=this.CustomerName;
+     this.premiumInitiateReq.first_name=data.CustomerName;
+     this.premiumInitiateReq.last_name=data.CustomerName;
      this.premiumInitiateReq.middle_name="";
      this.premiumInitiateReq.external_bifuel_value="0";
      this.premiumInitiateReq.pa_owner_driver_si="100000";
@@ -396,7 +420,7 @@ export class PrivatecarComponent implements OnInit {
      this.premiumInitiateReq.pa_unnamed_passenger_si="0";
      this.premiumInitiateReq.pa_paid_driver_si="0";
      this.premiumInitiateReq.vehicle_expected_idv="0";
-     this.premiumInitiateReq.mobile=this.Mobile;
+     this.premiumInitiateReq.mobile=data.Mobile;
      this.premiumInitiateReq.email="finmarttest@gmail.com";
      this.premiumInitiateReq.crn="170842";
      this.premiumInitiateReq.secret_key=this.fmservice.getsecret_key();
