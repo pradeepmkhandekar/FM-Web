@@ -10,7 +10,14 @@ import { horizonResponse} from './horizonResponse';
 import { ThrowStmt } from '@angular/compiler';
 
 const httpOptions = {
-  headers:new HttpHeaders({ 'Content-Type' : 'application/json' ,'UserName':'Datacomp','Password':'dc@pb123'})
+  headers:new HttpHeaders({ 
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Credentials": "true",
+  "Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT",
+  "Access-Control-Allow-Headers": "Content-Type",
+  'Content-Type' : 'application/json' ,
+  'UserName':'Datacomp',
+  'Password':'dc@pb123'})
  };
 
 @Injectable()

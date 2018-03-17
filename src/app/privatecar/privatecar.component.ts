@@ -24,6 +24,7 @@ import { Insurer} from '../Insurer';
 import { horizonResponse} from '../horizonResponse';
 import { THROW_IF_NOT_FOUND } from '@angular/core/src/di/injector';
 import { ThrowStmt } from '@angular/compiler';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-privatecar',
@@ -53,6 +54,7 @@ export class PrivatecarComponent implements OnInit {
   public cityDetails:CityDetails;
   public cityVehiResponse:CityVehiResponse;
   public cityVehiDetails:CityVehiDetails[];
+  public cityVehiDetailsOne:CityVehiDetails;
   public RtoList = [];
   public premiumInitiateReq:PremiumInitiateReq;
   public horizonresponse:horizonResponse;
@@ -360,7 +362,13 @@ export class PrivatecarComponent implements OnInit {
      this.premiumInitiateReq.search_reference_number="";
      this.premiumInitiateReq.product_id=10;
      this.premiumInitiateReq.vehicle_id=this.vehiVariant;
-     this.premiumInitiateReq.rto_id="1";//this.cityVehiDetails.filter(e=>e.RTO_City==this.Rto)[0].VehicleCity_Id.toString();
+     this.cityVehiDetailsOne=new CityVehiDetails();
+     let rtocode:string;
+     let rtocities:string[];
+     rtocities=this.Rto.split(' ');
+     rtocode=rtocities[0].replace("[","").replace("]","").trim();
+     this.cityVehiDetailsOne=this.cityVehiDetails.filter(e=>e.VehicleCity_RTOCode==rtocode)[0];
+     this.premiumInitiateReq.rto_id= this.cityVehiDetailsOne.VehicleCity_Id.toString(); //"1";//this.cityVehiDetails.filter(e=>e.RTO_City==this.Rto)[0].VehicleCity_Id.toString();
      this.premiumInitiateReq.vehicle_insurance_type="";
      this.premiumInitiateReq.vehicle_manf_date=this.RegDate;
      this.premiumInitiateReq.vehicle_registration_date=this.RegDate;
