@@ -24,12 +24,8 @@ import { Insurer} from '../Insurer';
 import { horizonResponse} from '../horizonResponse';
 import { THROW_IF_NOT_FOUND } from '@angular/core/src/di/injector';
 import { ThrowStmt } from '@angular/compiler';
-<<<<<<< HEAD
-import { first } from 'rxjs/operators';
-=======
 import { FormGroup, FormControl } from '@angular/forms';
 
->>>>>>> pooja
 
 @Component({
   selector: 'app-privatecar',
