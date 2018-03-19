@@ -21,7 +21,7 @@ const httpOptions = {
 export class LoginserviceService {
 
   //private apiUrl = 'http://apiservices.magicfinmart.com/api/Login/ProcessLogin';  // URL to web api
-  private loginapiUrl = 'http://api.magicfinmart.com/api/login';  // URL to web api
+  private loginapiUrl = 'http://qa.mgfm.in/api/login';  // URL to web api
   private apiUrl = 'http://localhost:64018/api/Authenticate/';  // URL to web api
 
   constructor(private http:HttpClient,

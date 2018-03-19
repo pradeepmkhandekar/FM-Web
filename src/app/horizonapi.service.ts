@@ -9,17 +9,19 @@ import { PremiumInitiateRes} from './PremiumInitiateRes';
 import { horizonResponse} from './horizonResponse';
 import { ThrowStmt } from '@angular/compiler';
 
+// const httpOptions = {
+//   headers:new HttpHeaders({ 
+//   "Access-Control-Allow-Origin": "*",
+//   "Access-Control-Allow-Headers": "Content-Type",
+//   "Access-Control-Allow-Credentials": "true",
+//   "Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT",
+//   'Content-Type' : 'application/json' ,
+//   'UserName':'Datacomp',
+//   'Password':'dc@pb123'})
+//  };
 const httpOptions = {
-  headers:new HttpHeaders({ 
-  "Access-Control-Allow-Origin": "*",
-  // "Access-Control-Allow-Headers": "Content-Type",
-  // "Access-Control-Allow-Credentials": "true",
-  // "Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT",
-  'Content-Type' : 'application/json' ,
-  'UserName':'Datacomp',
-  'Password':'dc@pb123'})
+  headers:new HttpHeaders({"Access-Control-Allow-Origin": "*", 'Content-Type' : 'application/json' ,'Token':'1234567890'})
  };
-
 @Injectable()
 export class HorizonapiService {
 

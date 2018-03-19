@@ -22,7 +22,7 @@ export class FmserviceService {
  }
 
  getApiUrl(){
-  return this.apirul = 'http://api.magicfinmart.com/api/'; 
+  return this.apirul = 'http://qa.mgfm.in/api/'; 
  }
 
  private messageSource=new BehaviorSubject<string>(this.FullName);
@@ -65,9 +65,9 @@ export class FmserviceService {
   return client_key;
 }
 getHorizonInitiateApiUrl(){
-  return 'http://horizon.policyboss.com:5000/quote/premium_initiate'; 
+  return 'http://qa.mgfm.in/api/premium-initiate-wrapper'; 
  }
  getHorizonPremiumApiUrl(){
-   return "http://horizon.policyboss.com:5000/quote/premium_list_db";
+   return "http://qa.mgfm.in/api/premium-list-db-wrapper";
  }
 }

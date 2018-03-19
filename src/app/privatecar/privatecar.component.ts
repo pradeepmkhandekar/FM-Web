@@ -434,7 +434,7 @@ export class PrivatecarComponent implements OnInit {
      if(this.premiumInitiateRes!=null)
      {
          this.summary=new Summary();
-         this.summary=this.premiumInitiateRes.Summary;
+         this.summary=this.premiumInitiateRes.MasterData;
          if(this.summary!=null)
          {
             this.premiumInitiateReq.search_reference_number=this.summary.Request_Unique_Id;

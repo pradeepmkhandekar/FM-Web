@@ -1,4 +1,7 @@
-import {Summary}  from './Summary'
+import {Summary}  from './Summary';
 export class PremiumInitiateRes{
-     Summary:Summary;
+    Message:string;
+    Status:string;
+    StatusNo:number;
+    MasterData:Summary;
 }
