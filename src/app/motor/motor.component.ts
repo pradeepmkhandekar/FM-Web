@@ -37,8 +37,8 @@ export class MotorComponent implements OnInit {
     if(this.CarNo != ""){
         console.log(this.CarNo);
         this.fmservice.setCarRegNo(this.CarNo);
-      this.router.navigate(['app-privatecar']);
-      //location.href="app-privatecar";
+      //this.router.navigate(['app-privatecar']);
+      location.href="app-privatecar?carno="+this.CarNo;
     }
   }
 }

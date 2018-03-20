@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router} from '@angular/router';
+import { Router, RouteConfigLoadStart, RoutesRecognized, ActivatedRoute} from '@angular/router';
 
 import { PrivatecarService} from './privatecarservice.service';
 import { VehicleMake} from '../vehiclemake';
@@ -101,14 +101,12 @@ export class PrivatecarComponent implements OnInit {
               private CityService:CityService,
               private fmservice:FmserviceService,
             private horizonsrevice:HorizonapiService,
-            private loginservice:LoginserviceService) { 
+            private router:ActivatedRoute) { 
     this.datePickerConfig = Object.assign({},{
       containerClass : "theme-dark-blue",
       showWeekNumbers : false,
       dateInputFormat : "DD-MM-YYYY",
     });
-    this.CarNo=this.fmservice.getcarNo().toUpperCase();
-    
   }
 
   ngOnInit() {
@@ -130,7 +128,10 @@ export class PrivatecarComponent implements OnInit {
       CustomerName : new FormControl(),
       Mobile : new FormControl()
     });
-    this.BindInsurer();
+debugger;
+     this.CarNo=this.router.snapshot.queryParams['carno'].toUpperCase();
+
+    //this.CarNo=this.fmservice.getcarNo();
   }
 
 
