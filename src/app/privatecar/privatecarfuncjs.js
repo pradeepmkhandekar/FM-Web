@@ -232,22 +232,17 @@ var windowWidth = $(window).width();
                 //$('#txtVehiMake').next().innerHtml().focus();
                 if(e.which == 40)
                 {
-                    if($("#divAutoMake li.active").length!=0) {
-                        var storeTarget = $('#divAutoMake').find("li.active").next();
-                        $("#divAutoMake li.active").removeClass("active");
-                        storeTarget.focus().addClass("active");
-                    }
-                    else {
-                        $('#divAutoMake').find("li:first").focus().addClass("active");
-                    }
+                    $('#divAutoMake').css('display','block');
+                    //$('#divAutoMake').children().first().addClass('focus');
+                    ('#divAutoMake').children().first().focus();
                     return ;
                 }
                 if($('#txtVehiMake').val()!="")
                 {
                     $('#divAutoMake').css('display','block');
                     //$('#divAutoMake').children().first().addClass('focus');
-                    //$('#divAutoMake').children().first().focus();
-                    $('#divAutoMake').find("li:first").focus();
+                    ('#divAutoMake').children().first().focus();
+                    //$('#divAutoMake').find("li:first").focus();
                     return;
                 }
                 else{
@@ -299,8 +294,9 @@ var windowWidth = $(window).width();
                 alert('some thing dragged');
             };
 
-            function getSliderValue(dataleft){
+            function getSliderValue(data){
                 var valued=10;
+                var dataleft=100/data;
                 if(dataleft>8 &&  dataleft<=20)
                 {
                     valued=11;
@@ -348,10 +344,11 @@ var windowWidth = $(window).width();
                 axis : "x",
                 containment : "#SliderParent",
                 drag: function( event, ui ) {
-                    console.log(ui);
+                    console.log(ui.position.left);
                     $('.irs-bar').css('width',ui.position.left+'px');
                     $('.irs-single').css('left',ui.position.left+'px');
                     var invalue=getSliderValue(ui.position.left);
+                    //console.log(invalue);
                     $('.irs-single').html(invalue);
                     $('#txttenure').val(invalue);
                  }

@@ -124,7 +124,6 @@ export class PrivatecarComponent implements OnInit {
       CustomerName : new FormControl(),
       Mobile : new FormControl()
     });
-debugger;
      this.CarNo=this.router.snapshot.queryParams['carno'].toUpperCase();
 
     //this.CarNo=this.fmservice.getcarNo();
