@@ -12,6 +12,7 @@ import { LoginResponse} from '../LoginResponse';
 
 import { FmserviceService } from '../fmservice.service';
 import { InsuMastInfo } from '../mainpage/InsuMastInfo';
+import { InsuMastResponse } from '../InsuMastResponse';
 
 const httpOptions = {
  headers:new HttpHeaders({ 'Content-Type' : 'application/json' ,'Token':'1234567890'})
@@ -35,11 +36,17 @@ export class LoginserviceService {
     );
   }
 
-  public getInsumast():Observable<InsuMastInfo[]>{
-    return this.http.get<InsuMastInfo[]>(this.apiUrl+"GetInsuMast").pipe(
-      catchError(this.handleError('error occured',[]))
-    );
- }
+//   public getInsumast():Observable<InsuMastInfo[]>{
+//     return this.http.get<InsuMastInfo[]>(this.fmmessageservice.getApiUrl+"get-insurance-company",httpOptions).pipe(
+//       catchError(this.handleError('error occured',[]))
+//     );
+//  }
+
+    public getInsumast():Observable<InsuMastResponse>{
+      return this.http.get<InsuMastResponse>(this.fmmessageservice.getApiUrl() + "get-insurance-company",httpOptions).pipe(
+        catchError(this.handleError<InsuMastResponse>('getInsumast'))
+      );
+    }
 
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

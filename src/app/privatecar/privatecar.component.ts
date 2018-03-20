@@ -25,6 +25,9 @@ import { horizonResponse} from '../horizonResponse';
 import { THROW_IF_NOT_FOUND } from '@angular/core/src/di/injector';
 import { ThrowStmt } from '@angular/compiler';
 import { FormGroup, FormControl } from '@angular/forms';
+import { LoginserviceService } from '../login/loginservice.service';
+import { InsuMastInfo } from '../mainpage/InsuMastInfo';
+import { InsuMastResponse } from '../InsuMastResponse';
 
 
 @Component({
@@ -68,6 +71,7 @@ export class PrivatecarComponent implements OnInit {
   public summary:Summary;
   public premiumBreakup:PremiumBreakup;
   public lstInsurer:Insurer;
+  public insuMastResponse : InsuMastResponse
 
   
   vehiMake : string;
@@ -96,13 +100,15 @@ export class PrivatecarComponent implements OnInit {
   constructor(private PrivatecarService:PrivatecarService,
               private CityService:CityService,
               private fmservice:FmserviceService,
-            private horizonsrevice:HorizonapiService) { 
+            private horizonsrevice:HorizonapiService,
+            private loginservice:LoginserviceService) { 
     this.datePickerConfig = Object.assign({},{
       containerClass : "theme-dark-blue",
       showWeekNumbers : false,
       dateInputFormat : "DD-MM-YYYY",
     });
     this.CarNo=this.fmservice.getcarNo().toUpperCase();
+    
   }
 
   ngOnInit() {
@@ -124,6 +130,7 @@ export class PrivatecarComponent implements OnInit {
       CustomerName : new FormControl(),
       Mobile : new FormControl()
     });
+    this.BindInsurer();
   }
 
 
@@ -359,6 +366,28 @@ export class PrivatecarComponent implements OnInit {
      }
 
      this.Fueltype="Petrol";
+  }
+
+  BindInsurer(){
+    debugger;
+    this.loginservice.getInsumast()
+    .subscribe(
+        InsuMastResponse => this.insuMastResponse = InsuMastResponse
+    );
+
+    if (this.insuMastResponse)
+    {
+      console.log(this.insuMastResponse);
+    }
+    else{
+      this.loginservice.getInsumast()
+      .subscribe(
+          InsuMastResponse => this.insuMastResponse = InsuMastResponse
+      );
+      if (this.insuMastResponse){
+        console.log(this.insuMastResponse);
+      }
+    }
   }
 
   variChange(event:any){
