@@ -299,6 +299,12 @@ var windowWidth = $(window).width();
                 alert('some thing dragged');
             };
 
+            // $("#datepicker1").blur(function(){
+            //     var expDate = $(this).val();
+            //     var d = new Date();
+            //     //alert(d.getDate() + "-" + (d.getMonth()+1) + "-" + d.getFullYear());
+            // })
+
             function getSliderValue(dataleft){
                 var valued=10;
                 if(dataleft>8 &&  dataleft<=20)
@@ -477,6 +483,8 @@ var windowWidth = $(window).width();
             alert($("#hdnCarNo").val());
             $("#spnCarNo").text($("#hdnCarNo").val());
         }
+        
+
         
     });
 })(jQuery);

@@ -15,14 +15,14 @@
 						<div class="col-xs-12 pad-2">
 							<div class="vehicle-regist-motor">
 								<div class="switch-outer">
-									<span class="active">
+									<span class="active" id="spnCompany">
 										COMPANY
 									</span>
-									<label class="switch" style="pointer-events:auto; margin-bottom:3px;">
-										<input type="checkbox">
+									<label class="switch"  style="pointer-events:auto; margin-bottom:3px;">
+										<input type="checkbox" id = "chkCompany" (ng-model)="IndividualCompany" (change)="onFilterChange($event)">
 										<div class="slider round"></div>
 									</label>              
-									<span>
+									<span  id="spnIndividual">
 										INDIVIDUAL
 									</span>
 								</div>
@@ -259,8 +259,9 @@
 										<span class="selectbox-highlight">PRESENT INSURER</span>
 										<select class="form-control height-box-dropdown select-disabled" style="padding: 6px 0px;" formControlName="PresentInsurer" name="PresentInsurer">
 											<option value="1">PRESENT INSURER</option>
-											<option value="2">BHARATI AXA</option>
-											<option value="2">BHARATI AXA</option>
+											<!-- <option value="2">BHARATI AXA</option>
+											<option value="2">BHARATI AXA</option> -->
+											<option *ngFor="let i of presentInsurer" value="{{i.id}}">{{i.name}}</option>
 										</select>	
 									</div>
 								

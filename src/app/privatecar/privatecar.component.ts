@@ -24,10 +24,11 @@ import { Insurer} from '../Insurer';
 import { horizonResponse} from '../horizonResponse';
 import { THROW_IF_NOT_FOUND } from '@angular/core/src/di/injector';
 import { ThrowStmt } from '@angular/compiler';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, CheckboxControlValueAccessor } from '@angular/forms';
 import { LoginserviceService } from '../login/loginservice.service';
 import { InsuMastInfo } from '../mainpage/InsuMastInfo';
 import { InsuMastResponse } from '../InsuMastResponse';
+import {PresentInsurer} from '../PresentInsurer'
 
 
 @Component({
@@ -41,11 +42,37 @@ import { InsuMastResponse } from '../InsuMastResponse';
   '../login/responsive-finmart.css',
   './jquery.mCustomScrollbar.css']
 })
+
+
 export class PrivatecarComponent implements OnInit {
   months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep",
             "Oct", "Nov", "Dec"];
   years = ["2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008",
             "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018"];
+  presentInsurer = [
+    new PresentInsurer(1, "Bajaj"),
+    new PresentInsurer(2, "Bharti"),
+    new PresentInsurer(5, "HDFC"),
+    new PresentInsurer(6, "ICICI"),
+    new PresentInsurer(7, "IFFCO"),
+    new PresentInsurer(30, "Kotak"),
+    new PresentInsurer(15, "L & T Ins."),
+    new PresentInsurer(33, "Liberty Videocon"),
+    new PresentInsurer(35, "Magma"),
+    new PresentInsurer(8, "National "),
+    new PresentInsurer(12, "New India"),
+    new PresentInsurer(13, "Oriental"),
+    new PresentInsurer(16, "Raheja"),
+    new PresentInsurer(9, "Reliance"),
+    new PresentInsurer(10, "Sundaram"),
+    new PresentInsurer(17, "SBI General"),
+    new PresentInsurer(18, "Shriram"),
+    new PresentInsurer(11, "Tata AIG"),
+    new PresentInsurer(14, "United"),
+  ];
+
+ 
+  
             
   datePickerConfig : Partial <BsDatepickerConfig>;
 
@@ -95,12 +122,15 @@ export class PrivatecarComponent implements OnInit {
   CarNo:string;
   carNo1:string;
   isRto:boolean=false;
+  IndividualCompany : boolean;
+  IndivCompany:string;
   PrivCardata;
 
   constructor(private PrivatecarService:PrivatecarService,
               private CityService:CityService,
               private fmservice:FmserviceService,
             private horizonsrevice:HorizonapiService,
+            private loginservice:LoginserviceService,
             private router:ActivatedRoute) { 
     this.datePickerConfig = Object.assign({},{
       containerClass : "theme-dark-blue",
@@ -128,7 +158,6 @@ export class PrivatecarComponent implements OnInit {
       CustomerName : new FormControl(),
       Mobile : new FormControl()
     });
-debugger;
      this.CarNo=this.router.snapshot.queryParams['carno'].toUpperCase();
 
     //this.CarNo=this.fmservice.getcarNo();
@@ -370,7 +399,7 @@ debugger;
   }
 
   BindInsurer(){
-    debugger;
+    
     this.loginservice.getInsumast()
     .subscribe(
         InsuMastResponse => this.insuMastResponse = InsuMastResponse
@@ -401,6 +430,17 @@ debugger;
      }
   }
 
+  onFilterChange(event:any){
+    
+    this.IndividualCompany = event.target.checked;
+    if(this.IndividualCompany){
+      this.IndivCompany = "Individual";
+    }
+    else{
+      this.IndivCompany = "Company";
+    }
+  }
+
  
   drag(event){
     
@@ -408,6 +448,7 @@ debugger;
 
   fnGetQuotes(data){
     debugger;
+    console.log(this.IndividualCompany);
      this.premiumInitiateReq=new PremiumInitiateReq();
      this.premiumInitiateReq.search_reference_number="";
      this.premiumInitiateReq.product_id=10;
