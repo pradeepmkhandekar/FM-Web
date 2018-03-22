@@ -125,14 +125,20 @@ export class PrivatecarComponent implements OnInit {
       Mobile : new FormControl()
     });
      this.CarNo=this.router.snapshot.queryParams['carno'].toUpperCase();
-
+     //this.search('a');
     //this.CarNo=this.fmservice.getcarNo();
+    this.vehiRequest ={ProductId:1};
+    this.PrivatecarService.GetVehMake(this.vehiRequest as VehiRequest)
+    .subscribe(
+      VehicleResponse => this.vehicleResponse=VehicleResponse
+    );
+    console.log(this.vehicleResponse);
   }
 
 
   
   search(event:any) {
-    this.vehiMake=event.target.value;
+    this.vehiMake= event.target.value;
     this.vehiRequest ={ProductId:1};
     this.PrivatecarService.GetVehMake(this.vehiRequest as VehiRequest)
     .subscribe(

@@ -228,55 +228,207 @@ var windowWidth = $(window).width();
                 $(this).val($(this).data('holdDate'));
             });
 
-            $('#txtVehiMake').keyup(function(e){
-                //$('#txtVehiMake').next().innerHtml().focus();
-                if(e.which == 40)
-                {
-                    $('#divAutoMake').css('display','block');
-                    //$('#divAutoMake').children().first().addClass('focus');
-                    ('#divAutoMake').children().first().focus();
-                    return ;
-                }
-                if($('#txtVehiMake').val()!="")
-                {
-                    $('#divAutoMake').css('display','block');
-                    //$('#divAutoMake').children().first().addClass('focus');
-                    ('#divAutoMake').children().first().focus();
-                    //$('#divAutoMake').find("li:first").focus();
-                    return;
-                }
-                else{
-                    $('#divAutoMake').css('display','none');
-                }
+            // $('#txtVehiMake').keyup(function(e){
+            //     //$('#txtVehiMake').next().innerHtml().focus();
+            //     if(e.which == 40)
+            //     {
+            //         $('#divAutoMake').css('display','block');
+            //         //$('#divAutoMake').children().first().addClass('focus');
+            //         ('#divAutoMake').children().first().focus();
+            //         return ;
+            //     }
+            //     if($('#txtVehiMake').val()!="")
+            //     {
+            //         $('#divAutoMake').css('display','block');
+            //         //$('#divAutoMake').children().first().addClass('focus');
+            //         ('#divAutoMake').children().first().focus();
+            //         //$('#divAutoMake').find("li:first").focus();
+            //         return;
+            //     }
+            //     else{
+            //         $('#divAutoMake').css('display','none');
+            //     }
                 
+            // });
+
+            $('#txtVehiMake').autocomplete({
+                source:function (request, response){
+                    var datavehiSource=$('#hdnVehiMakeSource').val().split(',');
+                    var newdatavehimake=[];
+                    for(var i=0;i<=datavehiSource.length-1;i++)
+                    {
+                        if(datavehiSource[i].toLowerCase().match("^"+request.term))
+                        {
+                            newdatavehimake.push(datavehiSource[i]);        
+                        }
+                    }
+                    response($.map(newdatavehimake, function (item) {
+                                           return {
+                                               value: item
+                                           }
+                    }))
+                    $('#ui-id-1').removeClass("ui-autocomplete");
+                    $('#ui-id-1').removeClass("ui-front");
+                    $('#ui-id-1').removeClass("ui-menu");
+                    $('#ui-id-1').removeClass("ui-widget");
+                    $('#ui-id-1').removeClass("ui-widget-content");
+                    $('#ui-id-1').addClass("autocomplete-items");
+                    $('.ui-helper-hidden-accessible').css('display','none');
+                },
+                minLength: 1,
+                appendTo: '#ui-id-1'
             });
 
-            $('#txtRto').keyup(function(e){
-                //$('#txtVehiMake').next().innerHtml().focus();
-                if(e.which == 40)
-                {
-                    if($("#divAutoRto li.active").length!=0) {
-                        var storeTarget = $('#divAutoRto').find("li.active").next();
-                        $("#divAutoRto li.active").removeClass("active");
-                        storeTarget.focus().addClass("active");
+            //txtVehiModel
+            $('#txtVehiModel').autocomplete({
+                source:function (request, response){
+                    var datavehiSource=$('#hdnVehiModelSource').val().split(',');
+                    // var newdatavehimodel=[];
+                    // for(var i=0;i<=datavehiSource.length-1;i++)
+                    // {
+                    //     if(datavehiSource[i].toLowerCase().match("^"+request.term))
+                    //     {
+                    //         newdatavehimodel.push(datavehiSource[i]);        
+                    //     }
+                    // }
+                    response($.map(datavehiSource, function (item) {
+                                           return {
+                                               value: item
+                                           }
+                    }))
+                    $('#ui-id-2').removeClass("ui-autocomplete");
+                    $('#ui-id-2').removeClass("ui-front");
+                    $('#ui-id-2').removeClass("ui-menu");
+                    $('#ui-id-2').removeClass("ui-widget");
+                    $('#ui-id-2').removeClass("ui-widget-content");
+                    $('#ui-id-2').addClass("autocomplete-items");
+                    $('.ui-helper-hidden-accessible').css('display','none');
+                },
+                select: function (event, ui) {
+                           if (ui.item) {
+                            fnBindVariant(ui.item);
                     }
-                    else {
-                        $('#divAutoRto').find("li:first").focus().addClass("active");
+                },
+                minLength: 1,
+                appendTo: '#ui-id-2'
+            });
+
+            function fnBindVariant(itemdata){
+                debugger;
+                $.ajax({
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    headers: {
+                        "content-type": "application/json",
+                        "token": "1234567890"
+                      },
+                    data: "{\"ProductId\":\"1\"}",
+                    url: "http://qa.mgfm.in/api/vehicle-details",
+                    dataType: "json",
+                    success:function(res){
+                        debugger;
+                        if(res.MasterData.length>0)
+                        {
+                            $('#ddlVariant').empty();
+                            $("#ddlVariant")
+                                    .append($("<option></option>").val("1").html("VARIANT"));
+
+                                    $.each(res.MasterData, function (propName, value) {
+                                        debugger;
+                                        if($('#txtVehiMake').val()==value.Make_Name && itemdata.value==value.Model_Name)
+                                        {
+                                            debugger;
+                                            $("#ddlVariant")
+                                            .append($("<option></option>").val(value.Variant_ID).html(value.Variant_Name));
+                                        }
+                                    });
+                        }
+                    },
+                    error: function (err) {
+                        console.log(err);
                     }
-                    return ;
-                }
-                if($('#txtRto').val()!="")
-                {
-                    $('#divAutoRto').css('display','block');
-                    //$('#divAutoMake').children().first().addClass('focus');
-                    //$('#divAutoMake').children().first().focus();
-                    $('#divAutoRto').find("li:first").focus();
-                    return;
-                }
-                else{
-                    $('#divAutoRto').css('display','none');
-                }
+                });
+            };
+
+
+
+            // $('#txtRto').keyup(function(e){
+            //     //$('#txtVehiMake').next().innerHtml().focus();
+            //     if(e.which == 40)
+            //     {
+            //         if($("#divAutoRto li.active").length!=0) {
+            //             var storeTarget = $('#divAutoRto').find("li.active").next();
+            //             $("#divAutoRto li.active").removeClass("active");
+            //             storeTarget.focus().addClass("active");
+            //         }
+            //         else {
+            //             $('#divAutoRto').find("li:first").focus().addClass("active");
+            //         }
+            //         return ;
+            //     }
+            //     if($('#txtRto').val()!="")
+            //     {
+            //         $('#divAutoRto').css('display','block');
+            //         //$('#divAutoMake').children().first().addClass('focus');
+            //         //$('#divAutoMake').children().first().focus();
+            //         $('#divAutoRto').find("li:first").focus();
+            //         return;
+            //     }
+            //     else{
+            //         $('#divAutoRto').css('display','none');
+            //     }
                 
+            // });
+
+            $('#txtRto').autocomplete({
+                source:function (request, response){
+                    $.ajax({
+                        type: "GET",
+                        contentType: "application/json; charset=utf-8",
+                        headers: {
+                            "content-type": "application/json",
+                            "token": "1234567890"
+                          },
+                        //data: "{\"ProductId\":\"1\"}",
+                        url: "http://qa.mgfm.in/api/get-city-vehicle",
+                        dataType: "json",
+                        success:function(res){
+                            debugger;
+                            if(res.MasterData.length>0)
+                            {
+                                var mastercity=[];
+                                for(var i=0;i<=res.MasterData.length-1;i++)
+                                {
+                                    debugger;
+                                    if(res.MasterData[i].RTO_City.toLowerCase().match("^"+request.term)||
+                                    res.MasterData[i].VehicleCity_RTOCode.toLowerCase().match("^"+request.term))
+                                    {
+                                        debugger;
+                                        mastercity.push(res.MasterData[i].RTO_CodeDiscription.replace('(','[').replace(')',']'));
+                                    }
+                                }
+
+                                response($.map(mastercity, function (item) {
+                                    return {
+                                        value: item
+                                    }
+             }))
+             $('#ui-id-3').removeClass("ui-autocomplete");
+             $('#ui-id-3').removeClass("ui-front");
+             $('#ui-id-3').removeClass("ui-menu");
+             $('#ui-id-3').removeClass("ui-widget");
+             $('#ui-id-3').removeClass("ui-widget-content");
+             $('#ui-id-3').addClass("autocomplete-items");
+             $('.ui-helper-hidden-accessible').css('display','none');  
+                            }
+                        },
+                        error: function (err) {
+                            console.log(err);
+                        }
+                    });
+                },
+                minLength: 1,
+                appendTo: '#ui-id-3'
             });
 
             function selectmake(e){

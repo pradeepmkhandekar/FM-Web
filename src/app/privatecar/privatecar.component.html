@@ -38,20 +38,21 @@
 									
 										<div class="col-xs-6 col-md-4 pad-desk autocomplete">
 												<div class="form-control height-box" id="divMakeAuto">
-													<input type="text" id="txtVehiMake" (keyup)="search($event)" value={{vehiMake}} (ng-model)="vehiMake" class="form-input-new" autocomplete="off">
+													<input type="text" id="txtVehiMake" (keyup)="search($event)"  value={{vehiMake}} (ng-model)="vehiMake" class="form-input-new" autocomplete="off">
 													<span class="highlight"></span><span class="bar"></span>
 													<label class="form-label-new">MAKE</label>
 												</div>
-												<!-- <ul id="divAutoMake" class="autocomplete-items" *ngIf="isMake">
+												<!-- <ul  class="autocomplete-items">
 													<li *ngFor="let make of VMakeLst | filterBy : vehiMake" (keypress)="selectmake($event);" (click)="fnPassToVM(make);">
 															{{make}}
 													</li>
 												</ul> -->
-												<div id="divAutoMake" class="autocomplete-items" *ngIf="isMake">
+												<input type="hidden" id="hdnVehiMakeSource" value="{{VMakeLst}}">
+												<!-- <div id="divAutoMake" class="autocomplete-items" *ngIf="isMake">
 													 <div *ngFor="let make of VMakeLst | filterBy : vehiMake" (click)="fnPassToVM(make);">
 														{{make}}
 													</div> 
-												</div>
+												</div> -->
 											</div>
 		
 									<!-- <div class="col-xs-6 col-md-4 pad-desk">
@@ -71,11 +72,12 @@
 											<span class="highlight"></span><span class="bar"></span>
 											<label class="form-label-new">MODEL</label>
 										</div>
-										<div id="divAutoModel" class="autocomplete-items" *ngIf="isModel">
+										<input type="hidden" id="hdnVehiModelSource" value="{{VModelLst}}">
+										<!-- <div id="divAutoModel" class="autocomplete-items" *ngIf="isModel">
 											<div *ngFor="let model of VModelLst | filterBy : vehiModel" (click)="fnPassToVModel(model);">
 												{{model}}
 											</div>
-										</div>
+										</div> -->
 									</div>
 								
 									<div class="col-xs-6 col-md-4 pad-blank-drop">
@@ -89,7 +91,7 @@
 									
 									<div class="col-xs-6 col-md-4 pad-blank-drop">
 										<span class="selectbox-highlight">VARIANT</span>
-										<select class="form-control height-box-dropdown" (change)="variChange($event)" style="padding: 6px 0px;" (ng-model)="vehiVariant" >
+										<select class="form-control height-box-dropdown" id="ddlVariant" (change)="variChange($event)" style="padding: 6px 0px;" (ng-model)="vehiVariant" >
 												<option value="1">VARIANT</option>
 												<option *ngFor="let variant of vehidetailslst" value="{{variant.Variant_ID}}">{{variant.Variant_Name}}</option>
 											<!-- <option *ng-Options="let variant of vehidetailslst" value="variant.Variant_ID">{{variant.Variant_Name}}</option> -->
@@ -246,11 +248,11 @@
 											<input type="text" id ="txtRto" class="form-input-new" (keyup)= "searchCityVehicle($event)" value={{Rto}} (ng-model)="Rto" class="form-input-new" autocomplete="off">
 											<span class="highlight"></span><span class="bar"></span>
 											<label class="form-label-new">RTO</label>
-											<div id="divAutoRto" class="autocomplete-items" *ngIf="isRto" >
+											<!-- <div id="divAutoRto" class="autocomplete-items" *ngIf="isRto" >
 												<div *ngFor="let rto of RtoList | filterBy : Rto" (click)="fnPassToRto(rto)">
 												   {{rto}}
 											   </div> 
-										   </div>
+										   </div> -->
 											<div class="clear"></div>
 										</div>
 									</div>
