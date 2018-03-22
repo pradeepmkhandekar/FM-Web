@@ -1,6 +1,6 @@
 
 $(window, document, undefined).ready(function() {
-
+    
     $('input').blur(function() {
         var $this = $(this);
         if ($this.val())
@@ -228,32 +228,207 @@ var windowWidth = $(window).width();
                 $(this).val($(this).data('holdDate'));
             });
 
-            $('#txtVehiMake').keyup(function(e){
-                //$('#txtVehiMake').next().innerHtml().focus();
-                if(e.which == 40)
-                {
-                    if($("#divAutoMake li.active").length!=0) {
-                        var storeTarget = $('#divAutoMake').find("li.active").next();
-                        $("#divAutoMake li.active").removeClass("active");
-                        storeTarget.focus().addClass("active");
-                    }
-                    else {
-                        $('#divAutoMake').find("li:first").focus().addClass("active");
-                    }
-                    return ;
-                }
-                if($('#txtVehiMake').val()!="")
-                {
-                    $('#divAutoMake').css('display','block');
-                    //$('#divAutoMake').children().first().addClass('focus');
-                    //$('#divAutoMake').children().first().focus();
-                    $('#divAutoMake').find("li:first").focus();
-                    return;
-                }
-                else{
-                    $('#divAutoMake').css('display','none');
-                }
+            // $('#txtVehiMake').keyup(function(e){
+            //     //$('#txtVehiMake').next().innerHtml().focus();
+            //     if(e.which == 40)
+            //     {
+            //         $('#divAutoMake').css('display','block');
+            //         //$('#divAutoMake').children().first().addClass('focus');
+            //         ('#divAutoMake').children().first().focus();
+            //         return ;
+            //     }
+            //     if($('#txtVehiMake').val()!="")
+            //     {
+            //         $('#divAutoMake').css('display','block');
+            //         //$('#divAutoMake').children().first().addClass('focus');
+            //         ('#divAutoMake').children().first().focus();
+            //         //$('#divAutoMake').find("li:first").focus();
+            //         return;
+            //     }
+            //     else{
+            //         $('#divAutoMake').css('display','none');
+            //     }
                 
+            // });
+
+            $('#txtVehiMake').autocomplete({
+                source:function (request, response){
+                    var datavehiSource=$('#hdnVehiMakeSource').val().split(',');
+                    var newdatavehimake=[];
+                    for(var i=0;i<=datavehiSource.length-1;i++)
+                    {
+                        if(datavehiSource[i].toLowerCase().match("^"+request.term))
+                        {
+                            newdatavehimake.push(datavehiSource[i]);        
+                        }
+                    }
+                    response($.map(newdatavehimake, function (item) {
+                                           return {
+                                               value: item
+                                           }
+                    }))
+                    $('#ui-id-1').removeClass("ui-autocomplete");
+                    $('#ui-id-1').removeClass("ui-front");
+                    $('#ui-id-1').removeClass("ui-menu");
+                    $('#ui-id-1').removeClass("ui-widget");
+                    $('#ui-id-1').removeClass("ui-widget-content");
+                    $('#ui-id-1').addClass("autocomplete-items");
+                    $('.ui-helper-hidden-accessible').css('display','none');
+                },
+                minLength: 1,
+                appendTo: '#ui-id-1'
+            });
+
+            //txtVehiModel
+            $('#txtVehiModel').autocomplete({
+                source:function (request, response){
+                    var datavehiSource=$('#hdnVehiModelSource').val().split(',');
+                    // var newdatavehimodel=[];
+                    // for(var i=0;i<=datavehiSource.length-1;i++)
+                    // {
+                    //     if(datavehiSource[i].toLowerCase().match("^"+request.term))
+                    //     {
+                    //         newdatavehimodel.push(datavehiSource[i]);        
+                    //     }
+                    // }
+                    response($.map(datavehiSource, function (item) {
+                                           return {
+                                               value: item
+                                           }
+                    }))
+                    $('#ui-id-2').removeClass("ui-autocomplete");
+                    $('#ui-id-2').removeClass("ui-front");
+                    $('#ui-id-2').removeClass("ui-menu");
+                    $('#ui-id-2').removeClass("ui-widget");
+                    $('#ui-id-2').removeClass("ui-widget-content");
+                    $('#ui-id-2').addClass("autocomplete-items");
+                    $('.ui-helper-hidden-accessible').css('display','none');
+                },
+                select: function (event, ui) {
+                           if (ui.item) {
+                            fnBindVariant(ui.item);
+                    }
+                },
+                minLength: 1,
+                appendTo: '#ui-id-2'
+            });
+
+            function fnBindVariant(itemdata){
+                debugger;
+                $.ajax({
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    headers: {
+                        "content-type": "application/json",
+                        "token": "1234567890"
+                      },
+                    data: "{\"ProductId\":\"1\"}",
+                    url: "http://qa.mgfm.in/api/vehicle-details",
+                    dataType: "json",
+                    success:function(res){
+                        debugger;
+                        if(res.MasterData.length>0)
+                        {
+                            $('#ddlVariant').empty();
+                            $("#ddlVariant")
+                                    .append($("<option></option>").val("1").html("VARIANT"));
+
+                                    $.each(res.MasterData, function (propName, value) {
+                                        debugger;
+                                        if($('#txtVehiMake').val()==value.Make_Name && itemdata.value==value.Model_Name)
+                                        {
+                                            debugger;
+                                            $("#ddlVariant")
+                                            .append($("<option></option>").val(value.Variant_ID).html(value.Variant_Name));
+                                        }
+                                    });
+                        }
+                    },
+                    error: function (err) {
+                        console.log(err);
+                    }
+                });
+            };
+
+
+
+            // $('#txtRto').keyup(function(e){
+            //     //$('#txtVehiMake').next().innerHtml().focus();
+            //     if(e.which == 40)
+            //     {
+            //         if($("#divAutoRto li.active").length!=0) {
+            //             var storeTarget = $('#divAutoRto').find("li.active").next();
+            //             $("#divAutoRto li.active").removeClass("active");
+            //             storeTarget.focus().addClass("active");
+            //         }
+            //         else {
+            //             $('#divAutoRto').find("li:first").focus().addClass("active");
+            //         }
+            //         return ;
+            //     }
+            //     if($('#txtRto').val()!="")
+            //     {
+            //         $('#divAutoRto').css('display','block');
+            //         //$('#divAutoMake').children().first().addClass('focus');
+            //         //$('#divAutoMake').children().first().focus();
+            //         $('#divAutoRto').find("li:first").focus();
+            //         return;
+            //     }
+            //     else{
+            //         $('#divAutoRto').css('display','none');
+            //     }
+                
+            // });
+
+            $('#txtRto').autocomplete({
+                source:function (request, response){
+                    $.ajax({
+                        type: "GET",
+                        contentType: "application/json; charset=utf-8",
+                        headers: {
+                            "content-type": "application/json",
+                            "token": "1234567890"
+                          },
+                        //data: "{\"ProductId\":\"1\"}",
+                        url: "http://qa.mgfm.in/api/get-city-vehicle",
+                        dataType: "json",
+                        success:function(res){
+                            debugger;
+                            if(res.MasterData.length>0)
+                            {
+                                var mastercity=[];
+                                for(var i=0;i<=res.MasterData.length-1;i++)
+                                {
+                                    debugger;
+                                    if(res.MasterData[i].RTO_City.toLowerCase().match("^"+request.term)||
+                                    res.MasterData[i].VehicleCity_RTOCode.toLowerCase().match("^"+request.term))
+                                    {
+                                        debugger;
+                                        mastercity.push(res.MasterData[i].RTO_CodeDiscription.replace('(','[').replace(')',']'));
+                                    }
+                                }
+
+                                response($.map(mastercity, function (item) {
+                                    return {
+                                        value: item
+                                    }
+             }))
+             $('#ui-id-3').removeClass("ui-autocomplete");
+             $('#ui-id-3').removeClass("ui-front");
+             $('#ui-id-3').removeClass("ui-menu");
+             $('#ui-id-3').removeClass("ui-widget");
+             $('#ui-id-3').removeClass("ui-widget-content");
+             $('#ui-id-3').addClass("autocomplete-items");
+             $('.ui-helper-hidden-accessible').css('display','none');  
+                            }
+                        },
+                        error: function (err) {
+                            console.log(err);
+                        }
+                    });
+                },
+                minLength: 1,
+                appendTo: '#ui-id-3'
             });
 
             function selectmake(e){
@@ -271,29 +446,30 @@ var windowWidth = $(window).width();
                 alert('some thing dragged');
             };
 
-            function getSliderValue(dataleft){
+            function getSliderValue(data){
                 var valued=10;
-                if(dataleft>8 &&  dataleft<=16)
+                var dataleft=100/data;
+                if(dataleft>8 &&  dataleft<=20)
                 {
                     valued=11;
                 }
-                if(dataleft>17 &&  dataleft<=35)
+                if(dataleft>20 &&  dataleft<=45)
                 {
                     valued=12;
                 }
-                if(dataleft>35 &&  dataleft<=40)
+                if(dataleft>45 &&  dataleft<=50)
                 {
                     valued=13;
                 }
-                if(dataleft>40 &&  dataleft<=52)
+                if(dataleft>50 &&  dataleft<=62)
                 {
                     valued=14;
                 }
-                if(dataleft>52 && dataleft<=64)
+                if(dataleft>60 && dataleft<=70)
                 {
                     valued=15;
                 }
-                if(dataleft>64 && dataleft<=80)
+                if(dataleft>74 && dataleft<=80)
                 {
                     valued=16;
                 }
@@ -320,10 +496,11 @@ var windowWidth = $(window).width();
                 axis : "x",
                 containment : "#SliderParent",
                 drag: function( event, ui ) {
-                    console.log(ui);
+                    console.log(ui.position.left);
                     $('.irs-bar').css('width',ui.position.left+'px');
                     $('.irs-single').css('left',ui.position.left+'px');
                     var invalue=getSliderValue(ui.position.left);
+                    //console.log(invalue);
                     $('.irs-single').html(invalue);
                     $('#txttenure').val(invalue);
                  }
@@ -332,6 +509,56 @@ var windowWidth = $(window).width();
 
 (function($){
     $(window).on("load",function(){
+
+
+        // ploting the slider claim bonus....
+        var sliderStartpoint=10;
+        var sliderEndpoint=50;
+        var slideInterval=5;
+
+        // var sliderhtml="<span class='irs-grid-text js-grid-text-0' dala-left='10' style='left: 0%;float:left;'>10</span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='11' style='left: 2%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='12' style='left: 4%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='13' style='left: 6%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='14' style='left: 8%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-text js-grid-text-1' dala-left='15' style='left: 10%;visibility: visible;float:left;'>15</span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='16' style='left: 12%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='17' style='left: 14%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='18' style='left: 16%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='19' style='left: 18%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-text js-grid-text-2' dala-left='20' style='left: 20%;visibility: visible;float:left;'>20</span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='21' style='left: 22%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='22' style='left: 24%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='23' style='left: 26%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='24' style='left: 28%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-text js-grid-text-3' dala-left='25' style='left: 30%;visibility: visible;float:left;'>25</span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='26' style='left: 32%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='27' style='left: 34%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='28' style='left: 36%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='29' style='left: 38%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-text js-grid-text-4' dala-left='30' style='left: 40%;visibility: visible;float:left;'>30</span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='31' style='left: 42%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='32' style='left: 44%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='33' style='left: 46%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='34' style='left: 48%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-text js-grid-text-5' dala-left='35' style='left: 50%;float:left;'>35</span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='36' style='left: 52%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='37' style='left: 54%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='38' style='left: 56%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='39' style='left: 58%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-text js-grid-text-6' dala-left='40' style='left: 60%;float:left;'>40</span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='41' style='left: 62%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='42' style='left: 64%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='43' style='left: 66%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='44' style='left: 68%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-text js-grid-text-7' dala-left='45' style='left: 70%;visibility: visible;float:left;'>45</span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='46' style='left: 72%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='47' style='left: 74%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='48' style='left: 76%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-pol small' dala-left='49' style='left: 78%;float:left;'></span>";
+        // sliderhtml = sliderhtml + "<span class='irs-grid-text js-grid-text-8' dala-left='50' style='left: 80%;visibility: visible;float:left;'>50</span>";
+        // $('.irs-grid').html(sliderhtml);
+
 
     //     var fromval = $("#txttenure").val();
     //     if ($("#txttenure").val() == 0) {

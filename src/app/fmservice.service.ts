@@ -22,7 +22,7 @@ export class FmserviceService {
  }
 
  getApiUrl(){
-  return this.apirul = 'http://api.magicfinmart.com/api/'; 
+  return this.apirul = 'http://qa.mgfm.in/api/'; 
  }
 
  private messageSource=new BehaviorSubject<string>(this.FullName);
@@ -56,4 +56,18 @@ export class FmserviceService {
     this.carRegNo=carregno;
   }
 
+  getsecret_key() {
+    let secret_key = "SECRET-VG9N6EVV-MIK3-1GFC-ZRBV-PE7XIQ8DV4GY";
+    return secret_key;
+ }
+ getclient_key() {
+  let client_key = "CLIENT-WF4GWODI-HMEB-Q7M6-CLES-DEJCRF7XLRVI";
+  return client_key;
+}
+getHorizonInitiateApiUrl(){
+  return 'http://qa.mgfm.in/api/premium-initiate-wrapper'; 
+ }
+ getHorizonPremiumApiUrl(){
+   return "http://qa.mgfm.in/api/premium-list-db-wrapper";
+ }
 }

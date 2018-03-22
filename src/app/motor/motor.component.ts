@@ -33,13 +33,12 @@ export class MotorComponent implements OnInit {
   }
   
   GetDetails(data){
-    debugger;
     this.CarNo=data.inputOne+" "+data.inputTwo+" "+data.inputThree+" "+data.inputFour;
     if(this.CarNo != ""){
         console.log(this.CarNo);
         this.fmservice.setCarRegNo(this.CarNo);
-      this.router.navigate(['app-privatecar']);
-      //location.href="app-privatecar";
+      //this.router.navigate(['app-privatecar']);
+      location.href="app-privatecar?carno="+this.CarNo;
     }
   }
 }
