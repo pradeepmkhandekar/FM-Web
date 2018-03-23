@@ -1,4 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, RouteConfigLoadStart, RoutesRecognized, ActivatedRoute} from '@angular/router';
+import {PersonalserviceService} from './personalservice.service';
+import {ApiRequest} from './ApiRequest';
+import {ApiResponse} from './ApiResponse';
+import {application} from './application';
+import {MasterData} from './MasterData';
+import {PersonalLoanRequest} from './PersonalLoanRequest';
+import {quote} from './quote';
 
 @Component({
   selector: 'app-personalloan',
@@ -11,7 +19,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PersonalloanComponent implements OnInit {
 
+  gender:string;
+  ApplicantDOB:string;
   constructor() { }
+
+  LoanTenure:string;
 
   ngOnInit() {
   }

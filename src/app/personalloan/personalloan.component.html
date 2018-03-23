@@ -30,13 +30,14 @@
                   <span class="occupation-home-loan">GENDER</span>
                   <a class="btn btn-default active">MALE</a>
                   <a class="btn btn-default">FEMALE</a>
+                  <input type="hidden" id="hdnGender" (ng-model)="gender">
                 </div>
               </div>
             
               <div class="col-xs-6 col-md-4 pad">
                 <div class="form-control height-box">
                   <span class="dob-home-loan">DATE OF BIRTH</span>
-                  <input type="text" id="datepicker" class="date-img-loan" value="16-01-2000">
+                  <input type="text" id="datepicker" bsDatepicker [bsConfig] = "datePickerConfig" class="date-img-loan" value="16-01-2000">
                   <span class="highlight"></span><span class="bar"></span>
                   <div class="clear"></div>
                 </div>
@@ -154,7 +155,7 @@
                     <span class="irs-slider single" id="draggable" style="left: 0%;"></span>
                   </span>
                   <input type="text" id="range1" value="" name="range" class="irs-hidden-input" readonly="">
-                    <input type="hidden" id="txttenure" value={{ClaimBonus}}>
+                    <input type="hidden" id="txttenure" value={{LoanTenure}}>
                   </div>
               </div>
             </div>

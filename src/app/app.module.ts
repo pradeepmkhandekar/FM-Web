@@ -25,6 +25,7 @@ import {FilterPipeModule} from 'ngx-filter-pipe';
 import {CityService} from './CityService.service';
 import { MotorComponent } from './motor/motor.component';
 import { PersonalloanComponent } from './personalloan/personalloan.component';
+import { PersonalserviceService } from './personalloan/personalservice.service';
 
 
 const appRoutes:Routes=[
@@ -71,7 +72,7 @@ const appRoutes:Routes=[
     BsDatepickerModule.forRoot(),
     FilterPipeModule
   ],
-  providers: [FmserviceService,LoginserviceService,PrivatecarService, CityService,HorizonapiService],
+  providers: [FmserviceService,LoginserviceService,PrivatecarService, CityService,HorizonapiService, PersonalserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
