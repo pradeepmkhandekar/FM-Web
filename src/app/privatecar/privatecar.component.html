@@ -245,10 +245,10 @@
 								<div class="form-group col-xs-12 pad-1">
 									<div class="col-xs-6 col-md-4 pad-desk" autocomplete>
 										<div class="form-control height-box" id = "divRtoauto">
-											<input type="text" id ="txtRto" class="form-input-new" (keyup)= "searchCityVehicle($event)" value={{Rto}} (ng-model)="Rto" class="form-input-new" autocomplete="off">
+											<input type="text" id ="txtRto" class="form-input-new"  value={{Rto}} (ng-model)="Rto" class="form-input-new" autocomplete="off">
 											<span class="highlight"></span><span class="bar"></span>
 											<label class="form-label-new">RTO</label>
-											<!-- <div id="divAutoRto" class="autocomplete-items" *ngIf="isRto" >
+											<!-- <div id="divAutoRto" class="autocomplete-items" *ngIf="isRto" >(keyup)= "searchCityVehicle($event)"
 												<div *ngFor="let rto of RtoList | filterBy : Rto" (click)="fnPassToRto(rto)">
 												   {{rto}}
 											   </div> 

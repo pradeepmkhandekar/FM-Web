@@ -420,17 +420,14 @@ var windowWidth = $(window).width();
                         url: "http://qa.mgfm.in/api/get-city-vehicle",
                         dataType: "json",
                         success:function(res){
-                            debugger;
                             if(res.MasterData.length>0)
                             {
                                 var mastercity=[];
                                 for(var i=0;i<=res.MasterData.length-1;i++)
                                 {
-                                    debugger;
                                     if(res.MasterData[i].RTO_City.toLowerCase().match("^"+request.term)||
                                     res.MasterData[i].VehicleCity_RTOCode.toLowerCase().match("^"+request.term))
                                     {
-                                        debugger;
                                         mastercity.push(res.MasterData[i].RTO_CodeDiscription.replace('(','[').replace(')',']'));
                                     }
                                 }
@@ -486,9 +483,6 @@ var windowWidth = $(window).width();
                 alert('some thing dragged');
             };
 
-<<<<<<< HEAD
-            function getSliderValue(data){
-=======
             // $("#datepicker1").blur(function(){
             //     var expDate = $(this).val();
             //     var d = new Date();
@@ -496,7 +490,6 @@ var windowWidth = $(window).width();
             // })
 
             function getSliderValue(dataleft){
->>>>>>> pooja
                 var valued=10;
                 var dataleft=100/data;
                 if(dataleft>8 &&  dataleft<=20)
