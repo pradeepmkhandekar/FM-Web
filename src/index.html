@@ -152,6 +152,11 @@
             $(this).css({"background":"url('../../assets/images/login-lock-icon.png') no-repeat","background-position":"right center"});
             }
           });
+		  
+		  $('.loan-occupation > a').on('click', function(){
+				$('.loan-occupation > a').removeClass('active');
+				$(this).addClass('active');
+			});
 
           // var pathname = window.location.pathname;
           // if(pathname=="/"){

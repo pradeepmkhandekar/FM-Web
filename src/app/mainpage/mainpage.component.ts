@@ -34,6 +34,10 @@ export class MainpageComponent implements OnInit {
       //location.href='app-privatecar';
       this.router.navigate(['app-motor']);
     }
+    if(data==6)
+    {
+      location.href='app-personal';
+    }
   }
 
 }

@@ -23,7 +23,8 @@ import { PrivatecarComponent } from './privatecar/privatecar.component';
 import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
 import {FilterPipeModule} from 'ngx-filter-pipe';
 import {CityService} from './CityService.service';
-import { MotorComponent } from './motor/motor.component'
+import { MotorComponent } from './motor/motor.component';
+import { PersonalloanComponent } from './personalloan/personalloan.component';
 
 
 const appRoutes:Routes=[
@@ -42,6 +43,10 @@ const appRoutes:Routes=[
   {
     path:'app-motor',
     component:MotorComponent
+  },
+  {
+    path:'app-personal',
+    component:PersonalloanComponent
   }
 ];
 
@@ -53,7 +58,8 @@ const appRoutes:Routes=[
     LoginComponent,
     MainpageComponent,
     PrivatecarComponent,
-    MotorComponent
+    MotorComponent,
+    PersonalloanComponent
   ],
   imports: [
     BrowserModule,
