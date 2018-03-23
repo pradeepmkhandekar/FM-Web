@@ -25,7 +25,11 @@ export class MotorComponent implements OnInit {
 
   ngOnInit() {
     this.motordata = new FormGroup({
-      inputOne: new FormControl(),
+      // inputOne: new FormControl("",Validators.compose([
+      //   Validators.required,
+      //   Validators.pattern("'^[a-zA-Z \-\']$'")
+      // ])),
+      inputOne:new FormControl(),
       inputTwo:new FormControl(),
       inputThree:new FormControl(),
       inputFour:new FormControl()
