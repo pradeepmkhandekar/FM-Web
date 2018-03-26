@@ -37,9 +37,9 @@
 											<div class="input-span">	
 													<p>ENTER VEHICLE REGISTRATION NUMBER</p>	
 													<input class="inputs form-control-motor vehicle-enter-text" formControlName="inputOne" name="inputOne" type="text" maxlength="2" id= "input1"/>
-													<input class="inputs form-control-motor vehicle-enter-text" formControlName="inputTwo" name="inputTwo" type="text" maxlength="2" id= "input2"/>
-													<input class="inputs form-control-motor vehicle-enter-text" formControlName="inputThree" name="inputThree" type="text" maxlength="3" id= "input3"/>
-													<input class="inputs form-control-motor vehicle-enter-text1" formControlName="inputFour" name="inputFour" type="text" maxlength="4" id= "input4"/>
+													<input class="inputs form-control-motor vehicle-enter-text" formControlName="inputTwo" name="inputTwo" type="text" maxlength="2" id= "input2" (keypress)="restrictNumeric($event)"/>
+													<input class="inputs form-control-motor vehicle-enter-text" formControlName="inputThree" name="inputThree" type="text" maxlength="3" id= "input3" pattern="/^[a-zA-Z\s]*$/"/>
+													<input class="inputs form-control-motor vehicle-enter-text1" formControlName="inputFour" name="inputFour" type="text" maxlength="4" id= "input4" (keypress)="restrictNumeric($event)"/>
 													<!--<button class="btn btn-go" style="border-radius: 0px; height:66px; display: inline-block; float: right;"> Go!</button>-->
 								  <div class="clearfix"></div>
 								  <div class="pull-right text-eg">e.g.MH05BK1234</div>
