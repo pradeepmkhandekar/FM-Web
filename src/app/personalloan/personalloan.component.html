@@ -18,7 +18,7 @@
             <div class="form-group col-xs-12 pad db-occupation">
               <div class="col-xs-6 col-md-4  pad">
                 <div class="form-control height-box">
-                  <input type="text" class="form-input-new">
+                  <input type="text" class="form-input-new" (ng-model)="ApplicantName">
                   <span class="highlight"></span><span class="bar"></span>
                   <label class="form-label-new">applicant Name</label>
                   <div class="clear"></div>
@@ -28,8 +28,8 @@
               <div class="col-xs-6 col-md-4 pad">
                 <div class="form-control height-box loan-occupation">
                   <span class="occupation-home-loan">GENDER</span>
-                  <a class="btn btn-default active">MALE</a>
-                  <a class="btn btn-default">FEMALE</a>
+                  <a id='aMale' href="javascript:void(0)" class="btn btn-default active">MALE</a>
+                  <a id='aFemale' href="javascript:void(0)" class="btn btn-default">FEMALE</a>
                   <input type="hidden" id="hdnGender" (ng-model)="gender">
                 </div>
               </div>
@@ -37,7 +37,7 @@
               <div class="col-xs-6 col-md-4 pad">
                 <div class="form-control height-box">
                   <span class="dob-home-loan">DATE OF BIRTH</span>
-                  <input type="text" id="datepicker" bsDatepicker [bsConfig] = "datePickerConfig" class="date-img-loan" value="16-01-2000">
+                  <input type="text" id="datepicker" bsDatepicker [bsConfig] = "datePickerConfig" (ng-model)="ApplicantDOB" class="date-img-loan" value="16-01-2000">
                   <span class="highlight"></span><span class="bar"></span>
                   <div class="clear"></div>
                 </div>
@@ -46,14 +46,15 @@
               <div class="col-xs-6 col-md-4 pad">
                 <div class="form-control height-box loan-occupation">
                   <span class="occupation-home-loan">OCCUPATION</span>
-                  <a class="btn btn-default active">SALARIED</a>
-                  <a class="btn btn-default">SELF-EMP</a>
+                  <a id="aSalaried" href="javascript:void(0)" class="btn btn-default active">SALARIED</a>
+                  <a id="aSelfEmp" href="javascript:void(0)" class="btn btn-default">SELF-EMP</a>
                 </div>
+                <input type="hidden" id="hdnOccupation" (ng-model)="Occupation"/>
               </div>
            
               <div class="col-xs-6 col-md-4 pad">
                 <div class="form-control height-box">
-                  <input type="text" class="form-input-new">
+                  <input type="text" class="form-input-new" (ng-model)="MonthlyIncome">
                   <span class="highlight"></span><span class="bar"></span>
                   <label class="form-label-new">MONTHLY INCOME</label>
                   <div class="clear"></div>
@@ -62,7 +63,7 @@
               
               <div class="col-xs-6 col-md-4 pad">
                 <div class="form-control height-box">
-                  <input type="text" class="form-input-new">
+                  <input type="text" class="form-input-new" (ng-model)="ExistingEmi">
                   <span class="highlight"></span><span class="bar"></span>
                   <label class="form-label-new">EXISTING EMI</label>
                   <div class="clear"></div>
@@ -71,7 +72,7 @@
             
               <div class="col-xs-6 col-md-4 pad">
                 <div class="form-control height-box">
-                  <input type="text" class="form-input-new">
+                  <input type="text" class="form-input-new" (ng-model)="PanNo">
                   <span class="highlight"></span><span class="bar"></span>
                   <label class="form-label-new">PAN</label>
                   <div class="clear"></div>
@@ -80,7 +81,7 @@
               
               <div class="col-xs-6 col-md-4 pad">
                 <div class="form-control height-box">
-                  <input type="text" class="form-input-new">
+                  <input type="text" class="form-input-new" (ng-model)="ReqLoanAmount">
                   <span class="highlight"></span><span class="bar"></span>
                   <label class="form-label-new">REQUIRED LOAN AMT</label>
                   <div class="clear"></div>
@@ -93,13 +94,14 @@
                 <div class="homeloan-type-cover">
                   <p>Loan Tenure</p>
                 </div>
-              
-              <div class="text-center">
+                <div class="text-center">
+                  <div class="scaling-slider">
+                    <input type="text" id="range1" value="" name="range">
+                    <input type="hidden" id="txttenure" >
+                  </div>
+                </div>
+              <!-- <div class="text-center">
                 <div class="scaling-slider" style="border:1px solid #ccc;">
-                  <!-- <rzslider rz-slider-model="slidervalue"
-                      rz-slider-options="slider"></rzslider> -->
-                    <!-- <input type="text" id="range1" value="" name="range">
-                    <input type="hidden" id="txttenure" > -->
                     <span class="irs js-irs-0 irs-with-grid" id="SliderParent">
                       <span class="irs">
                         <span class="irs-line" tabindex="-1">
@@ -157,12 +159,12 @@
                   <input type="text" id="range1" value="" name="range" class="irs-hidden-input" readonly="">
                     <input type="hidden" id="txttenure" value={{LoanTenure}}>
                   </div>
-              </div>
+              </div> -->
             </div>
         </div>
 
         <div class="col-xs-12 text-center pad-2">
-          <button class="btn btn-motor-quote ripple-effect">GET QUOTE</button>
+          <button (click)="GetPersonalQuotes()" class="btn btn-motor-quote ripple-effect">GET QUOTE</button>
         </div>	
 
       </div><!-- close 1 Tab Contents -->

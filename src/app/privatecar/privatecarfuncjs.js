@@ -491,7 +491,7 @@ var windowWidth = $(window).width();
 
             function getSliderValue(dataleft){
                 var valued=10;
-                var dataleft=100/data;
+                //var dataleft=100/data;
                 if(dataleft>8 &&  dataleft<=20)
                 {
                     valued=11;
@@ -547,6 +547,31 @@ var windowWidth = $(window).width();
                     $('.irs-single').html(invalue);
                     $('#txttenure').val(invalue);
                  }
+            });
+
+            $('#aMale').click(function(){
+                $('#aMale').addClass('active');
+                $('#aFemale').removeClass('active');
+                $('#hdnGender').val('Male');
+            });
+
+            
+            $('#aFemale').click(function(){
+                $('#aMale').removeClass('active');
+                $('#aFemale').addClass('active');
+                $('#hdnGender').val('Female');
+            });
+
+            $('#aSalaried').click(function(){
+                $('#aSalaried').addClass('active');
+                $('#aSelfEmp').removeClass('active');
+                $('#hdnOccupation').val('Salaried');
+            });
+
+            $('#aSelfEmp').click(function(){
+                $('#aSelfEmp').addClass('active');
+                $('#aSalaried').removeClass('active');
+                $('#hdnOccupation').val('SelfEmp');
             });
 });
 
@@ -674,29 +699,3 @@ var windowWidth = $(window).width();
         
     });
 })(jQuery);
-
-// $( function() {
-//     $( '#datepicker,#datepicker1,#datepicker2,#datepicker3,#datepicker4' ).datepicker({
-//         changeMonth:true,
-//         changeYear:true,
-//         dateFormat: 'dd-mm-yy',
-//         yearRange: 'c-82:c',
-    
-//         onSelect:function(date){
-            
-//             if($("#datepicker").val()!= ""){
-//                 $("#datepicker").next().next().css("background", "rgb(0, 158, 227)");
-//             }
-//             else {
-//                 $("#datepicker").next().next().css("background", "#ccc");
-//             }
-            
-//             if($("#datepicker1").val()!= ""){
-//                 $("#datepicker1").next().next().next().css("background", "rgb(0, 158, 227)");
-//             }
-//             else {
-//                 $("#datepicker1").next().next().next().css("background", "#ccc");
-//             }
-//         } 
-//     });
-//   });
