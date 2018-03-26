@@ -25,11 +25,11 @@ export class MotorComponent implements OnInit {
 
   ngOnInit() {
     this.motordata = new FormGroup({
-      // inputOne: new FormControl("",Validators.compose([
-      //   Validators.required,
-      //   Validators.pattern("'^[a-zA-Z \-\']$'")
-      // ])),
-      inputOne:new FormControl(),
+      inputOne: new FormControl("",Validators.compose([
+        Validators.required,
+        Validators.pattern("/^[a-zA-Z]*$/")
+      ])),
+      //inputOne:new FormControl(),
       inputTwo:new FormControl(),
       inputThree:new FormControl(),
       inputFour:new FormControl()
@@ -45,4 +45,22 @@ export class MotorComponent implements OnInit {
       location.href="app-privatecar?carno="+this.CarNo;
     }
   }
+
+  public restrictNumeric(e) {
+    let input;
+    if (e.metaKey || e.ctrlKey) {
+      return true;
+    }
+    if (e.which === 32) {
+     return false;
+    }
+    if (e.which === 0) {
+     return true;
+    }
+    if (e.which < 33) {
+      return true;
+    }
+    input = String.fromCharCode(e.which);
+    return !!/[\d\s]/.test(input);
+   }
 }
