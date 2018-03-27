@@ -9,6 +9,7 @@ import {PersonalLoanRequest} from './PersonalLoanRequest';
 import {quote} from './quote';
 import { ThrowStmt } from '@angular/compiler';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-personalloan',
@@ -22,6 +23,9 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
   '../privatecar/ion-rangeSlider-skinFlat.css']
 })
 export class PersonalloanComponent implements OnInit {
+
+
+  persloanform;
 
   gender:string;
   ApplicantDOB:string;
@@ -43,19 +47,42 @@ export class PersonalloanComponent implements OnInit {
   constructor(private pservice:PersonalserviceService) { }
 
   ngOnInit() {
+    this.persloanform=new FormGroup({
+      ApplicantName:new FormControl("",Validators.compose([
+        Validators.required
+      ])),
+      gender:new FormControl(""),
+      ApplicantDOB:new FormControl("",Validators.compose([
+        Validators.required
+      ])),
+      Occupation:new FormControl(""),
+      MonthlyIncome:new FormControl("",Validators.compose([
+        Validators.required
+      ])),
+      ExistingEmi:new FormControl("",Validators.compose([
+        Validators.required,
+        Validators.maxLength(10)
+      ])),
+      PanNo:new FormControl("",Validators.compose([
+        Validators.required
+      ])),
+      ReqLoanAmount:new FormControl("",Validators.compose([
+        Validators.required
+      ]))
+    });
   }
 
-  public GetPersonalQuotes(){
+  GetPersonalQuotes(data){
     debugger;
     this.apirequest=new ApiRequest();
     this.apirequest.loan_requestID="";
     this.apirequest.FBA_id=35779;
     this.apirequest.PersonalLoanRequest=new PersonalLoanRequest();
     this.apirequest.PersonalLoanRequest.quote_id=567;
-    this.apirequest.PersonalLoanRequest.ApplicantDOB=this.ApplicantDOB;
-    this.apirequest.PersonalLoanRequest.ApplicantGender=this.gender;
-    this.apirequest.PersonalLoanRequest.ApplicantIncome=this.MonthlyIncome;
-    this.apirequest.PersonalLoanRequest.ApplicantNme=this.ApplicantName;
+    this.apirequest.PersonalLoanRequest.ApplicantDOB=data.ApplicantDOB;
+    this.apirequest.PersonalLoanRequest.ApplicantGender=data.gender;
+    this.apirequest.PersonalLoanRequest.ApplicantIncome=data.MonthlyIncome;
+    this.apirequest.PersonalLoanRequest.ApplicantNme=data.ApplicantName;
     this.apirequest.PersonalLoanRequest.ApplicantObligations=400;
     this.apirequest.PersonalLoanRequest.ApplicantSource=1;
     this.apirequest.PersonalLoanRequest.BrokerId=0;
@@ -70,7 +97,7 @@ export class PersonalloanComponent implements OnInit {
 
     if(this.apiresponse!=null)
     {
-
+        
     }
 
   }
