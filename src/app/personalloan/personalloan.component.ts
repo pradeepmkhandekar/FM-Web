@@ -97,7 +97,12 @@ export class PersonalloanComponent implements OnInit {
 
     if(this.apiresponse!=null)
     {
-        
+        this.apirequest=new ApiRequest();
+        this.apirequest.FBA_id=35779;
+
+        this.pservice.GetPersonalRequest(this.apirequest as ApiRequest).subscribe(
+          ApiResponse => this.apiresponse=ApiResponse
+        );
     }
 
   }
