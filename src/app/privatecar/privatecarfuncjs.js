@@ -483,15 +483,37 @@ var windowWidth = $(window).width();
                 alert('some thing dragged');
             };
 
-            $("#datepicker1").blur(function(){
-                var expDate = $(this).val();
-                var d = new Date();
-                //alert(d.getDate() + "-" + (d.getMonth()+1) + "-" + d.getFullYear());
-            })
+            // $("#datepicker1").blur(function(){
+            //     var expDate = $(this).val();
+            //     var d = new Date();
+            //     //alert(d.getDate() + "-" + (d.getMonth()+1) + "-" + d.getFullYear());
+            // });
+
+            $("#datepicker1").datepicker({
+                  changeMonth: true,
+		          changeYear: true,
+		          dateFormat: 'dd-mm-yy',
+                  yearRange:'c-82:c',
+                  maxDate: "+45d",
+                  minDate:"-60d",
+                //   onSelect: function (date) {
+                //     alert("hii");
+                //   }
+            });
+
+            // $scope.beforeRender = function ($dates) {
+            //     /* disable future dates */
+            //     alert("msg");
+            //     for(var i=0; i<$dates.length;i++) {
+            //        if(new Date().getTime() < $dates[i].utcDateValue) {
+            //           $dates[i].selectable = false;
+            //        }
+            //     }                
+            // };
 
             function getSliderValue(dataleft){
-                var valued=10;
-                //var dataleft=100/data;
+                var valued=10 ;
+                var dataleft=100/data;
                 if(dataleft>8 &&  dataleft<=20)
                 {
                     valued=11;
