@@ -19,6 +19,7 @@ export class MotorComponent implements OnInit {
    inputTwo:string;
    inputThree:string;
    inputFour:string;
+   NewRenewalVehi:boolean;
    motordata;
 
   constructor(private router:Router,private fmservice:FmserviceService) { }
@@ -63,4 +64,16 @@ export class MotorComponent implements OnInit {
     input = String.fromCharCode(e.which);
     return !!/[\d\s]/.test(input);
    }
+
+   OnFilterChange(event :any){
+      this.NewRenewalVehi= event.target.checked;
+      if (this.NewRenewalVehi){
+        console.log("Renewal Vehicle");
+      }
+      else{
+        console.log("New Vehicle");
+      }
+   }
+
+   
 }
