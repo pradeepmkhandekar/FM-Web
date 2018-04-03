@@ -9,7 +9,8 @@ import { InsuMastInfo} from './InsuMastInfo';
 @Component({
   selector: 'app-mainpage',
   templateUrl: './mainpage.component.html',
-  styleUrls: ['./mainpage.component.css','../login/bootstrap.min.css','../login/font-awesome.min.css','../login/fonts.css','../login/style-finmart.css','../login/responsive-finmart.css']
+  styleUrls: ['./mainpage.component.css','../login/bootstrap.min.css','../login/font-awesome.min.css',
+  '../login/fonts.css','../login/style-finmart.css','../login/responsive-finmart.css']
 })
 export class MainpageComponent implements OnInit {
   todaydate;

@@ -1,0 +1,461 @@
+<section class="content">
+  <!-- Tab Attribute -->
+  <ul id="myTab" class="col-xs-12 col-md-12 nav nav-tab pad" style="border-bottom:none;">
+    <li class="active col-xs-4 col-md-4 pad input-bg"><a href="#Property" class="ripple-effect" data-toggle="tab"></a><img src="assets/images/input-arrow.png" class="img-responsive input-arrow-img"/></li>
+    <li class="col-xs-4 col-md-4 pad quote-bg"><a href="#Appl" class="ripple-effect" data-toggle="tab"></a><img src="assets/images/input-arrow.png" class="img-responsive input-arrow-img"/></li>
+    <li class="col-xs-4 col-md-4 pad buy-bg"><a href="#CoAppl" class="ripple-effect" data-toggle="tab"></a></li>
+  </ul>
+    
+  <section class="container-fluid pad-blank">	
+    <!-- Tab Contents -->
+    <div id="myTabContent" class="tab-content content-tab-style">
+      <div class="tab-pane fade active top in" id="Property">
+        	
+        <form [formGroup]="persloanform" (ngSubmit) = "GetPersonalQuotes(persloanform.value)">
+            <div class="col-xs-12 pad-1">
+                <div class="type-cover">
+                  <p></p>
+                </div>
+                <div class="form-group col-xs-12 pad db-occupation">
+                    <div class="col-xs-6 col-md-4  pad">
+                      <div class="form-control height-box">
+                        <input type="text" class="form-input-new" (ng-model)="ApplicantName" formControlName="ApplicantName">
+                        <span class="highlight"></span><span class="bar"></span>
+                        <label class="form-label-new">applicant Name</label>
+                        <div class="clear"></div>
+                      </div>
+                    </div>
+                    
+                    <div class="col-xs-6 col-md-4 pad">
+                      <div class="form-control height-box loan-occupation">
+                        <span class="occupation-home-loan">GENDER</span>
+                        <a id='aMale' href="javascript:void(0)" class="btn btn-default active">MALE</a>
+                        <a id='aFemale' href="javascript:void(0)" class="btn btn-default">FEMALE</a>
+                        <input type="hidden" id="hdnGender" (ng-model)="gender" formControlName="gender">
+                      </div>
+                    </div>
+                  
+                    <div class="col-xs-6 col-md-4 pad">
+                      <div class="form-control height-box">
+                        <span class="dob-home-loan">DATE OF BIRTH</span>
+                        <input type="text" formControlName="ApplicantDOB" id="datepicker" bsDatepicker [bsConfig] = "datePickerConfig" (ng-model)="ApplicantDOB" class="date-img-loan" value="16-01-2000">
+                        <span class="highlight"></span><span class="bar"></span>
+                        <div class="clear"></div>
+                      </div>
+                    </div>
+      
+                    <div class="col-xs-6 col-md-4 pad">
+                      <div class="form-control height-box loan-occupation">
+                        <span class="occupation-home-loan">OCCUPATION</span>
+                        <a id="aSalaried" href="javascript:void(0)" class="btn btn-default active">SALARIED</a>
+                        <a id="aSelfEmp" href="javascript:void(0)" class="btn btn-default">SELF-EMP</a>
+                      </div>
+                      <input type="hidden" id="hdnOccupation" (ng-model)="Occupation" formControlName="Occupation"/>
+                    </div>
+                 
+                    <div class="col-xs-6 col-md-4 pad">
+                      <div class="form-control height-box">
+                        <input type="text" class="form-input-new" (ng-model)="MonthlyIncome" formControlName="MonthlyIncome">
+                        <span class="highlight"></span><span class="bar"></span>
+                        <label class="form-label-new">MONTHLY INCOME</label>
+                        <div class="clear"></div>
+                      </div>
+                    </div>
+                    
+                    <div class="col-xs-6 col-md-4 pad">
+                      <div class="form-control height-box">
+                        <input type="text" class="form-input-new" (ng-model)="ExistingEmi" formControlName="ExistingEmi">
+                        <span class="highlight"></span><span class="bar"></span>
+                        <label class="form-label-new">EXISTING EMI</label>
+                        <div class="clear"></div>
+                      </div>
+                    </div>
+                  
+                    <div class="col-xs-6 col-md-4 pad">
+                      <div class="form-control height-box">
+                        <input type="text" class="form-input-new" (ng-model)="PanNo" formControlName="PanNo">
+                        <span class="highlight"></span><span class="bar"></span>
+                        <label class="form-label-new">PAN</label>
+                        <div class="clear"></div>
+                      </div>
+                    </div>
+                    
+                    <div class="col-xs-6 col-md-4 pad">
+                      <div class="form-control height-box">
+                        <input type="text" class="form-input-new" (ng-model)="ReqLoanAmount" formControlName="ReqLoanAmount">
+                        <span class="highlight"></span><span class="bar"></span>
+                        <label class="form-label-new">REQUIRED LOAN AMT</label>
+                        <div class="clear"></div>
+                      </div>
+                    </div>
+                  </div><!--End form group-->	
+                  
+                  <div class="loan-tenure-homeloan">
+                   
+                      <div class="homeloan-type-cover">
+                        <p>Loan Tenure</p>
+                      </div>
+                      <div class="text-center">
+                        <div class="scaling-slider">
+                          <input type="text" id="range1" value="" name="range">
+                          <input type="hidden" id="txttenure" >
+                        </div>
+                      </div>
+                    <!-- <div class="text-center">
+                      <div class="scaling-slider" style="border:1px solid #ccc;">
+                          <span class="irs js-irs-0 irs-with-grid" id="SliderParent">
+                            <span class="irs">
+                              <span class="irs-line" tabindex="-1">
+                                <span class="irs-line-left"></span>
+                                <span class="irs-line-mid"></span>
+                                <span class="irs-line-right"></span>
+                              </span>
+                            <span class="irs-min" style="visibility: hidden;">10</span>
+                            <span class="irs-max" style="visibility: visible;">50</span>
+                            <span class="irs-from" style="visibility: hidden;">0</span>
+                            <span class="irs-to" style="visibility: hidden;">0</span>
+                            <span class="irs-single" style="left: 0.198544%;">10</span>
+                          </span>
+                          <span class="irs-grid" style="width: 98.0146%; left: 0.89272%;">
+                            <span class="irs-grid-pol" style="left: 0%"></span>
+                            <span class="irs-grid-text js-grid-text-0" style="left: 0%; margin-left: -0.661813%;">10</span>
+                            <span class="irs-grid-pol small" ddata-left="8.333333333" style="left: 8.333333333%"></span>
+                            <span class="irs-grid-pol small" style="left: 4.166666667%"></span>
+                            <span class="irs-grid-pol small" style="left: 12.5%"></span>
+                            <span class="irs-grid-text js-grid-text-1" style="left: 12.5%; visibility: visible; margin-left: -0.661813%;">15</span>
+                            <span class="irs-grid-pol small" style="left: 20.833333333%"></span>
+                            <span class="irs-grid-pol small" style="left: 16.666666667%"></span>
+                            <span class="irs-grid-pol" style="left: 25%"></span>
+                            <span class="irs-grid-text js-grid-text-2" style="left: 25%; visibility: visible; margin-left: -0.661813%;">20</span>
+                            <span class="irs-grid-pol small" style="left: 33.333333333%"></span>
+                            <span class="irs-grid-pol small" style="left: 29.166666667%"></span>
+                            <span class="irs-grid-pol" style="left: 37.5%"></span>
+                            <span class="irs-grid-text js-grid-text-3" style="left: 37.5%; visibility: visible; margin-left: -0.661813%;">25</span>
+                            <span class="irs-grid-pol small" style="left: 45.833333333%"></span>
+                            <span class="irs-grid-pol small" style="left: 41.666666667%"></span>
+                            <span class="irs-grid-pol" style="left: 50%"></span>
+                            <span class="irs-grid-text js-grid-text-4" style="left: 50%; margin-left: -0.661813%;">30</span>
+                            <span class="irs-grid-pol small" style="left: 58.333333333%"></span>
+                            <span class="irs-grid-pol small" style="left: 54.166666667%"></span>
+                            <span class="irs-grid-pol" style="left: 62.5%"></span>
+                            <span class="irs-grid-text js-grid-text-5" style="left: 62.5%; visibility: visible; margin-left: -0.661813%;">35</span>
+                            <span class="irs-grid-pol small" style="left: 70.833333333%"></span>
+                            <span class="irs-grid-pol small" style="left: 66.666666667%"></span>
+                            <span class="irs-grid-pol" style="left: 75%"></span>
+                            <span class="irs-grid-text js-grid-text-6" style="left: 75%; visibility: visible; margin-left: -0.661813%;">40</span>
+                            <span class="irs-grid-pol small" style="left: 83.333333333%"></span>
+                            <span class="irs-grid-pol small" style="left: 79.166666667%"></span>
+                            <span class="irs-grid-pol" style="left: 87.5%"></span>
+                            <span class="irs-grid-text js-grid-text-7" style="left: 87.5%; visibility: visible; margin-left: -0.661813%;">45</span>
+                            <span class="irs-grid-pol small" style="left: 95.833333333%"></span>
+                            <span class="irs-grid-pol small" style="left: 91.666666667%"></span>
+                            <span class="irs-grid-pol" style="left: 100%"></span>
+                            <span class="irs-grid-text js-grid-text-8" style="left: 100%; margin-left: -0.661813%;">50</span>
+                          </span>
+                          <span class="irs-bar" style="left: 0.99272%; width: 0%;"></span>
+                          <span class="irs-bar-edge"></span>
+                          <span class="irs-shadow shadow-single" style="display: none;"></span>
+                          <span class="irs-slider single" id="draggable" style="left: 0%;"></span>
+                        </span>
+                        <input type="text" id="range1" value="" name="range" class="irs-hidden-input" readonly="">
+                          <input type="hidden" id="txttenure" value={{LoanTenure}}>
+                        </div>
+                    </div> -->
+                  </div>
+                
+      
+                  
+              </div>
+      
+              <div class="col-xs-12 text-center pad-2">
+                <button class="btn btn-motor-quote ripple-effect" [disabled]="!persloanform.valid">GET QUOTE</button>
+              </div>
+        </form>
+      </div><!-- close 1 Tab Contents -->
+      
+      <div class="tab-pane pad fade" id="Appl">
+        <div class="col-xs-12 pad-2">
+         
+            <div class="type-cover">
+              <p>INPUT SUMMARY</p>
+            </div>
+         
+          <div class="text-left">	
+            <div class="summary-loan">
+              <div class="col-xs-3 pad input-sum-width">
+                <p>APPLICANT NAME</p>
+                <h6>amit mishra</h6>
+              </div>
+              <div class="col-xs-4 pad input-prop-width">
+                <p>Req. loan amount</p>
+                <h6>10,00,000</h6>
+              </div>
+              <div class="col-xs-3 pad">
+                <p>LOAN TENURE</p>
+                <h6>10 Years</h6>
+              </div>
+              <div class="col-xs-2 pad text-center input-editicon-width">&nbsp;</div>
+              
+              <div class="clearfix"></div>
+              
+              <div class="col-xs-3 pad input-sum-width">
+                <p>OCCUPATION</p>
+                <h6>SALARIED</h6>
+              </div>
+              <div class="col-xs-4 pad input-prop-width">
+                <p>MONTHLY INCOME</p>
+                <h6>1,25,000</h6>
+              </div>
+              <div class="col-xs-3 pad">
+                <p>EXISTING EMI</p>
+                <h6>0</h6>
+              </div>
+              <div class="col-xs-2 pad text-center input-editicon-width"><img src="assets/images/edit-icon.png" class="summary-loan-edit-section-img"/></div>
+            </div>
+          </div>
+          
+          <div class="clearfix"></div>
+          
+          <div class="col-xs-10 pad-1">
+            <div class="rupeeboss">
+              <p>Results from www.rupeeboss.com</p>
+            </div>
+          </div>
+          
+          <div class="col-xs-2 pad-1 text-right">
+            <div class="top top-register">
+              <a href="#" class="main-floater-top-up-icon"><img src="assets/images/share-icon-white.png" class="img-responsive"/></a>
+            </div>
+          </div>
+          
+          <div class="clearfix"></div>
+          
+          <div id="listtable" class="col-xs-12 pad">
+            <div class="listtable" style="display:block;">
+               <div class="col-xs-12 pad main-quote-homeloan">
+                  <div class="col-xs-3 pad border-home-loan">
+                     <div class="home-loan-amt text-center">
+                      <img src="assets/images/28.png" class="img-responsive img-pad"/>
+                      <h5>Aditya Birla</h5>
+                     </div>
+                     <div class="home-loan-amt">
+                      <p>FLOATING</p>
+                      <h6>9.15 %</h6>
+                     </div>
+                  </div>
+                  <div class="col-xs-3 pad border-home-loan home-loan-width">
+                     <div class="home-loan-amt">
+                      <p>LOAN AMOUNT</p>
+                      <h6><i class="fa fa-rupee" aria-hidden="true"></i> 55,00,000</h6>
+                     </div>
+                     <div class="home-loan-amt">
+                      <p>PROCESSING FEE</p>
+                      <h6><i class="fa fa-rupee" aria-hidden="true"></i> 15,000</h6>
+                     </div>
+                  </div>
+                  <div class="col-xs-3 pad border-home-loan home-loan-width-emi">
+                     <div class="home-loan-amt">
+                      <p>EMI</p>
+                      <h6><i class="fa fa-rupee" aria-hidden="true"></i> 44,905</h6>
+                    </div>
+                    <div class="home-loan-amt">
+                      <p>TENURE</p>
+                      <h6>22 Years</h6>
+                    </div>
+                  </div>
+                  <div class="col-xs-3 pad home-loan-width-buy">
+                     <div class="home-loan-amt">
+                      <p>EMI PER LAC</p>
+                      <h6><i class="fa fa-rupee" aria-hidden="true"></i> 815</h6>
+                    </div>
+                    <div class="home-loan-amt">
+                      <div class="buy-now-homeloan">
+                        <a class="ripple-effect btn btn-default"><img src="assets/images/cart-icon.png" class="img-responsive mCS_img_loaded"> BUY</a>
+                      </div>
+                    </div>
+                  </div>
+               </div>
+               
+               <div class="col-xs-12 pad main-quote-homeloan">
+                  <div class="col-xs-3 pad border-home-loan">
+                     <div class="home-loan-amt text-center">
+                      <img src="assets/images/28.png" class="img-responsive img-pad"/>
+                      <h5>Aditya Birla</h5>
+                     </div>
+                     <div class="home-loan-amt">
+                      <p>FLOATING</p>
+                      <h6>9.15 %</h6>
+                     </div>
+                  </div>
+                  <div class="col-xs-3 pad border-home-loan home-loan-width">
+                     <div class="home-loan-amt">
+                      <p>LOAN AMOUNT</p>
+                      <h6><i class="fa fa-rupee" aria-hidden="true"></i> 55,00,000</h6>
+                     </div>
+                     <div class="home-loan-amt">
+                      <p>PROCESSING FEE</p>
+                      <h6><i class="fa fa-rupee" aria-hidden="true"></i> 15,000</h6>
+                     </div>
+                  </div>
+                  <div class="col-xs-3 pad border-home-loan home-loan-width-emi">
+                     <div class="home-loan-amt">
+                      <p>EMI</p>
+                      <h6><i class="fa fa-rupee" aria-hidden="true"></i> 44,905</h6>
+                    </div>
+                    <div class="home-loan-amt">
+                      <p>TENURE</p>
+                      <h6>22 Years</h6>
+                    </div>
+                  </div>
+                  <div class="col-xs-3 pad home-loan-width-buy">
+                     <div class="home-loan-amt">
+                      <p>EMI PER LAC</p>
+                      <h6><i class="fa fa-rupee" aria-hidden="true"></i> 815</h6>
+                    </div>
+                    <div class="home-loan-amt">
+                      <div class="buy-now-homeloan">
+                        <a class="ripple-effect btn btn-default"><img src="assets/images/cart-icon.png" class="img-responsive mCS_img_loaded"> BUY</a>
+                      </div>
+                    </div>
+                  </div>
+               </div>
+               
+            </div>
+          </div>
+          
+          <div class="scroll-key-list" style="display:none">
+            <div class="col-xs-12 pad main-quote-homeloan">
+              <div class="col-xs-3 pad border-home-loan">
+                <div class="home-loan-amt text-center">
+                  <img src="assets/images/28.png" class="img-responsive img-pad"/>
+                  <h5>Aditya Birla</h5>
+                </div>
+                <div class="home-loan-amt">
+                  <p>FLOATING</p>
+                  <h6>9.15 %</h6>
+                </div>
+              </div>
+              <div class="col-xs-3 pad border-home-loan home-loan-width">
+                <div class="home-loan-amt">
+                  <p>LOAN AMOUNT</p>
+                  <h6><i class="fa fa-rupee" aria-hidden="true"></i> 55,00,000</h6>
+                </div>
+                <div class="home-loan-amt">
+                  <p>PROCESSING FEE</p>
+                  <h6><i class="fa fa-rupee" aria-hidden="true"></i> 15,000</h6>
+                </div>
+              </div>
+              <div class="col-xs-3 pad border-home-loan home-loan-width-emi">
+                <div class="home-loan-amt">
+                  <p>EMI</p>
+                  <h6><i class="fa fa-rupee" aria-hidden="true"></i> 44,905</h6>
+                </div>
+                <div class="home-loan-amt">
+                  <p>TENURE</p>
+                  <h6>22 Years</h6>
+                </div>
+              </div>
+              <div class="col-xs-3 pad">
+                <div class="home-loan-amt">
+                  <p>EMI PER LAC</p>
+                  <h6><i class="fa fa-rupee" aria-hidden="true"></i> 815</h6>
+                </div>
+                <div class="home-loan-amt">
+                  <div class="buy-now-homeloan">
+                    <a class="ripple-effect btn btn-default"><img src="assets/images/cart-icon.png" class="img-responsive mCS_img_loaded"> BUY</a>
+                  </div>
+                </div>
+                </div>
+             </div>	
+          </div>
+        </div>
+        
+        <div id="listt" class="col-xs-12 pad">
+        <div class="listtable1" style="display:block">
+
+            <div class="key-highlight-homeloan">
+              <p>KEY HIGHLIGHTS</p>
+            </div>
+          
+          <table class="table">
+            <tr>
+              <td class="homeloan-hightlight-body">
+                <h3>Pre-closure Fee</h3>
+              </td>
+              <td class="homeloan-hightlight-body border-home">
+                <h3>2%</h3>
+              </td>
+            </tr>
+            <tr>
+              <td class="homeloan-hightlight-body">
+                <h4>Part Payment Fee</h4>
+              </td>
+              <td class="homeloan-hightlight-body border-home">
+                <h4>2%</h4>
+              </td>
+            </tr>
+            <tr>
+              <td class="homeloan-hightlight-body">
+                <h3>Part Payment available</h3>
+              </td>
+              <td class="homeloan-hightlight-body border-home">
+                <h3>Yes</h3>
+              </td>
+            </tr>
+            <tr>
+              <td class="homeloan-hightlight-body">
+                <h4>guarantor required</h4>
+              </td>
+              <td class="homeloan-hightlight-body border-home">
+                <h4>No</h4>
+              </td>
+            </tr>
+            <tr>
+              <td class="homeloan-hightlight-body">
+                <h3>Special rates for Women applicable</h3>
+              </td>
+              <td class="homeloan-hightlight-body border-home">
+                <h3>8.30%</h3>
+              </td>
+            </tr>
+            <tr>
+              <td class="homeloan-hightlight-body">
+                <h4>E-approval available</h4>
+              </td>
+              <td class="homeloan-hightlight-body border-home">
+                <h4>Yes</h4>
+              </td>
+            </tr>
+            <tr>
+              <td class="homeloan-hightlight-body">
+                <h3>Top-up loan available</h3>
+              </td>
+              <td class="homeloan-hightlight-body border-home">
+                <h3>Yes</h3>
+              </td>
+            </tr>
+            <tr>
+              <td class="homeloan-hightlight-body">
+                <h4>Balance transfer available</h4>
+              </td>
+              <td class="homeloan-hightlight-body border-home">
+                <h4>Yes</h4>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      </div>
+      <!-- close 2 Tab Contents -->
+      
+      <div class="tab-pane fade" id="CoAppl">
+        <div class="col-xs-12 pad-1"></div>
+      </div><!-- close 3 Tab Contents -->
+    </div><!-- panel close -->
+
+    
+
+  <div class="clearfix top-type-info-new"></div>
+</section><!-- /.content -->
+
+</section><!-- ./wrapper -->

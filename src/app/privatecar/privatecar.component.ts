@@ -123,7 +123,7 @@ export class PrivatecarComponent implements OnInit {
   carNo1:string;
   isRto:boolean=false;
   IndividualCompany : boolean;
-  IndivCompany:string;
+  IndivCompany:string = "Company";
   PrivCardata;
 
   constructor(private PrivatecarService:PrivatecarService,
@@ -471,7 +471,7 @@ export class PrivatecarComponent implements OnInit {
      this.premiumInitiateReq.vehicle_registration_date= data.RegDate;
      this.premiumInitiateReq.policy_expiry_date= data.ExpiryDate;
      this.premiumInitiateReq.prev_insurer_id=data.PresentInsurer;
-     this.premiumInitiateReq.vehicle_registration_type="individual";
+     this.premiumInitiateReq.vehicle_registration_type=this.IndivCompany;
      this.premiumInitiateReq.vehicle_ncb_current="0";
      this.premiumInitiateReq.is_claim_exists="yes";
      this.premiumInitiateReq.birth_date="";
