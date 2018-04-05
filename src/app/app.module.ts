@@ -26,7 +26,7 @@ import {CityService} from './CityService.service';
 import { MotorComponent } from './motor/motor.component';
 import { PersonalloanComponent } from './personalloan/personalloan.component';
 import { PersonalserviceService } from './personalloan/personalservice.service';
-
+import { PrivatecarquotesComponent} from './privatecarquotes/privatecarquotes.component';
 
 const appRoutes:Routes=[
   {
@@ -48,6 +48,10 @@ const appRoutes:Routes=[
   {
     path:'app-personal',
     component:PersonalloanComponent
+  },
+  {
+    path:'app-privatecarquotes',
+    component:PrivatecarquotesComponent
   }
 ];
 
@@ -60,7 +64,8 @@ const appRoutes:Routes=[
     MainpageComponent,
     PrivatecarComponent,
     MotorComponent,
-    PersonalloanComponent
+    PersonalloanComponent,
+    PrivatecarquotesComponent
   ],
   imports: [
     BrowserModule,
